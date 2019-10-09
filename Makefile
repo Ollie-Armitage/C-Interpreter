@@ -8,7 +8,7 @@ clean:
 	rm ${OBJS}
 
 mycc:	${OBJS}
-	${CC} -g -o mycc ${OBJS} 
+	${CC} -g -o Compiler ${OBJS} 
 
 lex.yy.c: C.flex
 	flex C.flex
