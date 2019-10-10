@@ -84,6 +84,24 @@ void print_tree0(NODE *tree, int level)
     }
 }
 
+void eval(NODE *tree){
+  int i;
+  if(tree==NULL) return;
+  if(tree->type==LEAF){
+    // Left child contains an identifier (variable name), CONTANT (number) or STRING_LITERAL ("string") 
+  }
+  else if(tree->type==IDENTIFIER){
+    // If the node is an identifier, check if the identifier exists, if not make a new variable.
+  }
+  else if(tree->type==CONSTANT || tree->type ==STRING_LITERAL){
+    // Return value (Could be string or number)
+  }
+  else if(tree->type==APPLY){
+    // Left child is an identifier for a FUNCTION or EXPRESSION that evaluates to a function; right child contains argument to function call.
+  }
+
+}
+
 void print_tree(NODE *tree)
 {
     print_tree0(tree, 0);
