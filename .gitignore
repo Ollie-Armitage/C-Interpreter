@@ -7,3 +7,4 @@ main.o
 nodes.o
 symbol_table.o
 mycc.exe
+Makefile
