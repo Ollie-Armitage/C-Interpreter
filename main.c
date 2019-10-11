@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include "nodes.h"
+#include "value.h"
 #include "C.tab.h"
 #include <string.h>
 
@@ -59,9 +60,9 @@ void print_leaf(NODE *tree, int level)
     TOKEN *t = (TOKEN *)tree;
     int i;
     for (i=0; i<level; i++) putchar(' ');
-    if (t->type == CONSTANT) printf("%d\n", t->value);
-    else if (t->type == STRING_LITERAL) printf("\"%s\"\n", t->lexeme);
-    else if (t) puts(t->lexeme);
+    if (t->type == CONSTANT) printf("%d (Constant)\n", t->value);
+    else if (t->type == STRING_LITERAL) printf("\"%s (Literal)\"\n", t->lexeme);
+    else if (t){ puts(t->lexeme);}
 }
 
 void print_tree0(NODE *tree, int level)
@@ -73,7 +74,6 @@ void print_tree0(NODE *tree, int level)
     }
     else {
       for(i=0; i<level; i++) putchar(' ');
-     puts(tree->type);
       printf("%s\n", named(tree->type));
 /*       if (tree->type=='~') { */
 /*         for(i=0; i<level+2; i++) putchar(' '); */
@@ -85,36 +85,189 @@ void print_tree0(NODE *tree, int level)
     }
 }
 
-void eval(NODE *tree){
+void print_tree(NODE *tree)
+{
+  print_tree0(tree, 0);
+}
+
+VALUE* getNodeValue(NODE* node){
+  TOKEN *n = (TOKEN *)node;
+  VALUE *endValue = malloc(sizeof(VALUE*));
+  
+
+  if(n->type == CONSTANT){
+    endValue->type = 0;
+    endValue->v.integer = n->value;
+    return endValue;
+  }
+  else if(n->type == STRING_LITERAL){
+    endValue->type = 2;
+    endValue->v.string = n->lexeme;
+  }
+  else{
+    return "No Value.";
+  }
+
+}
+
+void examineNode(NODE* node){
+  printf("type: %s", named(node->type)); 
+  printf(" (%d)\n", node->type);
+
+  if(node->left){
+    printf("Left Child: %s\n", named(node->left->type));
+  }
+  if(node->right){
+    printf("Right Child: %s\n", named(node->right->type));
+  }
+  
+  printf("Node Value (If it has one): %s\n", getNodeValue(node));
+
+}
+
+VALUE* addFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.integer = x->v.integer + y->v.integer;
+  result->type = 0;
+  return result;
+}
+
+VALUE* subtractFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.integer = x->v.integer - y->v.integer;
+  
+  result->type = 0;
+  return result;
+} 
+
+VALUE* multiplyFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.integer = x->v.integer * y->v.integer;
+  
+  result->type = 0;
+  return result;
+}
+
+VALUE* divideFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.integer = x->v.integer / y->v.integer;
+  
+  result->type = 0;
+  return result;
+}
+
+VALUE* GTFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer > y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+
+VALUE* LTFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer < y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+VALUE* GEFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer >= y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+
+VALUE* LEFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer <= y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+
+VALUE* EQFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer == y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+
+VALUE* NEFunction(VALUE *x, VALUE *y){
+  VALUE* result = malloc(sizeof(VALUE*));
+  
+  result->v.boolean = x->v.integer != y->v.integer;
+  
+  result->type = 1;
+  return result;
+}
+
+void returnFunction(VALUE* value){
+  if(value->type == 0){
+    printf("%d\n", value->v);
+  }
+  else if(value->type == 1){
+    if(value->v.boolean == 0){
+      printf("False.\n");
+    }
+    else{
+      printf("True.\n");
+    }
+  }
+  else if(value->type == 2){
+    printf("%s", value->v);
+  }
+}
+
+VALUE* eval(NODE *tree){
   int i;
   if(tree==NULL) return;
   if(tree->type==LEAF){
-    // Left child contains an identifier (variable name), CONTANT (number) or STRING_LITERAL ("string") 
+    return eval(tree->left);
+    // Left child contains an identifier (variable name), CONSTANT (number) or STRING_LITERAL (string) 
   }
   else if(tree->type==IDENTIFIER){
     // If the node is an identifier, check if the identifier exists, if not make a new variable.
   }
-  else if(tree->type==CONSTANT || tree->type ==STRING_LITERAL){
-    // Return value (Could be string or number)
+  else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){
+    return getNodeValue(tree);
   }
   else if(tree->type==APPLY){
     // Left child is an identifier for a FUNCTION or EXPRESSION that evaluates to a function; right child contains argument to function call.
-  }
-  else if(tree->type==INT){
-    return INT;
-  }
-  else if(tree->type==VOID){
-    return VOID;
-  }
-  else if(tree->type==FUNCTION){
-    return FUNCTION;
-  }
-  
-}
 
-void print_tree(NODE *tree)
-{
-    print_tree0(tree, 0);
+  }
+  else if(tree->type==INT || tree->type==VOID || tree->type==FUNCTION){
+    //
+  }
+  else if(tree->type==RETURN){
+    returnFunction(eval(tree->left));
+
+  }
+  else if(tree->type=='+'){ return addFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='-'){ return subtractFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='*'){ return multiplyFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='/'){ return divideFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type==GE_OP){ return GEFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type==LE_OP){ return LEFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type==NE_OP){ return NEFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type==EQ_OP){ return EQFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='<'){ return LTFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='>'){ return GTFunction(eval(tree->left), eval(tree->right));}
+  else{
+    eval(tree->left);
+    eval(tree->right);
+  }
 }
 
 extern int yydebug;
@@ -132,5 +285,7 @@ int main(int argc, char** argv)
     tree = ans;
     printf("parse finished with %p\n", tree);
     print_tree(tree);
+    printf("\nEvaluating tree...\n");
+    eval(tree);
     return 0;
 }

@@ -6,6 +6,7 @@ all:	mycc clean
 
 clean:
 	del ${OBJS}
+	cls
 
 mycc:	${OBJS}
 	${CC} -g -o mycc ${OBJS} 

@@ -1,10 +1,2 @@
-C.tab.c
-C.tab.o
-mycc
-C.tab.o
-lex.yy.o
-main.o
-nodes.o
-symbol_table.o
 mycc.exe
 Makefile
