@@ -73,6 +73,7 @@ void print_tree0(NODE *tree, int level)
     }
     else {
       for(i=0; i<level; i++) putchar(' ');
+     puts(tree->type);
       printf("%s\n", named(tree->type));
 /*       if (tree->type=='~') { */
 /*         for(i=0; i<level+2; i++) putchar(' '); */
@@ -99,7 +100,16 @@ void eval(NODE *tree){
   else if(tree->type==APPLY){
     // Left child is an identifier for a FUNCTION or EXPRESSION that evaluates to a function; right child contains argument to function call.
   }
-
+  else if(tree->type==INT){
+    return INT;
+  }
+  else if(tree->type==VOID){
+    return VOID;
+  }
+  else if(tree->type==FUNCTION){
+    return FUNCTION;
+  }
+  
 }
 
 void print_tree(NODE *tree)
