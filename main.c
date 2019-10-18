@@ -2,6 +2,7 @@
 #include <ctype.h>
 #include "nodes.h"
 #include "value.h"
+#include "environment.h"
 #include "C.tab.h"
 #include <string.h>
 
@@ -229,6 +230,23 @@ void returnFunction(VALUE* value){
     printf("%s", value->v);
   }
 }
+
+void lookupVariable(TOKEN* token, FRAME* frame){
+  
+  while(frame!=NULL){
+    BINDING* bindings = frame->bindings;
+    while(bindings!=NULL){
+      if(bindings->name == token) return bindings->val;
+      bindings = bindings->next;
+    }
+    frame = frame->next;
+  }
+  error("Unbound Variable");
+}
+
+void assignVariable(){}
+
+void extendEnvBindings(){}
 
 VALUE* eval(NODE *tree){
   int i;
