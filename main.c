@@ -248,15 +248,17 @@ void assignVariable(){}
 
 void extendEnvBindings(){}
 
-VALUE* eval(NODE *tree){
+VALUE* eval(NODE *tree, ENV *e){
   int i;
   if(tree==NULL) return;
   if(tree->type==LEAF){
-    return eval(tree->left);
+    return eval(tree->left, e);
     // Left child contains an identifier (variable name), CONSTANT (number) or STRING_LITERAL (string) 
   }
   else if(tree->type==IDENTIFIER){
     // If the node is an identifier, check if the identifier exists, if not make a new variable.
+    // lookupVariable((TOKEN*)tree, e->frames);
+
   }
   else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){
     return getNodeValue(tree);
@@ -269,22 +271,22 @@ VALUE* eval(NODE *tree){
     //
   }
   else if(tree->type==RETURN){
-    returnFunction(eval(tree->left));
+    returnFunction(eval(tree->left, e));
 
   }
-  else if(tree->type=='+'){ return addFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type=='-'){ return subtractFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type=='*'){ return multiplyFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type=='/'){ return divideFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type==GE_OP){ return GEFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type==LE_OP){ return LEFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type==NE_OP){ return NEFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type==EQ_OP){ return EQFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type=='<'){ return LTFunction(eval(tree->left), eval(tree->right));}
-  else if(tree->type=='>'){ return GTFunction(eval(tree->left), eval(tree->right));}
+  else if(tree->type=='+'){ return addFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type=='-'){ return subtractFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type=='*'){ return multiplyFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type=='/'){ return divideFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type==GE_OP){ return GEFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type==LE_OP){ return LEFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type==NE_OP){ return NEFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type==EQ_OP){ return EQFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type=='<'){ return LTFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type=='>'){ return GTFunction(eval(tree->left, e), eval(tree->right, e));}
   else{
-    eval(tree->left);
-    eval(tree->right);
+    eval(tree->left, e);
+    eval(tree->right, e);
   }
 }
 

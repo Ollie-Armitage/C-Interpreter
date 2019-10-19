@@ -1,10 +1,14 @@
 typedef struct binding{
     TOKEN* name;
     VALUE* val;
-    BINDING* next;
+    struct BINDING* next;
 } BINDING;
 
 typedef struct frame {
     BINDING* bindings; 
-    FRAME* next;
+    struct FRAME* next;
 } FRAME;
+
+typedef struct ENV {
+    FRAME* frames;
+} ENV;
