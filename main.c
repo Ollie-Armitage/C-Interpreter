@@ -91,6 +91,22 @@ void print_tree(NODE *tree)
   print_tree0(tree, 0);
 }
 
+//--------------------------------------------------------------------------------//
+
+VALUE* return_method(NODE* expression, ENV* e){
+  return interpret(expression, e);
+}
+
+VALUE* add_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
+
+VALUE* substract_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) - interpret(right, e));}
+
+VALUE* multiply_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
+
+VALUE* divide_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
+
+VALUE* read_int(){ int x; scanf("%d", &x); return (VALUE*)x;}
+
 VALUE* getNodeValue(NODE* node){
   TOKEN *n = (TOKEN *)node;
   VALUE *endValue = malloc(sizeof(VALUE*));
@@ -109,109 +125,6 @@ VALUE* getNodeValue(NODE* node){
     return "No Value.";
   }
 
-}
-
-void examineNode(NODE* node){
-  printf("type: %s", named(node->type)); 
-  printf(" (%d)\n", node->type);
-
-  if(node->left){
-    printf("Left Child: %s\n", named(node->left->type));
-  }
-  if(node->right){
-    printf("Right Child: %s\n", named(node->right->type));
-  }
-  
-  printf("Node Value (If it has one): %s\n", getNodeValue(node));
-
-}
-
-VALUE* addFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.integer = x->v.integer + y->v.integer;
-  result->type = 0;
-  return result;
-}
-
-VALUE* subtractFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.integer = x->v.integer - y->v.integer;
-  
-  result->type = 0;
-  return result;
-} 
-
-VALUE* multiplyFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.integer = x->v.integer * y->v.integer;
-  
-  result->type = 0;
-  return result;
-}
-
-VALUE* divideFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.integer = x->v.integer / y->v.integer;
-  
-  result->type = 0;
-  return result;
-}
-
-VALUE* GTFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer > y->v.integer;
-  
-  result->type = 1;
-  return result;
-}
-
-VALUE* LTFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer < y->v.integer;
-  
-  result->type = 1;
-  return result;
-}
-VALUE* GEFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer >= y->v.integer;
-  
-  result->type = 1;
-  return result;
-}
-
-VALUE* LEFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer <= y->v.integer;
-  
-  result->type = 1;
-  return result;
-}
-
-VALUE* EQFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer == y->v.integer;
-  
-  result->type = 1;
-  return result;
-}
-
-VALUE* NEFunction(VALUE *x, VALUE *y){
-  VALUE* result = malloc(sizeof(VALUE*));
-  
-  result->v.boolean = x->v.integer != y->v.integer;
-  
-  result->type = 1;
-  return result;
 }
 
 void error(char* string){
@@ -248,6 +161,7 @@ VALUE* lookupVariable(TOKEN* token, FRAME* frame){
 }
 
 VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
+  printf("%s\n", token->lexeme);
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
@@ -299,11 +213,11 @@ VALUE* eval(NODE *tree, ENV *e){
 
   }
   else if(tree->type == '~'){ }
-  else if(tree->type == '='){ assignment((TOKEN*)eval(tree->left, e), e->frames, eval(tree->right, e));}
-  else if(tree->type=='+'){ return addFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type=='-'){ return subtractFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type=='*'){ return multiplyFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type=='/'){ return divideFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type == '='){ assignment((TOKEN*)tree->left->left, e->frames, eval(tree->right, e));}
+  else if(tree->type=='+'){ return add_method(tree->left, tree->right, e);}
+  else if(tree->type=='-'){ return subtract_method(tree->left, tree->right, e);}
+  else if(tree->type=='*'){ return multiply_method(tree->left, tree->right, e);}
+  else if(tree->type=='/'){ return divide_method(tree->left, tree->right, e);}
   else if(tree->type==GE_OP){ return GEFunction(eval(tree->left, e), eval(tree->right, e));}
   else if(tree->type==LE_OP){ return LEFunction(eval(tree->left, e), eval(tree->right, e));}
   else if(tree->type==NE_OP){ return NEFunction(eval(tree->left, e), eval(tree->right, e));}
