@@ -214,6 +214,10 @@ VALUE* NEFunction(VALUE *x, VALUE *y){
   return result;
 }
 
+void error(char* string){
+  printf("Error: %s\n", string);
+}
+
 void returnFunction(VALUE* value){
   if(value->type == 0){
     printf("%d\n", value->v);
@@ -231,12 +235,11 @@ void returnFunction(VALUE* value){
   }
 }
 
-void lookupVariable(TOKEN* token, FRAME* frame){
-  
+VALUE* lookupVariable(TOKEN* token, FRAME* frame){
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
-      if(bindings->name == token) return bindings->val;
+      if(bindings->name == token->lexeme) return bindings->val;
       bindings = bindings->next;
     }
     frame = frame->next;
@@ -244,9 +247,29 @@ void lookupVariable(TOKEN* token, FRAME* frame){
   error("Unbound Variable");
 }
 
-void assignVariable(){}
+VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
+  while(frame!=NULL){
+    BINDING* bindings = frame->bindings;
+    while(bindings!=NULL){
+      if(bindings->name == token->lexeme) 
+      bindings->val = value;
+      return value;
+    }
+    frame = frame->next;
+  }
+  error("Assignment Failed");
+}
 
-void extendEnvBindings(){}
+VALUE* extendEnvBindings(TOKEN* token, FRAME* frame){
+  BINDING* bindings = frame->bindings;
+  BINDING* new = malloc(sizeof(BINDING));
+  if(new!=0){
+    new->name = token;
+    new->val = (VALUE*)0;
+    frame->bindings = new;
+    return (VALUE*)0;
+  }
+}
 
 VALUE* eval(NODE *tree, ENV *e){
   int i;
@@ -257,7 +280,8 @@ VALUE* eval(NODE *tree, ENV *e){
   }
   else if(tree->type==IDENTIFIER){
     // If the node is an identifier, check if the identifier exists, if not make a new variable.
-    // lookupVariable((TOKEN*)tree, e->frames);
+    TOKEN* t = (TOKEN*)tree;
+    return (VALUE*)t->lexeme;
 
   }
   else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){
@@ -274,6 +298,8 @@ VALUE* eval(NODE *tree, ENV *e){
     returnFunction(eval(tree->left, e));
 
   }
+  else if(tree->type == '~'){ }
+  else if(tree->type == '='){ assignment((TOKEN*)eval(tree->left, e), e->frames, eval(tree->right, e));}
   else if(tree->type=='+'){ return addFunction(eval(tree->left, e), eval(tree->right, e));}
   else if(tree->type=='-'){ return subtractFunction(eval(tree->left, e), eval(tree->right, e));}
   else if(tree->type=='*'){ return multiplyFunction(eval(tree->left, e), eval(tree->right, e));}
@@ -297,6 +323,7 @@ extern void init_symbtable(void);
 
 int main(int argc, char** argv)
 {
+    ENV* e = malloc(sizeof(ENV*));
     NODE* tree;
     if (argc>1 && strcmp(argv[1],"-d")==0) yydebug = 1;
     init_symbtable();
@@ -306,6 +333,6 @@ int main(int argc, char** argv)
     printf("parse finished with %p\n", tree);
     print_tree(tree);
     printf("\nEvaluating tree...\n");
-    eval(tree);
+    eval(tree, e);
     return 0;
 }
