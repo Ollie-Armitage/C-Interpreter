@@ -76,11 +76,7 @@ void print_tree0(NODE *tree, int level)
     else {
       for(i=0; i<level; i++) putchar(' ');
       printf("%s\n", named(tree->type));
-/*       if (tree->type=='~') { */
-/*         for(i=0; i<level+2; i++) putchar(' '); */
-/*         printf("%p\n", tree->left); */
-/*       } */
-/*       else */
+
         print_tree0(tree->left, level+2);
       print_tree0(tree->right, level+2);
     }
@@ -93,24 +89,14 @@ void print_tree(NODE *tree)
 
 //--------------------------------------------------------------------------------//
 
-VALUE* return_method(NODE* expression, ENV* e){
-  return interpret(expression, e);
+void examinePath(NODE* node){
+  printf("%s\n", named(node->type));
 }
-
-VALUE* add_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
-
-VALUE* substract_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) - interpret(right, e));}
-
-VALUE* multiply_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
-
-VALUE* divide_method(NODE* left, NODE* right, ENV* e){ return (VALUE *)(interpret(left, e) + interpret(right, e));}
-
-VALUE* read_int(){ int x; scanf("%d", &x); return (VALUE*)x;}
 
 VALUE* getNodeValue(NODE* node){
   TOKEN *n = (TOKEN *)node;
   VALUE *endValue = malloc(sizeof(VALUE*));
-  
+
 
   if(n->type == CONSTANT){
     endValue->type = 0;
@@ -127,32 +113,91 @@ VALUE* getNodeValue(NODE* node){
 
 }
 
-void error(char* string){
-  printf("Error: %s\n", string);
-}
-
-void returnFunction(VALUE* value){
+int unpackValue(VALUE* value){
   if(value->type == 0){
-    printf("%d\n", value->v);
+    return value->v.integer;
   }
   else if(value->type == 1){
-    if(value->v.boolean == 0){
-      printf("False.\n");
-    }
-    else{
-      printf("True.\n");
-    }
+    return value->v.boolean;
   }
   else if(value->type == 2){
-    printf("%s", value->v);
+    return value->v.string;
   }
 }
 
-VALUE* lookupVariable(TOKEN* token, FRAME* frame){
+VALUE* packValue(type, value){
+  VALUE* v = malloc(sizeof(VALUE*));
+
+  v->type = type;
+  
+  
+  if(type == 0){
+    v->v.integer = value;
+  }
+  else if(type == 1){
+    v->v.boolean = value;
+  }
+  else if(type == 2){
+    v->v.string = value;
+  }
+  
+  return v;
+}
+
+VALUE* interpret(NODE* tree, ENV* e);
+
+VALUE* add_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) + unpackValue(interpret(right, e))));}
+
+VALUE* subtract_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) - unpackValue(interpret(right, e))));}
+
+VALUE* multiply_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) * unpackValue(interpret(right, e))));}
+
+VALUE* divide_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) / unpackValue(interpret(right, e))));}
+
+VALUE* LT_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) < unpackValue(interpret(right, e))));}
+
+VALUE* GT_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) > unpackValue(interpret(right, e))));}
+
+VALUE* NE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) != unpackValue(interpret(right, e))));}
+
+VALUE* EQ_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) == unpackValue(interpret(right, e))));}
+
+VALUE* LE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) <= unpackValue(interpret(right, e))));}
+
+VALUE* GE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) >= unpackValue(interpret(right, e))));}
+
+VALUE* return_method(NODE* expression, ENV* e){ 
+  VALUE* answer = interpret(expression, e);
+  
+  
+  if(answer->type == 0){
+    printf("%d\n", answer->v.integer);
+  }
+  else if(answer->type == 1){
+    if(answer->v.boolean == 0){
+      printf("False\n");
+    }
+    else if(answer->v.boolean == 1){
+      printf("True\n");
+    }
+  }
+  else if(answer->type == 2){
+    printf("%s", answer->v.string);
+  }
+  else{
+    printf("No valid return type.");
+  }
+
+  return interpret(expression, e);
+}
+
+VALUE* read_int(){ int x; scanf("%d", &x); return (VALUE*)x;}
+
+VALUE* name_method(TOKEN* token, FRAME* frame){
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
-      if(bindings->name == token->lexeme) return bindings->val;
+      if(bindings->name == token) return bindings->val;
       bindings = bindings->next;
     }
     frame = frame->next;
@@ -161,73 +206,101 @@ VALUE* lookupVariable(TOKEN* token, FRAME* frame){
 }
 
 VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
-  printf("%s\n", token->lexeme);
+  
+
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
-      if(bindings->name == token->lexeme) 
+      if(bindings->name == token) 
       bindings->val = value;
       return value;
     }
     frame = frame->next;
   }
+  return NULL;
   error("Assignment Failed");
 }
 
-VALUE* extendEnvBindings(TOKEN* token, FRAME* frame){
+/* 1 - Get current bindings.
+   2 - If a new binding can be memory allocated, set the bindings name to arg token, set the value to a VALUE with 0, and 
+
+*/
+
+VALUE* declaration_method(TOKEN* token, FRAME* frame){
   BINDING* bindings = frame->bindings;
   BINDING* new = malloc(sizeof(BINDING));
   if(new!=0){
     new->name = token;
-    new->val = (VALUE*)0;
+    new->val=(VALUE*)0;
+    new->next = bindings;
     frame->bindings = new;
     return (VALUE*)0;
   }
+  error("Binding Allocation Failed.\n");
 }
 
-VALUE* eval(NODE *tree, ENV *e){
-  int i;
+VALUE* block_method(NODE* block, ENV* e);
+
+void error(char* string){ printf("Error: %s\n", string);}
+
+NODE* getNodeFromPointer(VALUE* pointerAddress){
+  int* p = pointerAddress->v.integer;
+  free(pointerAddress);
+  return *p;
+}
+
+TOKEN* getTokenFromPointer(VALUE* pointerAddress){
+  NODE* n = getNodeFromPointer(pointerAddress);
+  return (TOKEN*)n;
+}
+
+VALUE* interpret(NODE *tree, ENV *e){
+
   if(tree==NULL) return;
+
   if(tree->type==LEAF){
-    return eval(tree->left, e);
+    return interpret(tree->left, e);
     // Left child contains an identifier (variable name), CONSTANT (number) or STRING_LITERAL (string) 
   }
   else if(tree->type==IDENTIFIER){
-    // If the node is an identifier, check if the identifier exists, if not make a new variable.
-    TOKEN* t = (TOKEN*)tree;
-    return (VALUE*)t->lexeme;
-
+    
+    return packValue(0, &tree);
+    // Return node address.
   }
-  else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){
+  else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){   
     return getNodeValue(tree);
   }
-  else if(tree->type==APPLY){
-    // Left child is an identifier for a FUNCTION or EXPRESSION that evaluates to a function; right child contains argument to function call.
-
-  }
   else if(tree->type==INT || tree->type==VOID || tree->type==FUNCTION){
-    //
+    return NULL;
   }
-  else if(tree->type==RETURN){
-    returnFunction(eval(tree->left, e));
-
+  else if(tree->type==RETURN){ return return_method(tree->left, e);}
+  else if(tree->type == '~'){ declaration_method(getTokenFromPointer(interpret(tree->right, e)), e->frames);}
+  else if(tree->type == '='){ 
+    if(assignment(getTokenFromPointer(interpret(tree->left, e)), e->frames, interpret(tree->right, e->frames)) == NULL){
+    return interpret(tree->left, e);
   }
-  else if(tree->type == '~'){ }
-  else if(tree->type == '='){ assignment((TOKEN*)tree->left->left, e->frames, eval(tree->right, e));}
+  }
   else if(tree->type=='+'){ return add_method(tree->left, tree->right, e);}
   else if(tree->type=='-'){ return subtract_method(tree->left, tree->right, e);}
   else if(tree->type=='*'){ return multiply_method(tree->left, tree->right, e);}
   else if(tree->type=='/'){ return divide_method(tree->left, tree->right, e);}
-  else if(tree->type==GE_OP){ return GEFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type==LE_OP){ return LEFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type==NE_OP){ return NEFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type==EQ_OP){ return EQFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type=='<'){ return LTFunction(eval(tree->left, e), eval(tree->right, e));}
-  else if(tree->type=='>'){ return GTFunction(eval(tree->left, e), eval(tree->right, e));}
+  else if(tree->type==GE_OP){ return GE_OP_method(tree->left, tree->right, e);}
+  else if(tree->type==LE_OP){ return LE_OP_method(tree->left, tree->right, e);}
+  else if(tree->type==NE_OP){ return NE_OP_method(tree->left, tree->right, e);}
+  else if(tree->type==EQ_OP){ return EQ_OP_method(tree->left, tree->right, e);}
+  else if(tree->type=='<'){ return LT_method(tree->left, tree->right, e);}
+  else if(tree->type=='>'){ return GT_method(tree->left, tree->right, e);}
   else{
-    eval(tree->left, e);
-    eval(tree->right, e);
+    return block_method(tree->left, e);
   }
+}
+
+VALUE* block_method(NODE* block, ENV* e){
+  while(block!=NULL){
+    interpret(block, e);
+    block = block->right;
+  }
+
 }
 
 extern int yydebug;
@@ -247,6 +320,6 @@ int main(int argc, char** argv)
     printf("parse finished with %p\n", tree);
     print_tree(tree);
     printf("\nEvaluating tree...\n");
-    eval(tree, e);
+    block_method(tree, e);
     return 0;
 }
