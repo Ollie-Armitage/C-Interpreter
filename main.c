@@ -178,10 +178,25 @@ VALUE* declaration_method(TOKEN* token, FRAME* frame){
 TOKEN* addressToToken(VALUE* addressValue){
   
   int *p = unpackStrValue(addressValue);
-  NODE* node = *p;
+  
+  NODE* node = malloc(sizeof(NODE*));
+  node = *p;
+  printf("%s\n", named(node->type));
+  
   TOKEN* t = (TOKEN*)node;
+
+  printf("inside: %s\n", t->lexeme);
   return t;
 }
+
+VALUE* nodeToAddress(NODE* tree){
+  
+  VALUE* inside_v = packValue(2, &tree);
+  //printf("address: %s\n", inside_t->lexeme);
+  return inside_v;
+}
+
+
 
 VALUE* block_method(NODE* block, ENV* e);
 
@@ -191,10 +206,15 @@ VALUE* interpret(NODE *tree, ENV *e){
   if(tree==NULL) return;
   if(tree->type==LEAF){ return interpret(tree->left, e);}
   else if(tree->type == INT || tree->type == FUNCTION || tree->type == VOID){}
-  else if(tree->type==IDENTIFIER){ return packValue(2, &tree);}
+  else if(tree->type==IDENTIFIER){ }
   else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){return getNodeValue(tree);}
   else if(tree->type==RETURN){ return return_method(tree->left, e);}
-  else if(tree->type == '~'){ addressToToken(interpret(tree->right->left, e));}
+  else if(tree->type == '~'){ 
+    
+    VALUE* outside_v = nodeToAddress(tree->right->left->left);
+    TOKEN* outside_t = addressToToken(outside_v);
+    printf("%s\n", outside_t->lexeme);
+  }
   else if(tree->type == '='){}
   else if(tree->type=='+'){ return add_method(tree->left, tree->right, e);}
   else if(tree->type=='-'){ return subtract_method(tree->left, tree->right, e);}
@@ -225,16 +245,24 @@ extern void init_symbtable(void);
 
 int main(int argc, char** argv)
 {
+    
     ENV* e = malloc(sizeof(ENV*));
     NODE* tree;
     if (argc>1 && strcmp(argv[1],"-d")==0) yydebug = 1;
     init_symbtable();
     printf("--C COMPILER\n");
     yyparse();
+    
     tree = ans;
     printf("parse finished with %p\n", tree);
     print_tree(tree);
+    
+
+    printf("Press any key to continue.\n");
+    getch();
+    
     printf("\nEvaluating tree...\n");
     block_method(tree, e);
+    
     return 0;
 }

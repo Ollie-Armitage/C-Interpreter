@@ -10,14 +10,12 @@ int unpackIntValue(VALUE* value){
 }
 
 int unpackStrValue(VALUE* value){
-  
   return atoi(value->v.string);
 }
 
 // Packs a specific value type into the generalised value
 
 VALUE* packValue(int type, int value){
-  
   VALUE* v = malloc(sizeof(VALUE*));
   
   v->type = type;
@@ -29,9 +27,10 @@ VALUE* packValue(int type, int value){
     v->v.boolean = value;
   }
   else if(type == 2){
-    sprintf(v->v.string, "%d", value);
+    char str[12];
+    sprintf(str, "%d", value);
+    v->v.string = str;
   }
   
-  printf("%s\n", v->v.string);
   return v;
 }
