@@ -31,7 +31,7 @@ else{
 Get-Content "testFiles/straight-line/variable.txt" | ./mycc.exe > "log.txt"
 $a = Get-Content "log.txt" -Tail 1;
 
-if($a -eq "10"){
+if($a -eq "137"){
     echo "Variable Test Passed."
 }
 else{

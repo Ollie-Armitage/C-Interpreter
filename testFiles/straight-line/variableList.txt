@@ -1,4 +1,6 @@
 int main(){
     int a = 137;
+    int b = 236;
+    int c = 345;
     return a;
 }

@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include "nodes.h"
-#include "value.h"
-#include "environment.h"
 #include "C.tab.h"
 #include <string.h>
+#include "value.h"
+#include "environment.h"
+#include "value.c"
+#include "arithmetic.c"
+
 
 char *named(int t)
 {
@@ -89,14 +93,11 @@ void print_tree(NODE *tree)
 
 //--------------------------------------------------------------------------------//
 
-void examinePath(NODE* node){
-  printf("%s\n", named(node->type));
-}
+// Converts a node to a token in order to extract it's value, Returns the value.
 
 VALUE* getNodeValue(NODE* node){
   TOKEN *n = (TOKEN *)node;
   VALUE *endValue = malloc(sizeof(VALUE*));
-
 
   if(n->type == CONSTANT){
     endValue->type = 0;
@@ -107,64 +108,7 @@ VALUE* getNodeValue(NODE* node){
     endValue->type = 2;
     endValue->v.string = n->lexeme;
   }
-  else{
-    return "No Value.";
-  }
-
 }
-
-int unpackValue(VALUE* value){
-  if(value->type == 0){
-    return value->v.integer;
-  }
-  else if(value->type == 1){
-    return value->v.boolean;
-  }
-  else if(value->type == 2){
-    return value->v.string;
-  }
-}
-
-VALUE* packValue(type, value){
-  VALUE* v = malloc(sizeof(VALUE*));
-
-  v->type = type;
-  
-  
-  if(type == 0){
-    v->v.integer = value;
-  }
-  else if(type == 1){
-    v->v.boolean = value;
-  }
-  else if(type == 2){
-    v->v.string = value;
-  }
-  
-  return v;
-}
-
-VALUE* interpret(NODE* tree, ENV* e);
-
-VALUE* add_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) + unpackValue(interpret(right, e))));}
-
-VALUE* subtract_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) - unpackValue(interpret(right, e))));}
-
-VALUE* multiply_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) * unpackValue(interpret(right, e))));}
-
-VALUE* divide_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackValue(interpret(left, e)) / unpackValue(interpret(right, e))));}
-
-VALUE* LT_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) < unpackValue(interpret(right, e))));}
-
-VALUE* GT_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) > unpackValue(interpret(right, e))));}
-
-VALUE* NE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) != unpackValue(interpret(right, e))));}
-
-VALUE* EQ_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) == unpackValue(interpret(right, e))));}
-
-VALUE* LE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) <= unpackValue(interpret(right, e))));}
-
-VALUE* GE_OP_method(NODE* left, NODE* right, ENV* e){ return packValue(1, (unpackValue(interpret(left, e)) >= unpackValue(interpret(right, e))));}
 
 VALUE* return_method(NODE* expression, ENV* e){ 
   VALUE* answer = interpret(expression, e);
@@ -191,8 +135,6 @@ VALUE* return_method(NODE* expression, ENV* e){
   return interpret(expression, e);
 }
 
-VALUE* read_int(){ int x; scanf("%d", &x); return (VALUE*)x;}
-
 VALUE* name_method(TOKEN* token, FRAME* frame){
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
@@ -207,7 +149,6 @@ VALUE* name_method(TOKEN* token, FRAME* frame){
 
 VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
   
-
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
@@ -217,14 +158,8 @@ VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
     }
     frame = frame->next;
   }
-  return NULL;
   error("Assignment Failed");
 }
-
-/* 1 - Get current bindings.
-   2 - If a new binding can be memory allocated, set the bindings name to arg token, set the value to a VALUE with 0, and 
-
-*/
 
 VALUE* declaration_method(TOKEN* token, FRAME* frame){
   BINDING* bindings = frame->bindings;
@@ -237,49 +172,30 @@ VALUE* declaration_method(TOKEN* token, FRAME* frame){
     return (VALUE*)0;
   }
   error("Binding Allocation Failed.\n");
+  
+}
+
+TOKEN* addressToToken(VALUE* addressValue){
+  
+  int *p = unpackStrValue(addressValue);
+  NODE* node = *p;
+  TOKEN* t = (TOKEN*)node;
+  return t;
 }
 
 VALUE* block_method(NODE* block, ENV* e);
 
 void error(char* string){ printf("Error: %s\n", string);}
 
-NODE* getNodeFromPointer(VALUE* pointerAddress){
-  int* p = pointerAddress->v.integer;
-  free(pointerAddress);
-  return *p;
-}
-
-TOKEN* getTokenFromPointer(VALUE* pointerAddress){
-  NODE* n = getNodeFromPointer(pointerAddress);
-  return (TOKEN*)n;
-}
-
 VALUE* interpret(NODE *tree, ENV *e){
-
   if(tree==NULL) return;
-
-  if(tree->type==LEAF){
-    return interpret(tree->left, e);
-    // Left child contains an identifier (variable name), CONSTANT (number) or STRING_LITERAL (string) 
-  }
-  else if(tree->type==IDENTIFIER){
-    
-    return packValue(0, &tree);
-    // Return node address.
-  }
-  else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){   
-    return getNodeValue(tree);
-  }
-  else if(tree->type==INT || tree->type==VOID || tree->type==FUNCTION){
-    return NULL;
-  }
+  if(tree->type==LEAF){ return interpret(tree->left, e);}
+  else if(tree->type == INT || tree->type == FUNCTION || tree->type == VOID){}
+  else if(tree->type==IDENTIFIER){ return packValue(2, &tree);}
+  else if(tree->type==CONSTANT || tree->type==STRING_LITERAL){return getNodeValue(tree);}
   else if(tree->type==RETURN){ return return_method(tree->left, e);}
-  else if(tree->type == '~'){ declaration_method(getTokenFromPointer(interpret(tree->right, e)), e->frames);}
-  else if(tree->type == '='){ 
-    if(assignment(getTokenFromPointer(interpret(tree->left, e)), e->frames, interpret(tree->right, e->frames)) == NULL){
-    return interpret(tree->left, e);
-  }
-  }
+  else if(tree->type == '~'){ addressToToken(interpret(tree->right->left, e));}
+  else if(tree->type == '='){}
   else if(tree->type=='+'){ return add_method(tree->left, tree->right, e);}
   else if(tree->type=='-'){ return subtract_method(tree->left, tree->right, e);}
   else if(tree->type=='*'){ return multiply_method(tree->left, tree->right, e);}
@@ -300,7 +216,6 @@ VALUE* block_method(NODE* block, ENV* e){
     interpret(block, e);
     block = block->right;
   }
-
 }
 
 extern int yydebug;

@@ -1,0 +1,6 @@
+int main(){
+    int a = 137;
+    int b = 236;
+    int inner_main(int b, int c);
+    return a;
+}

@@ -1,2 +1,2 @@
 make
-Get-Content "testFiles/straight-line/function.txt" | ./mycc.exe
+Get-Content "testFiles/straight-line/variable.txt" | ./mycc.exe
