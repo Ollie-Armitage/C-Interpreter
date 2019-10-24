@@ -144,7 +144,7 @@ VALUE* name_method(TOKEN* token, FRAME* frame){
     }
     frame = frame->next;
   }
-  error("Unbound Variable");
+  perror("Unbound Variable");
 }
 
 VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
@@ -158,7 +158,7 @@ VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
     }
     frame = frame->next;
   }
-  error("Assignment Failed");
+  perror("Assignment Failed");
 }
 
 VALUE* declaration_method(TOKEN* token, FRAME* frame){
@@ -171,7 +171,7 @@ VALUE* declaration_method(TOKEN* token, FRAME* frame){
     frame->bindings = new;
     return (VALUE*)0;
   }
-  error("Binding Allocation Failed.\n");
+  perror("Binding Allocation Failed.\n");
   
 }
 
