@@ -16,7 +16,7 @@ int unpackStrValue(VALUE* value){
 // Packs a specific value type into the generalised value
 
 VALUE* packValue(int type, int value){
-  VALUE* v = malloc(sizeof(VALUE*));
+    VALUE *v = malloc(sizeof(VALUE));
   
   v->type = type;
   

@@ -25,12 +25,11 @@ extern NODE *ans;
 extern void init_symbtable(void);
 
 int main(int argc, char **argv) {
-    ENV *e = malloc(sizeof(ENV *));
     NODE *tree;
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
     init_symbtable();
     printf("--C COMPILER\n");
-    freopen("testFiles/straight-line/literal.txt", "r", stdin);
+    freopen("testFiles/straight-line/functionRun.txt", "r", stdin);
     yyparse();
 
     tree = ans;
@@ -41,7 +40,14 @@ int main(int argc, char **argv) {
     printf("Press any key to continue.\n");
 
     printf("\nEvaluating tree...\n");
-    interpret(tree, e);
+
+    ENV *e = malloc(sizeof(ENV *));
+    e->frames = malloc(sizeof(FRAME));
+    block_method(tree, e);
+
+
+    free(e->frames);
+    free(e);
 
     return 0;
 }

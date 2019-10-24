@@ -1,13 +1,15 @@
 VALUE *name_method(TOKEN *token, FRAME *frame) {
+
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
         while (bindings != NULL) {
             if (bindings->name == token) return bindings->val;
             bindings = (BINDING *) bindings->next;
         }
+
         frame = (FRAME *) frame->next;
     }
-    perror("Unbound Variable");
+    printf("Unbound Variable: \"%s\"\n", token->lexeme);
 }
 
 VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value) {
@@ -21,7 +23,7 @@ VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value) {
         }
         frame = (FRAME *) frame->next;
     }
-    perror("Assignment Failed");
+    printf("Assignment Failed.\n");
 }
 
 VALUE *declaration_method(TOKEN *token, FRAME *frame) {
@@ -29,11 +31,11 @@ VALUE *declaration_method(TOKEN *token, FRAME *frame) {
     BINDING *new = malloc(sizeof(BINDING));
     if (new != 0) {
         new->name = token;
-        new->val = (VALUE *) 0;
+        new->val = NULL;
         new->next = (struct BINDING *) bindings;
         frame->bindings = new;
-        return (VALUE *) 0;
+        return NULL;
     }
-    perror("Binding Allocation Failed.\n");
+    printf("Binding Allocation Failed.\n");
 
 }

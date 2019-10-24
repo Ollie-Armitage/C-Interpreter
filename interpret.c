@@ -4,7 +4,7 @@ VALUE *nodeToValue(NODE *node);
 
 VALUE *block_method(NODE *block, ENV *e);
 
-VALUE *return_method(NODE *expression, ENV *e);
+VALUE *return_method(NODE *tree, ENV *e);
 
 VALUE *interpret(NODE *tree, ENV *e) {
     if (tree == NULL) return NULL;
@@ -13,8 +13,11 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return nodeToValue(tree); }
     else if (tree->type == RETURN) { return_method(tree->left, e); }
-    else if (tree->type == '~') {}
-    else if (tree->type == '=') {}
+    else if (tree->type == '~') {
+        if (tree->right->type == LEAF) declaration_method((TOKEN *) tree->right->left, e->frames);
+        else declaration_method((TOKEN *) tree->right->left->left, e->frames);
+    } else if (tree->type == APPLY) {}
+    else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }
     else if (tree->type == '+') { return add_method(tree->left, tree->right, e); }
     else if (tree->type == '-') { return subtract_method(tree->left, tree->right, e); }
     else if (tree->type == '*') { return multiply_method(tree->left, tree->right, e); }
@@ -38,8 +41,14 @@ VALUE *block_method(NODE *block, ENV *e) {
     }
 }
 
-VALUE *return_method(NODE *expression, ENV *e) {
-    VALUE *answer = interpret(expression, e);
+VALUE *return_method(NODE *tree, ENV *e) {
+    VALUE *answer = interpret(tree, e);
+
+    if (answer == NULL) {
+        return NULL;
+    }
+
+
     if (answer->type == 0) {
         printf("%d\n", answer->v.integer);
     } else if (answer->type == 1) {
@@ -53,5 +62,5 @@ VALUE *return_method(NODE *expression, ENV *e) {
     } else {
         printf("No valid return type.");
     }
-    return interpret(expression, e);
+    return interpret(tree, e);
 }

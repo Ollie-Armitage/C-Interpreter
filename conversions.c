@@ -1,7 +1,7 @@
 
 VALUE *nodeToValue(NODE *node) {
     TOKEN *n = (TOKEN *) node;
-    VALUE *endValue = malloc(sizeof(VALUE *));
+    VALUE *endValue = malloc(sizeof(VALUE));
 
     if (n->type == CONSTANT) {
         endValue->type = 0;
@@ -11,6 +11,7 @@ VALUE *nodeToValue(NODE *node) {
         endValue->type = 2;
         endValue->v.string = n->lexeme;
     }
+
     return NULL;
 }
 

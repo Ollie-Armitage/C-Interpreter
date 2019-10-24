@@ -1,0 +1,6 @@
+int main(){
+    int inner_main(){
+        return 20;
+    }
+    return inner_main();
+}
