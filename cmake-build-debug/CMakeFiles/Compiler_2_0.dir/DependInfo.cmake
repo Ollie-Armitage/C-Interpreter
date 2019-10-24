@@ -5,12 +5,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/Ollie/CLionProjects/Compiler_2.0/C.tab.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/C.tab.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/arithmetic.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/arithmetic.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/lex.yy.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/lex.yy.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/main.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/main.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/nodes.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/nodes.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/symbol_table.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/symbol_table.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/value.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/value.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

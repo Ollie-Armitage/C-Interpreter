@@ -152,9 +152,9 @@ VALUE* assignment(TOKEN* token, FRAME* frame, VALUE* value){
   while(frame!=NULL){
     BINDING* bindings = frame->bindings;
     while(bindings!=NULL){
-      if(bindings->name == token) 
-      bindings->val = value;
+      if(bindings->name == token) bindings->val = value;
       return value;
+
     }
     frame = frame->next;
   }
@@ -176,7 +176,7 @@ VALUE* declaration_method(TOKEN* token, FRAME* frame){
 }
 
 TOKEN* addressToToken(VALUE* addressValue){
-  
+
   int *p = unpackStrValue(addressValue);
   
   NODE* node = malloc(sizeof(NODE*));
@@ -190,7 +190,7 @@ TOKEN* addressToToken(VALUE* addressValue){
 }
 
 VALUE* nodeToAddress(NODE* tree){
-  
+
   VALUE* inside_v = packValue(2, &tree);
   //printf("address: %s\n", inside_t->lexeme);
   return inside_v;
@@ -245,7 +245,7 @@ extern void init_symbtable(void);
 
 int main(int argc, char** argv)
 {
-    
+
     ENV* e = malloc(sizeof(ENV*));
     NODE* tree;
     if (argc>1 && strcmp(argv[1],"-d")==0) yydebug = 1;
@@ -256,11 +256,10 @@ int main(int argc, char** argv)
     tree = ans;
     printf("parse finished with %p\n", tree);
     print_tree(tree);
-    
+
 
     printf("Press any key to continue.\n");
-    getch();
-    
+
     printf("\nEvaluating tree...\n");
     block_method(tree, e);
     

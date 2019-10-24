@@ -104,9 +104,6 @@
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Makefile">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/arithmetic.c">
-			<Option target="Compiler_2_0"/>
-		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/arithmetic.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
@@ -180,9 +177,6 @@
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/unitTests.ps1">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/value.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/value.h">

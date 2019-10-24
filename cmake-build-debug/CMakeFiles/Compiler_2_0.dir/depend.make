@@ -5,8 +5,6 @@ CMakeFiles/Compiler_2_0.dir/C.tab.c.o: ../C.tab.c
 CMakeFiles/Compiler_2_0.dir/C.tab.c.o: ../nodes.h
 CMakeFiles/Compiler_2_0.dir/C.tab.c.o: ../token.h
 
-CMakeFiles/Compiler_2_0.dir/arithmetic.c.o: ../arithmetic.c
-
 CMakeFiles/Compiler_2_0.dir/lex.yy.c.o: ../C.tab.h
 CMakeFiles/Compiler_2_0.dir/lex.yy.c.o: ../lex.yy.c
 CMakeFiles/Compiler_2_0.dir/lex.yy.c.o: ../token.h
@@ -28,6 +26,4 @@ CMakeFiles/Compiler_2_0.dir/nodes.c.o: ../token.h
 CMakeFiles/Compiler_2_0.dir/symbol_table.c.o: ../C.tab.h
 CMakeFiles/Compiler_2_0.dir/symbol_table.c.o: ../symbol_table.c
 CMakeFiles/Compiler_2_0.dir/symbol_table.c.o: ../token.h
-
-CMakeFiles/Compiler_2_0.dir/value.c.o: ../value.c
 
