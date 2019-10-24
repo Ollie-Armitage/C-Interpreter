@@ -11,8 +11,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "token.h"
-#include "C.tab.h"
+#include "Lexer_Parser_Files/token.h"
+#include "Lexer_Parser_Files/C.tab.h"
 
 static TOKEN** symbtable;
 #define HASH_SIZE (1000)

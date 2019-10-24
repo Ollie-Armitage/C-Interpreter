@@ -4,19 +4,20 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/Ollie/CLionProjects/Compiler_2.0/C.tab.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/C.tab.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/lex.yy.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/lex.yy.c.o"
+  "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o"
+  "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o"
+  "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
+  "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/main.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/main.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/nodes.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/nodes.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/symbol_table.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/symbol_table.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../."
-  "../testFiles"
-  "../testFiles/straight-line"
+  "../Header_Files"
+  "../Lexer_Parser_Files"
+  "../types"
   )
 
 # Targets to which this target links.

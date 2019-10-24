@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Compiler_2_0.dir/C.tab.c.o"
-  "CMakeFiles/Compiler_2_0.dir/lex.yy.c.o"
+  "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o"
+  "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o"
+  "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
+  "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
   "CMakeFiles/Compiler_2_0.dir/main.c.o"
-  "CMakeFiles/Compiler_2_0.dir/nodes.c.o"
-  "CMakeFiles/Compiler_2_0.dir/symbol_table.c.o"
   "Compiler_2_0"
   "Compiler_2_0.pdb"
 )

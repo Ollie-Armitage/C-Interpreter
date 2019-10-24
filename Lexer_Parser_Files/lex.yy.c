@@ -431,7 +431,7 @@ char *yytext;
 #define INITIAL 0
 #line 9 "C.flex"
 #include <stdio.h>
-#include "C.tab.h"
+#include "Lexer_Parser_Files/C.tab.h"
 #include <string.h>
 #include <stdlib.h>
 #include "token.h"

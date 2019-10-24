@@ -1,5 +1,3 @@
-
-
 VALUE* interpret(NODE* node, ENV* e);
 
 VALUE* add_method(NODE* left, NODE* right, ENV* e){ return packValue(0, (unpackIntValue(interpret(left, e)) + unpackIntValue(interpret(right, e))));}

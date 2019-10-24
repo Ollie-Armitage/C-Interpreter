@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "nodes.h"
-#include "C.tab.h"
+#include "Lexer_Parser_Files/C.tab.h"
 
 NODE* make_node(int t, NODE* left, NODE* right)
 {
