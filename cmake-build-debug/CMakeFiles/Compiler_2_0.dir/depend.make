@@ -19,15 +19,18 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: ../Lexer_Parser
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: ../Lexer_Parser_Files/symbol_table.c
 
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/C.tab.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../Google_Tests/interpreter/interpreterTest.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/nodes.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/token.h
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../arithmetic.c
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../bindings.c
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../conversions.c
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpret.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../TAC/TAC.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../TAC/TAC.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/arithmetic.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/bindings.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/conversions.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/interpret.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/prints.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/value.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../main.c
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../prints.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../types/environment.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../types/value.h
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../value.c
 

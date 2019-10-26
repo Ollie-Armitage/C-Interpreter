@@ -8,57 +8,73 @@
 
 ../Lexer_Parser_Files/C.tab.h
 
+/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
+stdio.h
+-
+dirent.h
+/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/dirent.h
+
 /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 token.h
 /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
 /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/arithmetic.c
+/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/bindings.c
+/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/conversions.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpret.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
+
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
+
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
 Lexer_Parser_Files/C.tab.h
 -
+
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
+ctype.h
+-
+
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/value.c
 
 /home/Ollie/CLionProjects/Compiler_2.0/main.c
 stdio.h
 -
 stdlib.h
 -
+string.h
+-
 Lexer_Parser_Files/nodes.h
 /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 Lexer_Parser_Files/C.tab.h
--
-string.h
 -
 types/value.h
 /home/Ollie/CLionProjects/Compiler_2.0/types/value.h
 types/environment.h
 /home/Ollie/CLionProjects/Compiler_2.0/types/environment.h
-value.c
-/home/Ollie/CLionProjects/Compiler_2.0/value.c
-conversions.c
-/home/Ollie/CLionProjects/Compiler_2.0/conversions.c
-bindings.c
-/home/Ollie/CLionProjects/Compiler_2.0/bindings.c
-arithmetic.c
-/home/Ollie/CLionProjects/Compiler_2.0/arithmetic.c
-interpret.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpret.c
-prints.c
-/home/Ollie/CLionProjects/Compiler_2.0/prints.c
-
-/home/Ollie/CLionProjects/Compiler_2.0/prints.c
-ctype.h
--
+interpreter/value.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+interpreter/conversions.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
+interpreter/bindings.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
+interpreter/arithmetic.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
+interpreter/interpret.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
+TAC/TAC.h
+/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
+TAC/TAC.c
+/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
+interpreter/prints.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
+Google_Tests/interpreter/interpreterTest.c
+/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
 
 /home/Ollie/CLionProjects/Compiler_2.0/types/environment.h
 
 /home/Ollie/CLionProjects/Compiler_2.0/types/value.h
-
-/home/Ollie/CLionProjects/Compiler_2.0/value.c
 

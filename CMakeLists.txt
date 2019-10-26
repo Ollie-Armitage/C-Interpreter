@@ -21,3 +21,5 @@ add_executable(Compiler_2_0
         types/environment.h
         types/value.h
         main.c)
+
+add_subdirectory(Google_Tests)
