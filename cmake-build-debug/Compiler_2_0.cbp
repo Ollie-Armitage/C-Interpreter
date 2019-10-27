@@ -8,450 +8,474 @@
 		<Option virtualFolders="CMake Files\;CMake Files\Google_Tests\;CMake Files\Google_Tests\libs\;CMake Files\Google_Tests\libs\googlemock\;CMake Files\Google_Tests\libs\googlemock\cmake\;CMake Files\Google_Tests\libs\googletest\;CMake Files\Google_Tests\libs\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="list_install_components">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Compiler_2_0">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Compiler_2_0.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 Compiler_2_0"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="Compiler_2_0/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Compiler_2_0.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 Compiler_2_0/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install/local">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="install">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="rebuild_cache">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="install/strip">
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Compiler_2_0">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Compiler_2_0" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 Compiler_2_0"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Compiler_2_0/fast">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Compiler_2_0" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 Compiler_2_0/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Google_Tests_run">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Google_Tests_run.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 Google_Tests_run"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 Google_Tests_run"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="Google_Tests_run/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Google_Tests_run.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Google_Tests_run" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 Google_Tests_run/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 Google_Tests_run/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="gtest">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="gtest/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
-				<Option object_output="./"/>
-				<Option type="2"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
-				<Option output="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
 				<Option object_output="./"/>
 				<Option type="2"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/."/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/include"/>
-					<Add directory="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/8.2.0/include-fixed"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Header_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/include"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c">
 			<Option target="Google_Tests_run"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/src/gmock-all.cc">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/src/gmock_main.cc">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/src/gmock_main.cc">
 			<Option target="gmock_main"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/src/gtest-all.cc">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/src/gtest-all.cc">
 			<Option target="gtest"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/src/gtest_main.cc">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files/arithmetic.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Header_Files/arithmetic.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Header_Files/main.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Header_Files/main.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/C.tab.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/C.tab.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/lex.yy.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/symbol_table.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/token.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/main.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/environment.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/value.h">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/main.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/CMakeLists.txt">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/CMakeLists.txt">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_Tests\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/CMakeLists.txt">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/CMakeLists.txt">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googlemock\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/cmake/gmock.pc.in">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/cmake/gmock.pc.in">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googlemock/cmake/gmock_main.pc.in">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googlemock/cmake/gmock_main.pc.in">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googlemock\cmake\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/CMakeLists.txt">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googletest\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/cmake/Config.cmake.in">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/cmake/Config.cmake.in">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/cmake/gtest.pc.in">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/cmake/gtest.pc.in">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/cmake/gtest_main.pc.in">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/cmake/gtest_main.pc.in">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googletest\cmake\"/>
 		</Unit>
-		<Unit filename="G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/libs/googletest/cmake/internal_utils.cmake">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/libs/googletest/cmake/internal_utils.cmake">
 			<Option virtualFolder="CMake Files\Google_Tests\libs\googletest\cmake\"/>
 		</Unit>
 	</Project>

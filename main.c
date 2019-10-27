@@ -4,8 +4,8 @@
 
 #include "Lexer_Parser_Files/nodes.h"
 #include <Lexer_Parser_Files/C.tab.h>
-#include "types/value.h"
-#include "types/environment.h"
+#include "interpreter/types/value.h"
+#include "interpreter/types/environment.h"
 #include "interpreter/value.c"
 #include "interpreter/conversions.c"
 #include "interpreter/bindings.c"
@@ -30,25 +30,66 @@ void interpreter(NODE *node) {
     ENV *e = malloc(sizeof(ENV *));
     e->frames = malloc(sizeof(FRAME));
     block_method(node, e);
+    free(e->frames);
+    free(e);
+}
+
+NODE* buildAST(){
+
+    NODE* tree;
+    init_symbtable();
+
+    char* directory= "Google_Tests/Test_Files/straight-line/";
+
+
+    struct dirent *de;
+    DIR *dr = opendir(directory);
+
+    if (dr == NULL) {
+        printf("Could not open current directory");
+    }
+
+    while ((de = readdir(dr)) != NULL) {
+
+        if(!strcmp(de->d_name, ".") || !strcmp(de->d_name, "..")){
+
+        }
+        else{
+            char* fileDirectory = (char*)malloc(strlen(directory) + strlen(de->d_name));
+            fileDirectory =  strcat(fileDirectory, directory);
+            printf("%s", fileDirectory);
+
+            strcat(fileDirectory, de->d_name);
+            printf("%s", fileDirectory);
+
+            printf("\n");
+            freopen(fileDirectory, "r", stdin);
+            yyparse();
+            printf("\n");
+
+            tree = ans;
+        }
+    }
+
+    closedir(dr);
+
+
+    return tree;
 }
 
 int main(int argc, char **argv) {
-    NODE *tree;
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
-    init_symbtable();
-    printf("--C COMPILER\n");
-    freopen("Google_Tests/Test_Files/straight-line/literal.txt", "r", stdin);
-    yyparse();
 
-    tree = ans;
-    printf("parse finished with %p\n", tree);
-    print_tree(tree);
+    printf("--C COMPILER\n");
+
+    NODE* tree = buildAST();
+
 
     printf("\nEvaluating tree...\n");
 
     interpreter(tree);
     tacGenerator(tree);
-    testLiteral();
+
 
     return 0;
 }

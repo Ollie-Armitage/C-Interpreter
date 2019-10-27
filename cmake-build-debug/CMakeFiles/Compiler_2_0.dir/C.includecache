@@ -8,107 +8,45 @@
 
 ../Lexer_Parser_Files/C.tab.h
 
-../Lexer_Parser_Files/token.h
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
 stdio.h
+-
+string.h
 -
 dirent.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/interpreter/dirent.h
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/dirent.h
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/C.tab.c
-nodes.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.h
-stddef.h
--
-libintl.h
--
-alloca.h
--
-malloc.h
--
-stdlib.h
--
-stdlib.h
--
-stdio.h
--
-stdio.h
--
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/lex.yy.c
-stdio.h
--
-stdlib.h
--
-unistd.h
--
-io.h
--
-stdlib.h
--
-stdio.h
--
-Lexer_Parser_Files/C.tab.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/Lexer_Parser_Files/C.tab.h
-string.h
--
-stdlib.h
--
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 token.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/token.h
-stdlib.h
--
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.c
-stdio.h
--
-stdlib.h
--
-nodes.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.h
-Lexer_Parser_Files/C.tab.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/Lexer_Parser_Files/C.tab.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.h
-token.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/token.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/symbol_table.c
-stdio.h
--
-stdlib.h
--
-string.h
--
-Lexer_Parser_Files/token.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/Lexer_Parser_Files/token.h
-Lexer_Parser_Files/C.tab.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/Lexer_Parser_Files/C.tab.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/token.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/TAC/TAC.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/TAC/TAC.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/arithmetic.c
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/bindings.c
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/conversions.c
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/interpret.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
 Lexer_Parser_Files/C.tab.h
 -
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/prints.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
 ctype.h
 -
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/value.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h
 
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/main.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h
+
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+
+/home/ollie/CLionProjects/Compiler_2.0/main.c
 stdio.h
 -
 stdlib.h
@@ -116,33 +54,29 @@ stdlib.h
 string.h
 -
 Lexer_Parser_Files/nodes.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Lexer_Parser_Files/nodes.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 Lexer_Parser_Files/C.tab.h
 -
-types/value.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/value.h
-types/environment.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/environment.h
+interpreter/types/value.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h
+interpreter/types/environment.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h
 interpreter/value.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/value.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c
 interpreter/conversions.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/conversions.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
 interpreter/bindings.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/bindings.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
 interpreter/arithmetic.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/arithmetic.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
 interpreter/interpret.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/interpret.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
 TAC/TAC.h
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/TAC/TAC.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 TAC/TAC.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/TAC/TAC.c
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 interpreter/prints.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/interpreter/prints.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
 Google_Tests/interpreter/interpreterTest.c
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/environment.h
-
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/types/value.h
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
 

@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 include_directories(Header_Files)
 include_directories(Lexer_Parser_Files)
-include_directories(types)
+include_directories(interpreter/types)
 
 add_executable(Compiler_2_0
         Header_Files/arithmetic.h
@@ -18,8 +18,8 @@ add_executable(Compiler_2_0
         Lexer_Parser_Files/nodes.h
         Lexer_Parser_Files/symbol_table.c
         Lexer_Parser_Files/token.h
-        types/environment.h
-        types/value.h
+        interpreter/types/environment.h
+        interpreter/types/value.h
         main.c)
 
 add_subdirectory(Google_Tests)

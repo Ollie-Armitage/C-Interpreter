@@ -1,5 +1,4 @@
 VALUE *name_method(TOKEN *token, FRAME *frame) {
-
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
         while (bindings != NULL) {
