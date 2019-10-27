@@ -29,8 +29,8 @@ CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/bindings.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/conversions.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/interpret.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/prints.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/types/environment.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/types/value.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/value.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../main.c
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../types/environment.h
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../types/value.h
 

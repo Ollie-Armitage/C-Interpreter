@@ -8,39 +8,45 @@
 
 ../Lexer_Parser_Files/C.tab.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
 stdio.h
 -
+string.h
+-
 dirent.h
-/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/dirent.h
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/dirent.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 token.h
-/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
 Lexer_Parser_Files/C.tab.h
 -
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
 ctype.h
 -
 
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h
 
-/home/Ollie/CLionProjects/Compiler_2.0/main.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h
+
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+
+/home/ollie/CLionProjects/Compiler_2.0/main.c
 stdio.h
 -
 stdlib.h
@@ -48,33 +54,29 @@ stdlib.h
 string.h
 -
 Lexer_Parser_Files/nodes.h
-/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
+/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 Lexer_Parser_Files/C.tab.h
 -
-types/value.h
-/home/Ollie/CLionProjects/Compiler_2.0/types/value.h
-types/environment.h
-/home/Ollie/CLionProjects/Compiler_2.0/types/environment.h
+interpreter/types/value.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h
+interpreter/types/environment.h
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h
 interpreter/value.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c
 interpreter/conversions.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
 interpreter/bindings.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
 interpreter/arithmetic.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
 interpreter/interpret.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
 TAC/TAC.h
-/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 TAC/TAC.c
-/home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 interpreter/prints.c
-/home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
+/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
 Google_Tests/interpreter/interpreterTest.c
-/home/Ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
-
-/home/Ollie/CLionProjects/Compiler_2.0/types/environment.h
-
-/home/Ollie/CLionProjects/Compiler_2.0/types/value.h
+/home/ollie/CLionProjects/Compiler_2.0/Google_Tests/interpreter/interpreterTest.c
 

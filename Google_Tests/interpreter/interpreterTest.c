@@ -1,8 +1,10 @@
 #include <stdio.h>
+#include <string.h>
 #include "dirent.h"
 
-void testLiteral() {
+void runTests() {
     struct dirent *de;
+
 
     const char *buffer = "Google_Tests/Test_Files/straight-line";
     DIR *dr = opendir(buffer);
@@ -12,8 +14,10 @@ void testLiteral() {
     }
 
     while ((de = readdir(dr)) != NULL) {
-        printf("%s\n", de->d_name);
-        closedir(dr);
+        freopen(strcat("Google_Tests/Test_Files/straight-line/", de->d_name), "r", stdin);
+
     }
+
+    closedir(dr);
 
 }

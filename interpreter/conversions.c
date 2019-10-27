@@ -10,8 +10,10 @@ VALUE *nodeToValue(NODE *node) {
     } else if (n->type == STRING_LITERAL) {
         endValue->type = 2;
         endValue->v.string = n->lexeme;
+        return endValue;
     }
 
+    free(endValue);
     return NULL;
 }
 
