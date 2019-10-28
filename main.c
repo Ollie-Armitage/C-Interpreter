@@ -55,6 +55,7 @@ NODE* buildAST(){
 
         }
         else{
+
             char* fileDirectory = (char*)malloc(strlen(directory) + strlen(de->d_name));
             fileDirectory =  strcat(fileDirectory, directory);
             printf("%s", fileDirectory);
