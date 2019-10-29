@@ -1,6 +1,0 @@
-int main(){
-    int a = 137;
-    int b = 236;
-    int inner_main(int c, int d);
-    return a;
-}

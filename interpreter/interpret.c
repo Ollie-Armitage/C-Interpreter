@@ -1,4 +1,4 @@
-#include <Lexer_Parser_Files/C.tab.h>
+#include "Lexer_Parser_Files/C.tab.h"
 
 VALUE *block_method(NODE *block, ENV *e);
 

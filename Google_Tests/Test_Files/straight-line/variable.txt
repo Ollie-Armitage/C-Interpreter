@@ -1,4 +1,0 @@
-int main(){
-    int a = 137;
-    return a;
-}

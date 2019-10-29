@@ -3,7 +3,6 @@
 #include <string.h>
 
 #include "Lexer_Parser_Files/nodes.h"
-#include <Lexer_Parser_Files/C.tab.h>
 #include "interpreter/types/value.h"
 #include "interpreter/types/environment.h"
 #include "interpreter/value.c"
@@ -27,7 +26,7 @@ extern NODE *ans;
 extern void init_symbtable(void);
 
 void interpreter(NODE *node) {
-    ENV *e = malloc(sizeof(ENV *));
+    ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
     block_method(node, e);
     free(e->frames);
@@ -39,8 +38,7 @@ NODE* buildAST(){
     NODE* tree;
     init_symbtable();
 
-    char* directory= "Google_Tests/Test_Files/straight-line/";
-
+    const char* directory = "Test_Files/straight-line/";
 
     struct dirent *de;
     DIR *dr = opendir(directory);
@@ -56,15 +54,15 @@ NODE* buildAST(){
         }
         else{
 
-            char* fileDirectory = (char*)malloc(strlen(directory) + strlen(de->d_name));
-            fileDirectory =  strcat(fileDirectory, directory);
-            printf("%s", fileDirectory);
+            char* directoryName = (char*)malloc(strlen(directory));
+            strcat(directoryName, directory);
+            printf("%s", directoryName);
 
-            strcat(fileDirectory, de->d_name);
-            printf("%s", fileDirectory);
+            strcat(directoryName, de->d_name);
+            printf("%s", directoryName);
 
             printf("\n");
-            freopen(fileDirectory, "r", stdin);
+            freopen(directoryName, "r", stdin);
             yyparse();
             printf("\n");
 
