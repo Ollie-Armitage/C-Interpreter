@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <dirent.h>
 
 #include "Lexer_Parser_Files/nodes.h"
+#include "Lexer_Parser_Files/C.tab.h"
 #include "interpreter/types/value.h"
 #include "interpreter/types/environment.h"
 #include "interpreter/value.c"
@@ -13,8 +15,6 @@
 #include "TAC/TAC.h"
 #include "TAC/TAC.c"
 #include "interpreter/prints.c"
-
-#include "Google_Tests/interpreter/interpreterTest.c"
 
 
 extern int yydebug;
@@ -38,7 +38,7 @@ NODE* buildAST(){
     NODE* tree;
     init_symbtable();
 
-    const char* directory = "Test_Files/straight-line/";
+    const char *directory = "interpreter/Test_Files/straight-line/";
 
     struct dirent *de;
     DIR *dr = opendir(directory);
@@ -54,12 +54,11 @@ NODE* buildAST(){
         }
         else{
 
-            char* directoryName = (char*)malloc(strlen(directory));
+            char *directoryName = (char *) malloc(strlen(directory) + strlen(de->d_name) + 1);
             strcat(directoryName, directory);
             printf("%s", directoryName);
 
             strcat(directoryName, de->d_name);
-            printf("%s", directoryName);
 
             printf("\n");
             freopen(directoryName, "r", stdin);

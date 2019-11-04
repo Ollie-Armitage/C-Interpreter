@@ -49,14 +49,18 @@ VALUE *return_method(NODE *tree, ENV *e) {
 
     if (answer->type == 0) {
         printf("%d\n", answer->v.integer);
+        return answer;
     } else if (answer->type == 1) {
         if (answer->v.boolean == 0) {
             printf("False\n");
+            return (VALUE *) 0;
         } else if (answer->v.boolean == 1) {
             printf("True\n");
+            return (VALUE *) 1;
         }
     } else if (answer->type == 2) {
         printf("%s", answer->v.string);
+        return answer;
     } else {
         printf("No valid return type.");
         free(answer);

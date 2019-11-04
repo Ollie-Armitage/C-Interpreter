@@ -3,7 +3,7 @@
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
     <excludeRoots>
-      <file path="$PROJECT_DIR$/Google_Tests" />
+      <file path="$PROJECT_DIR$/compiler_tests/Google_Tests" />
     </excludeRoots>
   </component>
   <component name="JavaScriptSettings">

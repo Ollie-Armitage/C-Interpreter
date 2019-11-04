@@ -1,3 +1,1 @@
-"E:\Programs\CLion 2019.2.4\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\Compiler_2_0.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\Compiler_2_0.dir/objects.a @CMakeFiles\Compiler_2_0.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Compiler_2_0.dir/objects.a -Wl,--no-whole-archive  -o Compiler_2_0.exe -Wl,--out-implib,libCompiler_2_0.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Compiler_2_0.dir\linklibs.rsp
+/usr/lib64/ccache/cc -g   CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o CMakeFiles/Compiler_2_0.dir/main.c.o  -o Compiler_2_0 

@@ -21,5 +21,3 @@ add_executable(Compiler_2_0
         interpreter/types/environment.h
         interpreter/types/value.h
         main.c)
-
-add_subdirectory(Google_Tests)

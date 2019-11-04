@@ -1,36 +1,3 @@
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/list_install_components.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/install/local.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/install.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/CMakeFiles/install/strip.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/list_install_components.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/Google_Tests_run.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/install/local.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/install.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/edit_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/rebuild_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/CMakeFiles/install/strip.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/install/local.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/install.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/edit_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/rebuild_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/list_install_components.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/CMakeFiles/install/strip.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/install/local.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/install.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/edit_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/gmock_main.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/gmock.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/rebuild_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/list_install_components.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googlemock/CMakeFiles/install/strip.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/list_install_components.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/gtest.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/gtest_main.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/install/local.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/install.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/edit_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/rebuild_cache.dir
-G:/Google Drive/University/Year 3/CM30171 - Compilers/Compiler_2.0/cmake-build-debug/Google_Tests/libs/googletest/CMakeFiles/install/strip.dir
+/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir
+/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
