@@ -12,3 +12,9 @@ typedef struct frame {
 typedef struct ENV {
     FRAME* frames;
 } ENV;
+
+typedef struct closure {
+    FRAME *env;
+    NODE *ids;
+    NODE *body;
+} CLOSURE;

@@ -15,6 +15,7 @@
 #include "TAC/TAC.h"
 #include "TAC/TAC.c"
 #include "interpreter/prints.c"
+#include "interpreter/closures.c"
 
 
 extern int yydebug;
@@ -33,12 +34,40 @@ void interpreter(NODE *node) {
     free(e);
 }
 
-NODE* buildAST(){
+// buildAST Should take the input parameter of a specific file directory, and output the tree node.
 
-    NODE* tree;
-    init_symbtable();
+NODE *buildAST(char *fileDirectory) {
 
-    const char *directory = "interpreter/Test_Files/straight-line/";
+
+    printf("\n");
+    freopen(fileDirectory, "r", stdin);
+    yyparse();
+    printf("\n");
+
+    return ans;
+
+}
+
+// Interprets the tree built from the file in the directory, asserts something against the return of that.
+
+void runTest(char *fileDirectory) {
+    NODE *tree = buildAST(fileDirectory);
+    interpreter(tree);
+}
+
+// Run tests should run through the directory of all tests. (0 for interpreter, 1 for TAC, 2 for Machine code).
+
+void runAllTests(int mode) {
+
+    char *directory = NULL;
+
+    if (mode == 0) {
+        directory = "interpreter/Test_Files/straight-line/";
+    } else if (mode == 1) {
+        directory = "TAC/Test_Files/";
+    } else {
+
+    }
 
     struct dirent *de;
     DIR *dr = opendir(directory);
@@ -56,37 +85,35 @@ NODE* buildAST(){
 
             char *directoryName = (char *) malloc(strlen(directory) + strlen(de->d_name) + 1);
             strcat(directoryName, directory);
-            printf("%s", directoryName);
 
             strcat(directoryName, de->d_name);
+            printf("%s", directoryName);
 
-            printf("\n");
-            freopen(directoryName, "r", stdin);
-            yyparse();
-            printf("\n");
-
-            tree = ans;
+            runTest(directoryName);
         }
     }
 
     closedir(dr);
 
 
-    return tree;
 }
+
+
+// BuildAST should use the directory name to read in an open file to yyparse,
+
+
 
 int main(int argc, char **argv) {
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
 
+    init_symbtable();
+
     printf("--C COMPILER\n");
 
-    NODE* tree = buildAST();
+    runAllTests(0);
 
 
     printf("\nEvaluating tree...\n");
-
-    interpreter(tree);
-    tacGenerator(tree);
 
 
     return 0;

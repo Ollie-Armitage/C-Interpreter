@@ -10,7 +10,10 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return nodeToValue(tree); }
-    else if (tree->type == RETURN) { VALUE* answer = return_method(tree->left, e); free(answer);}
+    else if (tree->type == RETURN) {
+        VALUE *answer = return_method(tree->left, e);
+        //free(answer);
+    }
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) declaration_method((TOKEN *) tree->right->left, e->frames);
         else declaration_method((TOKEN *) tree->right->left->left, e->frames);
@@ -48,21 +51,21 @@ VALUE *return_method(NODE *tree, ENV *e) {
 
 
     if (answer->type == 0) {
-        printf("%d\n", answer->v.integer);
+        printf("\nAnswer: %d\n\n", answer->v.integer);
         return answer;
     } else if (answer->type == 1) {
         if (answer->v.boolean == 0) {
-            printf("False\n");
+            printf("\nAnswer: False\n\n");
             return (VALUE *) 0;
         } else if (answer->v.boolean == 1) {
-            printf("True\n");
+            printf("\nAnswer: True\n\n");
             return (VALUE *) 1;
         }
     } else if (answer->type == 2) {
-        printf("%s", answer->v.string);
+        printf("\nAnswer: %s\n\n", answer->v.string);
         return answer;
     } else {
-        printf("No valid return type.");
+        printf("\nAnswer: No valid return type.\n\n");
         free(answer);
         return NULL;
     }

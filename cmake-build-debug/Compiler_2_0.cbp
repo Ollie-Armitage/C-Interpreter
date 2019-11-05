@@ -109,6 +109,9 @@
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
+		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c">
+			<Option target="Compiler_2_0"/>
+		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>

@@ -20,4 +20,4 @@ add_executable(Compiler_2_0
         Lexer_Parser_Files/token.h
         interpreter/types/environment.h
         interpreter/types/value.h
-        main.c)
+        main.c interpreter/closures.c)

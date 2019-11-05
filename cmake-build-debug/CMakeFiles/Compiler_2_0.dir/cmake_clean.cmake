@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o"
   "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
   "CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
+  "CMakeFiles/Compiler_2_0.dir/interpreter/closures.c.o"
   "CMakeFiles/Compiler_2_0.dir/main.c.o"
   "Compiler_2_0"
   "Compiler_2_0.pdb"

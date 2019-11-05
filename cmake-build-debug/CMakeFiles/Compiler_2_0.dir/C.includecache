@@ -22,6 +22,8 @@ token.h
 
 /home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
 
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c
+
 /home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
 
 /home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
@@ -71,4 +73,6 @@ TAC/TAC.c
 /home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
 interpreter/prints.c
 /home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
+interpreter/closures.c
+/home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c
 
