@@ -18,21 +18,17 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o
  ../Lexer_Parser_Files/C.tab.h
  ../Lexer_Parser_Files/token.h
  /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c
-CMakeFiles/Compiler_2_0.dir/interpreter/closures.c.o
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c
 CMakeFiles/Compiler_2_0.dir/main.c.o
- /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.h
- /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
- /home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
- /home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.c
- /home/Ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/conversions.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/prints.c
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h
- /home/Ollie/CLionProjects/Compiler_2.0/interpreter/value.c
+ ../Lexer_Parser_Files/C.tab.h
+ ../Lexer_Parser_Files/nodes.h
+ ../Lexer_Parser_Files/token.h
+ ../interpreter/arithmetic.c
+ ../interpreter/bindings.c
+ ../interpreter/closures.c
+ ../interpreter/conversions.c
+ ../interpreter/interpret.c
+ ../interpreter/types/environment.h
+ ../interpreter/types/value.h
+ ../interpreter/value.c
+ /home/Ollie/CLionProjects/Compiler_2.0/interpreter/loadHeaders.c
  /home/Ollie/CLionProjects/Compiler_2.0/main.c

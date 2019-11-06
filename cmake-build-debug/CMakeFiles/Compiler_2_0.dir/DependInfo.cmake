@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
-  "/home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/interpreter/closures.c.o"
   "/home/Ollie/CLionProjects/Compiler_2.0/main.c" "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
@@ -16,9 +15,6 @@ set(CMAKE_C_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../."
-  "../Header_Files"
-  "../Lexer_Parser_Files"
-  "../interpreter/types"
   )
 
 # Targets to which this target links.

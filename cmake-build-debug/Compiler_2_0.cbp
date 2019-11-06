@@ -35,9 +35,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/."/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/Header_Files"/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include"/>
@@ -57,9 +57,9 @@
 				<Option compiler="gcc"/>
 				<Compiler>
 					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/."/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/Header_Files"/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files"/>
-					<Add directory="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/x86_64-redhat-linux"/>
+					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/../../../../include/c++/9/backward"/>
 					<Add directory="/usr/lib/gcc/x86_64-redhat-linux/9/include"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/usr/include"/>
@@ -82,16 +82,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Header_Files/arithmetic.h">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Header_Files/main.h">
-			<Option target="Compiler_2_0"/>
-		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c">
@@ -104,18 +95,6 @@
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/closures.c">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types/environment.h">
-			<Option target="Compiler_2_0"/>
-		</Unit>
-		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types/value.h">
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/Ollie/CLionProjects/Compiler_2.0/main.c">

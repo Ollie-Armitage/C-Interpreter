@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/Ollie/CLionProjects/Compiler_2.0/. -I/home/Ollie/CLionProjects/Compiler_2.0/Header_Files -I/home/Ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files -I/home/Ollie/CLionProjects/Compiler_2.0/interpreter/types 
+C_INCLUDES = -I/home/Ollie/CLionProjects/Compiler_2.0/. 
 
