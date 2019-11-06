@@ -27,6 +27,7 @@ CMakeFiles/Compiler_2_0.dir/main.c.o
  ../interpreter/closures.c
  ../interpreter/conversions.c
  ../interpreter/interpret.c
+ ../interpreter/prints.c
  ../interpreter/types/environment.h
  ../interpreter/types/value.h
  ../interpreter/value.c

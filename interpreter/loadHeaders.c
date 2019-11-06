@@ -17,3 +17,4 @@
 #include "interpreter/bindings.c"
 #include "interpreter/interpret.c"
 #include "interpreter/closures.c"
+#include "interpreter/prints.c"

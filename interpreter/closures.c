@@ -1,4 +1,4 @@
-FRAME *extend_frame(FRAME *env, NODE *ids, NODE *args) {
+FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
     NODE *ip;
     NODE *ap;
 
@@ -12,14 +12,13 @@ FRAME *extend_frame(FRAME *env, NODE *ids, NODE *args) {
     // For the sequence of identifiers and the sequence of arguments, while neither of them are equal to null, work through them.
 
 
-    for (ip = ids; ip != NULL; ip = ip->right) {
-        for (ap = args; ap != NULL; ap = ap->right) {
-            BINDING *new = malloc(sizeof(BINDING));
 
-            if (new != 0) {
-                new->name = (TOKEN *) ip->left;
-            }
-
+    for (ip = ids, ap = args; ip != NULL && ap != NULL; ip = ip->right, ap = ap->right) {
+        BINDING *new = malloc(sizeof(BINDING));
+        if (new != 0) {
+            new->name = (TOKEN *) ip->left;
+            new->val = interpret(ip->right, env);
+            new->next = (struct BINDING *) newEnv->bindings;
         }
     }
 }
