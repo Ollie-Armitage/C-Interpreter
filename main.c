@@ -47,6 +47,5 @@ int main(int argc, char **argv) {
 
     runScenario("scenarios/literal.txt");
 
-
     return 0;
 }

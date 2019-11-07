@@ -2,9 +2,9 @@
 <project version="4">
   <component name="CMakeWorkspace" PROJECT_DIR="$PROJECT_DIR$" />
   <component name="CidrRootsConfiguration">
-    <excludeRoots>
-      <file path="$PROJECT_DIR$/compiler_tests/Google_Tests" />
-    </excludeRoots>
+    <sourceRoots>
+      <file path="$PROJECT_DIR$/Lexer_Parser_Files" />
+    </sourceRoots>
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />

@@ -4,7 +4,6 @@ set(CMAKE_C_STANDARD 11)
 
 include_directories(.)
 
-
 add_executable(Compiler_2_0
         Lexer_Parser_Files/C.tab.c
         Lexer_Parser_Files/lex.yy.c

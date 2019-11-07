@@ -1,4 +1,4 @@
-The system is: Linux - 5.3.6-200.fc30.x86_64 - x86_64
+The system is: Linux - 5.3.7-200.fc30.x86_64 - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/lib64/ccache/cc 
 Build flags: 
@@ -12,16 +12,29 @@ Compilation of the C compiler identification source "CMakeCCompilerId.c" produce
 
 The C compiler identification is GNU, found in "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out"
 
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /usr/lib64/ccache/c++ 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out"
+
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_e4e4d/fast && /usr/bin/gmake -f CMakeFiles/cmTC_e4e4d.dir/build.make CMakeFiles/cmTC_e4e4d.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_a5d0a/fast && /usr/bin/gmake -f CMakeFiles/cmTC_a5d0a.dir/build.make CMakeFiles/cmTC_a5d0a.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_e4e4d.dir/testCCompiler.c.o
-/usr/lib64/ccache/cc    -o CMakeFiles/cmTC_e4e4d.dir/testCCompiler.c.o   -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_e4e4d
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e4e4d.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc      CMakeFiles/cmTC_e4e4d.dir/testCCompiler.c.o  -o cmTC_e4e4d 
+Building C object CMakeFiles/cmTC_a5d0a.dir/testCCompiler.c.o
+/usr/lib64/ccache/cc    -o CMakeFiles/cmTC_a5d0a.dir/testCCompiler.c.o   -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_a5d0a
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a5d0a.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc      CMakeFiles/cmTC_a5d0a.dir/testCCompiler.c.o  -o cmTC_a5d0a 
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -29,10 +42,10 @@ gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_9ac00/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9ac00.dir/build.make CMakeFiles/cmTC_9ac00.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_b5aeb/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b5aeb.dir/build.make CMakeFiles/cmTC_b5aeb.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o
-/usr/lib64/ccache/cc   -v -o CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCCompilerABI.c
+Building C object CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o
+/usr/lib64/ccache/cc   -v -o CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 OFFLOAD_TARGET_NAMES=nvptx-none
@@ -66,9 +79,9 @@ GNU assembler version 2.31.1 (x86_64-redhat-linux) using BFD version version 2.3
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_e65fa.dir/CMakeCCompilerABI.c.o' '-mtune=generic' '-march=x86-64'
-Linking C executable cmTC_9ac00
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ac00.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc     -v CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o  -o cmTC_9ac00 
+Linking C executable cmTC_b5aeb
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5aeb.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc     -v CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o  -o cmTC_b5aeb 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper
@@ -80,9 +93,9 @@ Thread model: posix
 gcc version 9.2.1 20190827 (Red Hat 9.2.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9ac00' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cctJjrnU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_9ac00 /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9ac00' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b5aeb' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cccTSaLg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_b5aeb /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b5aeb' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -104,10 +117,10 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_9ac00/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9ac00.dir/build.make CMakeFiles/cmTC_9ac00.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_b5aeb/fast && /usr/bin/gmake -f CMakeFiles/cmTC_b5aeb.dir/build.make CMakeFiles/cmTC_b5aeb.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/lib64/ccache/cc   -v -o CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCCompilerABI.c]
+  ignore line: [Building C object CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/lib64/ccache/cc   -v -o CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -141,9 +154,9 @@ Parsed C implicit link information from above output:
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_e65fa.dir/CMakeCCompilerABI.c.o' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking C executable cmTC_9ac00]
-  ignore line: [/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9ac00.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/cc     -v CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o  -o cmTC_9ac00 ]
+  ignore line: [Linking C executable cmTC_b5aeb]
+  ignore line: [/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5aeb.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib64/ccache/cc     -v CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o  -o cmTC_b5aeb ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper]
@@ -155,13 +168,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 9.2.1 20190827 (Red Hat 9.2.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_9ac00' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cctJjrnU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_9ac00 /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_b5aeb' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cccTSaLg.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_b5aeb /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cctJjrnU.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cccTSaLg.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -176,7 +189,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_9ac00] ==> ignore
+    arg [cmTC_b5aeb] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o] ==> ignore
@@ -185,7 +198,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/9/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/9/../../..]
-    arg [CMakeFiles/cmTC_9ac00.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_b5aeb.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -209,29 +222,16 @@ Parsed C implicit link information from above output:
   implicit fwks: []
 
 
-Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
-Compiler: /usr/lib64/ccache/c++ 
-Build flags: 
-Id flags:  
-
-The output was:
-0
-
-
-Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
-
-The CXX compiler identification is GNU, found in "/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out"
-
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_d9cb8/fast && /usr/bin/gmake -f CMakeFiles/cmTC_d9cb8.dir/build.make CMakeFiles/cmTC_d9cb8.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_c72b9/fast && /usr/bin/gmake -f CMakeFiles/cmTC_c72b9.dir/build.make CMakeFiles/cmTC_c72b9.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_d9cb8.dir/testCXXCompiler.cxx.o
-/usr/lib64/ccache/c++     -o CMakeFiles/cmTC_d9cb8.dir/testCXXCompiler.cxx.o -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_d9cb8
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d9cb8.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++       CMakeFiles/cmTC_d9cb8.dir/testCXXCompiler.cxx.o  -o cmTC_d9cb8 
+Building CXX object CMakeFiles/cmTC_c72b9.dir/testCXXCompiler.cxx.o
+/usr/lib64/ccache/c++     -o CMakeFiles/cmTC_c72b9.dir/testCXXCompiler.cxx.o -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_c72b9
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c72b9.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++       CMakeFiles/cmTC_c72b9.dir/testCXXCompiler.cxx.o  -o cmTC_c72b9 
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -239,10 +239,10 @@ gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_ff31c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ff31c.dir/build.make CMakeFiles/cmTC_ff31c.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_e2b21/fast && /usr/bin/gmake -f CMakeFiles/cmTC_e2b21.dir/build.make CMakeFiles/cmTC_e2b21.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o
-/usr/lib64/ccache/c++    -v -o CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp
+Building CXX object CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o
+/usr/lib64/ccache/c++    -v -o CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 OFFLOAD_TARGET_NAMES=nvptx-none
@@ -279,9 +279,9 @@ GNU assembler version 2.31.1 (x86_64-redhat-linux) using BFD version version 2.3
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/
 COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_2812b.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-Linking CXX executable cmTC_ff31c
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff31c.dir/link.txt --verbose=1
-/usr/lib64/ccache/c++      -v CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ff31c 
+Linking CXX executable cmTC_e2b21
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2b21.dir/link.txt --verbose=1
+/usr/lib64/ccache/c++      -v CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e2b21 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper
@@ -293,9 +293,9 @@ Thread model: posix
 gcc version 9.2.1 20190827 (Red Hat 9.2.1-1) (GCC) 
 COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff31c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfNB2DM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ff31c /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff31c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e2b21' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cca0o2Us.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e2b21 /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e2b21' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -323,10 +323,10 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_ff31c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_ff31c.dir/build.make CMakeFiles/cmTC_ff31c.dir/build]
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_e2b21/fast && /usr/bin/gmake -f CMakeFiles/cmTC_e2b21.dir/build.make CMakeFiles/cmTC_e2b21.dir/build]
   ignore line: [gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/lib64/ccache/c++    -v -o CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Building CXX object CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/lib64/ccache/c++    -v -o CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -363,9 +363,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/]
   ignore line: [COLLECT_GCC_OPTIONS='-v' '-c' '-o' 'CMakeFiles/cmTC_2812b.dir/CMakeCXXCompilerABI.cpp.o' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking CXX executable cmTC_ff31c]
-  ignore line: [/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ff31c.dir/link.txt --verbose=1]
-  ignore line: [/usr/lib64/ccache/c++      -v CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_ff31c ]
+  ignore line: [Linking CXX executable cmTC_e2b21]
+  ignore line: [/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e2b21.dir/link.txt --verbose=1]
+  ignore line: [/usr/lib64/ccache/c++      -v CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_e2b21 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper]
@@ -377,13 +377,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 9.2.1 20190827 (Red Hat 9.2.1-1) (GCC) ]
   ignore line: [COMPILER_PATH=/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/9/:/usr/libexec/gcc/x86_64-redhat-linux/:/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-redhat-linux/9/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/usr/lib/gcc/x86_64-redhat-linux/9/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_ff31c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccfNB2DM.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ff31c /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_e2b21' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/libexec/gcc/x86_64-redhat-linux/9/collect2 -plugin /usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so -plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper -plugin-opt=-fresolution=/tmp/cca0o2Us.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --no-add-needed --eh-frame-hdr --hash-style=gnu -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e2b21 /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o /usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o -L/usr/lib/gcc/x86_64-redhat-linux/9 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/usr/lib/gcc/x86_64-redhat-linux/9/../../.. CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-redhat-linux/9/crtend.o /usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crtn.o]
     arg [/usr/libexec/gcc/x86_64-redhat-linux/9/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/libexec/gcc/x86_64-redhat-linux/9/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/libexec/gcc/x86_64-redhat-linux/9/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccfNB2DM.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cca0o2Us.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -398,7 +398,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ff31c] ==> ignore
+    arg [cmTC_e2b21] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/../../../../lib64/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-redhat-linux/9/crtbegin.o] ==> ignore
@@ -407,7 +407,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
     arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
     arg [-L/usr/lib/gcc/x86_64-redhat-linux/9/../../..] ==> dir [/usr/lib/gcc/x86_64-redhat-linux/9/../../..]
-    arg [CMakeFiles/cmTC_ff31c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_e2b21.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -430,13 +430,13 @@ Parsed CXX implicit link information from above output:
 Determining if the include file pthread.h exists passed with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_05c1e/fast && /usr/bin/gmake -f CMakeFiles/cmTC_05c1e.dir/build.make CMakeFiles/cmTC_05c1e.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_258fc/fast && /usr/bin/gmake -f CMakeFiles/cmTC_258fc.dir/build.make CMakeFiles/cmTC_258fc.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_05c1e.dir/CheckIncludeFile.c.o
-/usr/lib64/ccache/cc    -o CMakeFiles/cmTC_05c1e.dir/CheckIncludeFile.c.o   -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_05c1e
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_05c1e.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc      -rdynamic CMakeFiles/cmTC_05c1e.dir/CheckIncludeFile.c.o  -o cmTC_05c1e 
+Building C object CMakeFiles/cmTC_258fc.dir/CheckIncludeFile.c.o
+/usr/lib64/ccache/cc    -o CMakeFiles/cmTC_258fc.dir/CheckIncludeFile.c.o   -c /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_258fc
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_258fc.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc      -rdynamic CMakeFiles/cmTC_258fc.dir/CheckIncludeFile.c.o  -o cmTC_258fc 
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
@@ -444,13 +444,13 @@ gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-
 Determining if the function pthread_create exists in the pthread passed with the following output:
 Change Dir: /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/gmake cmTC_7eed9/fast && /usr/bin/gmake -f CMakeFiles/cmTC_7eed9.dir/build.make CMakeFiles/cmTC_7eed9.dir/build
+Run Build Command(s):/usr/bin/gmake cmTC_5ca9c/fast && /usr/bin/gmake -f CMakeFiles/cmTC_5ca9c.dir/build.make CMakeFiles/cmTC_5ca9c.dir/build
 gmake[1]: Entering directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7eed9.dir/CheckFunctionExists.c.o
-/usr/lib64/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_7eed9.dir/CheckFunctionExists.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CheckFunctionExists.c
-Linking C executable cmTC_7eed9
-/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7eed9.dir/link.txt --verbose=1
-/usr/lib64/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_7eed9.dir/CheckFunctionExists.c.o  -o cmTC_7eed9 -lpthread 
+Building C object CMakeFiles/cmTC_5ca9c.dir/CheckFunctionExists.c.o
+/usr/lib64/ccache/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_5ca9c.dir/CheckFunctionExists.c.o   -c /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/share/cmake-3.15/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5ca9c
+/home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ca9c.dir/link.txt --verbose=1
+/usr/lib64/ccache/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_5ca9c.dir/CheckFunctionExists.c.o  -o cmTC_5ca9c -lpthread 
 gmake[1]: Leaving directory '/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/CMakeTmp'
 
 
