@@ -1,3 +1,8 @@
+#ifndef COMPILER_2_0_ENVIRONMENT_H
+#define COMPILER_2_0_ENVIRONMENT_H
+
+#include "value.h"
+
 typedef struct binding{
     TOKEN* name;
     VALUE* val;
@@ -18,3 +23,5 @@ typedef struct closure {
     NODE *ids;
     NODE *body;
 } CLOSURE;
+
+#endif //COMPILER_2_0_ENVIRONMENT_H

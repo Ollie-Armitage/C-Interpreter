@@ -1,3 +1,8 @@
+#ifndef COMPILER_2_0_PRINTS_C
+#define COMPILER_2_0_PRINTS_C
+
+
+#include "interpreter/headers/prints.h"
 #include <ctype.h>
 
 char *named(int t) {
@@ -76,3 +81,5 @@ void print_tree0(NODE *tree, int level) {
 void print_tree(NODE *tree) {
     print_tree0(tree, 0);
 }
+
+#endif //COMPILERS_2_0_PRINTS_C

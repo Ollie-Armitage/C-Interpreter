@@ -26,4 +26,4 @@ depend:
 
 dist:	symbol_table.c nodes.c main.c Makefile C.flex C.y nodes.h token.h
 	tar cvfz mycc.tgz symbol_table.c nodes.c main.c Makefile C.flex C.y \
-		nodes.h token.h
+		nodes.h token.h *.c

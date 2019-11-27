@@ -1,4 +1,11 @@
-#include "interpreter/loadHeaders.c"
+#include <Lexer_Parser_Files/nodes.h>
+#include <interpreter/headers/environment.h>
+#include <interpreter/interpret.c>
+#include <interpreter/prints.c>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 
 extern int yydebug;
 
@@ -24,7 +31,6 @@ NODE *buildAST(char *fileDirectory) {
     freopen(fileDirectory, "r", stdin);
     yyparse();
     printf("\n");
-
     return ans;
 
 }
@@ -45,7 +51,7 @@ int main(int argc, char **argv) {
 
     printf("--C COMPILER\n");
 
-    runScenario("scenarios/literal.txt");
+    runScenario("scenarios/literal_comparison.txt");
 
     return 0;
 }

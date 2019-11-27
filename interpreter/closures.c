@@ -1,3 +1,8 @@
+#ifndef COMPILER_2_0_CLOSURES_C
+#define COMPILER_2_0_CLOSURES_C
+
+#include <interpreter/headers/closures.h>
+
 FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
     NODE *ip;
     NODE *ap;
@@ -22,3 +27,5 @@ FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
         }
     }
 }
+
+#endif //COMPILER_2_0_CLOSURES_C

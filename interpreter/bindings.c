@@ -1,3 +1,8 @@
+#ifndef COMPILER_2_0_BINDINGS_C
+#define COMPILER_2_0_BINDINGS_C
+
+#include <interpreter/headers/bindings.h>
+
 VALUE *name_method(TOKEN *token, FRAME *frame) {
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
@@ -38,3 +43,5 @@ VALUE *declaration_method(TOKEN *token, FRAME *frame) {
     printf("Binding Allocation Failed.\n");
 
 }
+
+#endif // BINDINGS_C

@@ -1,15 +1,23 @@
-VALUE *block_method(NODE *block, ENV *e);
+#ifndef COMPILER_2_0_INTERPRET_C
+#define COMPILER_2_0_INTERPRET_C
 
-VALUE *return_method(NODE *tree, ENV *e);
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <Lexer_Parser_Files/C.tab.h>
+#include <interpreter/headers/bindings.h>
+#include <interpreter/headers/arithmetic.h>
+#include <interpreter/headers/interpret.h>
+
 
 VALUE *interpret(NODE *tree, ENV *e) {
-    if (tree == NULL) return NULL;
+   if (tree == NULL) return NULL;
     if (tree->type == LEAF) { return interpret(tree->left, e); }
     else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
-    else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return nodeToValue(tree); }
+    else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return node_to_value(tree); }
     else if (tree->type == RETURN) {
-        VALUE *answer = return_method(tree->left, e);
+        VALUE* answer = return_method(tree->left, e);
         //free(answer);
     }
     else if (tree->type == '~') {
@@ -32,6 +40,24 @@ VALUE *interpret(NODE *tree, ENV *e) {
     }
 }
 
+VALUE *node_to_value(NODE *node) {
+    TOKEN *n = (TOKEN *) node;
+    VALUE *endValue = malloc(sizeof(VALUE));
+
+    if (n->type == CONSTANT) {
+        endValue->type = 0;
+        endValue->v.integer = n->value;//
+        return endValue;
+    } else if (n->type == STRING_LITERAL) {
+        endValue->type = 2;
+        endValue->v.string = n->lexeme;
+        return endValue;
+    }
+
+    free(endValue);
+    return NULL;
+}
+
 
 VALUE *block_method(NODE *block, ENV *e) {
     while (block != NULL) {
@@ -46,7 +72,6 @@ VALUE *return_method(NODE *tree, ENV *e) {
     if (answer == NULL) {
         return NULL;
     }
-
 
     if (answer->type == 0) {
         printf("\nAnswer: %d\n\n", answer->v.integer);
@@ -69,3 +94,5 @@ VALUE *return_method(NODE *tree, ENV *e) {
     }
     return answer;
 }
+
+#endif //COMPILER_2_0_INTERPRET_C

@@ -9,6 +9,6 @@ add_executable(Compiler_2_0
         Lexer_Parser_Files/lex.yy.c
         Lexer_Parser_Files/nodes.c
         Lexer_Parser_Files/symbol_table.c
-        main.c)
+        main.c interpreter/arithmetic_tests.c interpreter/headers/arithmetic.h interpreter/headers/bindings.h interpreter/headers/closures.h interpreter/headers/interpret.h interpreter/headers/prints.h)
 
 
