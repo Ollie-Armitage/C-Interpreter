@@ -14,13 +14,17 @@ token.h
 
 ../Lexer_Parser_Files/token.h
 
-../interpreter/headers/arithmetic.h
+../interpreter/arithmetic.c
+interpreter/headers/value.h
+-
 Lexer_Parser_Files/nodes.h
 -
-environment.h
-../interpreter/headers/environment.h
-value.h
-../interpreter/headers/value.h
+interpreter/headers/interpret.h
+-
+
+../interpreter/bindings.c
+interpreter/headers/bindings.h
+-
 
 ../interpreter/headers/bindings.h
 Lexer_Parser_Files/token.h
@@ -33,6 +37,8 @@ value.h
 ../interpreter/headers/environment.h
 value.h
 ../interpreter/headers/value.h
+Lexer_Parser_Files/nodes.h
+../interpreter/headers/Lexer_Parser_Files/nodes.h
 
 ../interpreter/headers/interpret.h
 Lexer_Parser_Files/nodes.h
@@ -55,11 +61,11 @@ stdio.h
 -
 Lexer_Parser_Files/C.tab.h
 -
-interpreter/headers/bindings.h
--
-interpreter/headers/arithmetic.h
--
 interpreter/headers/interpret.h
+-
+interpreter/arithmetic.c
+-
+interpreter/bindings.c
 -
 
 ../interpreter/prints.c

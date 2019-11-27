@@ -29,7 +29,8 @@ CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o: ../interpreter/ari
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/C.tab.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/nodes.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/token.h
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/arithmetic.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/arithmetic.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/bindings.c
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/bindings.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/environment.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/interpret.h

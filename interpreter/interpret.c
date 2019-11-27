@@ -5,9 +5,11 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <Lexer_Parser_Files/C.tab.h>
-#include <interpreter/headers/bindings.h>
-#include <interpreter/headers/arithmetic.h>
 #include <interpreter/headers/interpret.h>
+
+#include <interpreter/arithmetic.c>
+#include <interpreter/bindings.c>
+
 
 
 VALUE *interpret(NODE *tree, ENV *e) {

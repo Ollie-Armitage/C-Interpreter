@@ -30,7 +30,8 @@ CMakeFiles/Compiler_2_0.dir/main.c.o
  ../Lexer_Parser_Files/C.tab.h
  ../Lexer_Parser_Files/nodes.h
  ../Lexer_Parser_Files/token.h
- ../interpreter/headers/arithmetic.h
+ ../interpreter/arithmetic.c
+ ../interpreter/bindings.c
  ../interpreter/headers/bindings.h
  ../interpreter/headers/environment.h
  ../interpreter/headers/interpret.h

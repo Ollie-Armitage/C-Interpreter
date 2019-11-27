@@ -2,6 +2,7 @@
 #define COMPILER_2_0_ENVIRONMENT_H
 
 #include "value.h"
+#include "Lexer_Parser_Files/nodes.h"
 
 typedef struct binding{
     TOKEN* name;
