@@ -1,11 +1,6 @@
 #ifndef COMPILER_2_0_ARITHMETIC_H
 #define COMPILER_2_0_ARITHMETIC_H
 
-
-#include <Lexer_Parser_Files/nodes.h>
-#include "environment.h"
-#include "value.h"
-
 VALUE* add_method(NODE* left, NODE* right, ENV* e);
 VALUE* subtract_method(NODE* left, NODE* right, ENV* e);
 VALUE* multiply_method(NODE* left, NODE* right, ENV* e);

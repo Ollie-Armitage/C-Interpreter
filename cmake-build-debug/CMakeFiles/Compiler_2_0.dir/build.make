@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/92/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/97/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/92/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/97/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -57,18 +57,18 @@ include CMakeFiles/Compiler_2_0.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Compiler_2_0.dir/flags.make
 
-CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
-CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o: ../Lexer_Parser_Files/C.tab.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c
+CMakeFiles/Compiler_2_0.dir/main.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Compiler_2_0.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/main.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/main.c
 
-CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c > CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i
+CMakeFiles/Compiler_2_0.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Compiler_2_0.dir/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ollie/CLionProjects/Compiler_2.0/main.c > CMakeFiles/Compiler_2_0.dir/main.c.i
 
-CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s
+CMakeFiles/Compiler_2_0.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/main.c -o CMakeFiles/Compiler_2_0.dir/main.c.s
 
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o: ../Lexer_Parser_Files/lex.yy.c
@@ -83,9 +83,22 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.s
 
+CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
+CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o: ../Lexer_Parser_Files/C.tab.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c
+
+CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c > CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.i
+
+CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.s
+
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o: ../Lexer_Parser_Files/nodes.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c
 
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.i: cmake_force
@@ -98,7 +111,7 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.s: cmake_force
 
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: ../Lexer_Parser_Files/symbol_table.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c
 
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.i: cmake_force
@@ -109,53 +122,26 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c -o CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.s
 
-CMakeFiles/Compiler_2_0.dir/main.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/Compiler_2_0.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/main.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/main.c
-
-CMakeFiles/Compiler_2_0.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Compiler_2_0.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ollie/CLionProjects/Compiler_2.0/main.c > CMakeFiles/Compiler_2_0.dir/main.c.i
-
-CMakeFiles/Compiler_2_0.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/main.c -o CMakeFiles/Compiler_2_0.dir/main.c.s
-
-CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o: CMakeFiles/Compiler_2_0.dir/flags.make
-CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o: ../interpreter/arithmetic_tests.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o   -c /home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic_tests.c
-
-CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic_tests.c > CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.i
-
-CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic_tests.c -o CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.s
-
 # Object files for target Compiler_2_0
 Compiler_2_0_OBJECTS = \
-"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o" \
-"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o" \
-"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o" \
-"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o" \
 "CMakeFiles/Compiler_2_0.dir/main.c.o" \
-"CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o"
+"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o" \
+"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o" \
+"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o" \
+"CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
 
 # External object files for target Compiler_2_0
 Compiler_2_0_EXTERNAL_OBJECTS =
 
-Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o
+Compiler_2_0: CMakeFiles/Compiler_2_0.dir/main.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o
+Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/C.tab.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o
-Compiler_2_0: CMakeFiles/Compiler_2_0.dir/main.c.o
-Compiler_2_0: CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/build.make
+Compiler_2_0: interpreter/libinterpreter.a
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking C executable Compiler_2_0"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Compiler_2_0"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Compiler_2_0.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

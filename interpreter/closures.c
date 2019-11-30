@@ -2,11 +2,12 @@
 #define COMPILER_2_0_CLOSURES_C
 
 
-#include <interpreter/headers/closures.h>
+#include "headers/environment.h"
+#include <Lexer_Parser_Files/nodes.h>
 #include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <interpreter/headers/interpret.h>
+#include <stdio.h>
+#include "headers/interpret.h"
 
 FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
     NODE *ip;

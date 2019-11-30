@@ -256,6 +256,10 @@ function_definition
           $$ = make_node('D', make_node('d', $1, $2), $3); }
 	| declarator compound_statement { $$ = make_node('D', $1, $2); }
         ;
+
+
+
+
 %%
 #include <stdio.h>
 

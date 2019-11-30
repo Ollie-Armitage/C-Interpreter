@@ -1,7 +1,14 @@
 #ifndef COMPILER_2_0_BINDINGS_C
 #define COMPILER_2_0_BINDINGS_C
 
-#include <interpreter/headers/bindings.h>
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "headers/value.h"
+#include "headers/environment.h"
+#include "Lexer_Parser_Files/token.h"
+
 
 VALUE *name_method(TOKEN *token, FRAME *frame) {
     while (frame != NULL) {

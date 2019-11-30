@@ -1,9 +1,10 @@
 #ifndef COMPILER_2_0_PRINTS_C
 #define COMPILER_2_0_PRINTS_C
-
-
-#include "interpreter/headers/prints.h"
 #include <ctype.h>
+#include <stdio.h>
+
+#include <Lexer_Parser_Files/C.tab.h>
+#include "Lexer_Parser_Files/nodes.h"
 
 char *named(int t) {
     static char b[100];

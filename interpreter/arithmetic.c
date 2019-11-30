@@ -2,9 +2,10 @@
 #define COMPILER_2_0_ARITHMETIC_C
 
 
-#include <interpreter/headers/value.h>
 #include <Lexer_Parser_Files/nodes.h>
-#include <interpreter/headers/interpret.h>
+#include "headers/value.h"
+#include "headers/environment.h"
+#include "headers/interpret.h"
 
 VALUE* add_method(NODE* left, NODE* right, ENV* e){
     VALUE* answer = interpret(left, e);

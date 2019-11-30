@@ -6,5 +6,5 @@ C_FLAGS = -g   -std=gnu11
 
 C_DEFINES = 
 
-C_INCLUDES = -I/home/ollie/CLionProjects/Compiler_2.0/. 
+C_INCLUDES = -I/home/ollie/CLionProjects/Compiler_2.0/. -I/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug -I/home/ollie/CLionProjects/Compiler_2.0/interpreter 
 

@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/lex.yy.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/lex.yy.c.o"
   "/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
   "/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
-  "/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic_tests.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/interpreter/arithmetic_tests.c.o"
   "/home/ollie/CLionProjects/Compiler_2.0/main.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
@@ -16,10 +15,13 @@ set(CMAKE_C_COMPILER_ID "GNU")
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "../."
+  "."
+  "../interpreter"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
+  "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/CMakeFiles/interpreter.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

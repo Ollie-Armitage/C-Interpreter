@@ -1,10 +1,10 @@
-#include <Lexer_Parser_Files/nodes.h>
-#include <interpreter/headers/environment.h>
-#include <interpreter/interpret.c>
-#include <interpreter/prints.c>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "interpreter/headers/interpret.h"
+#include "interpreter/headers/environment.h"
+#include "interpreter/headers/prints.h"
+#include "Lexer_Parser_Files/nodes.h"
 
 
 extern int yydebug;
@@ -12,6 +12,9 @@ extern int yydebug;
 extern NODE *yyparse(void);
 
 extern NODE *ans;
+
+extern FILE* yyin;
+extern int yylex();
 
 extern void init_symbtable(void);
 
@@ -28,8 +31,23 @@ void interpreter(NODE *node) {
 NODE *buildAST(char *fileDirectory) {
 
     printf("\n");
-    freopen(fileDirectory, "r", stdin);
+
+    FILE *file;
+    file = fopen(fileDirectory, "r");
+    ssize_t read;
+    size_t len = 0;
+    char* line = NULL;
+    if(!file){
+        printf("Can't open file.");
+    }
+
+    yyin = file;
+
+
+    yylex();
     yyparse();
+    yyparse();
+
     printf("\n");
     return ans;
 
@@ -37,8 +55,11 @@ NODE *buildAST(char *fileDirectory) {
 
 // Interprets the tree built from the file in the directory, asserts something against the return of that.
 
-void runScenario(char *fileDirectory) {
-    NODE *tree = buildAST(fileDirectory);
+void interpret_file(char *fileDirectory) {
+
+
+    NODE *tree = buildAST(fileDirectory); // Causing scanf issue.
+
     print_tree(tree);
     interpreter(tree);
 }
@@ -47,11 +68,12 @@ void runScenario(char *fileDirectory) {
 int main(int argc, char **argv) {
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
 
+
+
     init_symbtable();
 
     printf("--C COMPILER\n");
-
-    runScenario("scenarios/literal_comparison.txt");
+    interpret_file("tests/literal_read_int");
 
     return 0;
 }

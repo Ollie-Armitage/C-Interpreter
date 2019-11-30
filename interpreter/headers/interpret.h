@@ -1,9 +1,9 @@
 #ifndef COMPILER_2_0_INTERPRET_H
 #define COMPILER_2_0_INTERPRET_H
 
-#include <Lexer_Parser_Files/nodes.h>
 #include "value.h"
 #include "environment.h"
+#include "Lexer_Parser_Files/nodes.h"
 
 
 VALUE *block_method(NODE *block, ENV *e);

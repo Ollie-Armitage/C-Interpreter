@@ -1,16 +1,25 @@
 #ifndef COMPILER_2_0_INTERPRET_C
 #define COMPILER_2_0_INTERPRET_C
 
+
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <Lexer_Parser_Files/C.tab.h>
-#include <interpreter/headers/interpret.h>
 
-#include <interpreter/arithmetic.c>
-#include <interpreter/bindings.c>
+#include "headers/value.h"
+#include "Lexer_Parser_Files/nodes.h"
+#include "headers/environment.h"
+#include "headers/bindings.h"
+#include "headers/arithmetic.h"
+#include "headers/apply.h"
 
+#include "Lexer_Parser_Files/C.tab.h"
 
+VALUE *node_to_value(NODE *pNode);
+
+VALUE *return_method(struct node *tree, ENV *e);
+
+VALUE *block_method(struct node *block, ENV *e);
 
 VALUE *interpret(NODE *tree, ENV *e) {
    if (tree == NULL) return NULL;
@@ -25,7 +34,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) declaration_method((TOKEN *) tree->right->left, e->frames);
         else declaration_method((TOKEN *) tree->right->left->left, e->frames);
-    } else if (tree->type == APPLY) {}
+    } else if (tree->type == APPLY) { return apply((TOKEN*)tree->left->left, interpret(tree->right, e)); }
     else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }
     else if (tree->type == '+') { return add_method(tree->left, tree->right, e); }
     else if (tree->type == '-') { return subtract_method(tree->left, tree->right, e); }
