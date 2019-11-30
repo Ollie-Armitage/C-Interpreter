@@ -5,7 +5,7 @@ typedef struct VALUE
 {
   int type;
   union {
-    int integer;
+    long int integer;
     int boolean;
     char* string;
   } v;

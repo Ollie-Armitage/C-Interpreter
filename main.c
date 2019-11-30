@@ -46,7 +46,6 @@ NODE *buildAST(char *fileDirectory) {
 
     yylex();
     yyparse();
-    yyparse();
 
     printf("\n");
     return ans;
