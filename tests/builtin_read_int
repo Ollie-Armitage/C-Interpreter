@@ -1,0 +1,4 @@
+int main(){
+    read_int();
+    return 0;
+}
