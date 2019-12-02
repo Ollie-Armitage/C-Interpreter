@@ -8,6 +8,10 @@
 
 ../Lexer_Parser_Files/token.h
 
+../interpreter/headers/bindings.h
+
+../interpreter/headers/value.h
+
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 token.h
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
@@ -41,6 +45,10 @@ stdio.h
 -
 string.h
 -
+interpreter/headers/value.h
+-
+dirent.h
+-
 interpreter/headers/interpret.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/interpret.h
 interpreter/headers/environment.h
@@ -49,4 +57,6 @@ interpreter/headers/prints.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/prints.h
 Lexer_Parser_Files/nodes.h
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
+interpreter/headers/bindings.h
+-
 

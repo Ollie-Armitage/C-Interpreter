@@ -15,7 +15,7 @@ VALUE* read_string();
 VALUE* apply(TOKEN* name, VALUE* value){
 
 
-    VALUE* answer = NULL;
+    VALUE* answer = malloc(sizeof(VALUE));
 
     if(strcmp(name->lexeme, "read_int") == 0){
         answer = read_int();

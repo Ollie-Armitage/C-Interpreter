@@ -3,6 +3,8 @@ project(Compiler_2_0)
 set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
+set(CMAKE_C_FLAGS  "-fprofile-arcs -ftest-coverage")
+
 add_subdirectory(interpreter)
 
 add_executable(Compiler_2_0

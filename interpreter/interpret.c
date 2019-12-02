@@ -78,25 +78,6 @@ VALUE *node_to_value(NODE *node) {
 VALUE *return_method(NODE *tree, ENV *e) {
     VALUE *answer = interpret(tree, e);
 
-    FILE* file = fopen("tests.log", "a");
-
-    if (answer == NULL) {
-        return NULL;
-    }
-
-    if(answer->type == 0){
-        fprintf(file, "%ld\n", answer->v.integer);
-    }
-    else if(answer->type == 1){
-        if(answer->v.boolean == 0)fprintf(file, "FALSE\n");
-        else fprintf(file, "TRUE\n");
-    }
-    else if(answer->type == 2){
-        fprintf(file, "%s\n", answer->v.string);
-    }
-
-    fclose(file);
-
     return answer;
 }
 

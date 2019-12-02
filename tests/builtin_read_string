@@ -1,4 +1,4 @@
 int main(){
-    read_string();
+    print_string(read_string());
     return 0;
 }

@@ -19,6 +19,8 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: ../Lexer_Parser
 CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o: ../Lexer_Parser_Files/symbol_table.c
 
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/token.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/bindings.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/value.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/nodes.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/token.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/environment.h
