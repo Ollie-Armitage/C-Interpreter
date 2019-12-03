@@ -479,7 +479,7 @@ static const char *const yytname[] =
   "compound_statement", "declaration_list", "statement_list",
   "expression_statement", "selection_statement", "iteration_statement",
   "jump_statement", "translation_unit", "external_declaration",
-  "function_definition", YY_NULLPTR
+  "function_definition_args", YY_NULLPTR
 };
 #endif
 

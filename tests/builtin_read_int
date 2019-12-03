@@ -1,4 +1,0 @@
-int main(){
-    print_int(read_int());
-    return 0;
-}

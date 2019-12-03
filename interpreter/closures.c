@@ -7,6 +7,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <interpreter/headers/bindings.h>
 #include "headers/interpret.h"
 
 FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
@@ -22,8 +23,6 @@ FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
 
     // For the sequence of identifiers and the sequence of arguments, while neither of them are equal to null, work through them.
 
-
-
     for (ip = ids, ap = args; ip != NULL && ap != NULL; ip = ip->right, ap = ap->right) {
         BINDING *new = malloc(sizeof(BINDING));
         if (new != 0) {
@@ -32,6 +31,13 @@ FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
             new->next = (struct BINDING *) newEnv->bindings;
         }
     }
+}
+
+VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
+    CLOSURE* f = name_method(name, env->frames);
+    FRAME* newEnv = extend_frame(env, f->ids, args);
+    newEnv->next = (struct FRAME *) env->frames;
+    return interpret(f->body, env);
 }
 
 #endif //COMPILER_2_0_CLOSURES_C

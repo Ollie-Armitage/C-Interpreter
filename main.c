@@ -58,6 +58,7 @@ int interpreter(char* fileDirectory) {
 
     if(fileDirectory != NULL){
         tree = buildAST(fileDirectory);
+
     }
     else{
         tree = buildAST(NULL);
@@ -70,54 +71,13 @@ int interpreter(char* fileDirectory) {
 
 }
 
-int run_tests(){
-    FILE* file = fopen("tests.log", "w");
-    DIR *folder;
-    struct dirent *dr;
-    char* test_directory = "tests/";
-
-    folder = opendir(test_directory);
-    if(folder == NULL)
-    {
-        puts("Unable to read tests directory");
-        return(1);
-    }
-
-    while( (dr = readdir(folder)) != NULL)
-    {
-        if(strcmp(dr->d_name, ".." ) != 0 && strcmp(dr->d_name, ".") != 0){
-            char* file_name = dr->d_name;
-            char* file_path = malloc(sizeof(char));
-            strcat(file_path, test_directory);
-            strcat(file_path, dr->d_name);
-
-            if(interpreter(file_path)) fprintf(file, "Test Passed: %s\n", file_name); else fprintf(file, "Test Failed: %s\n", file_name);
-            free(file_path);
-        }
-    }
-
-    fclose(file);
-    closedir(folder);
-
-    file = fopen("tests.log", "r");
-    char buffer[255];
-
-    while(fgets(buffer, 255, (FILE*)file)){
-        printf("%s", buffer);
-    }
-
-    fclose(file);
-}
-
 int main(int argc, char **argv) {
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
     init_symbtable();
 
     printf("--C COMPILER\n");
 
-
-    run_tests();
-
+    interpreter("tests/function_definition_args");
 
     return 0;
 }
