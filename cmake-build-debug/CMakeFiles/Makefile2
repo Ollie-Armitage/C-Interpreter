@@ -35,19 +35,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/97/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/Ollie/Programs/clion-2019.2.4/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/97/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/Ollie/CLionProjects/Compiler_2.0
+CMAKE_SOURCE_DIR = /home/ollie/CLionProjects/Compiler_2.0
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug
+CMAKE_BINARY_DIR = /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -76,14 +76,14 @@ preinstall: interpreter/preinstall
 CMakeFiles/Compiler_2_0.dir/all: interpreter/CMakeFiles/interpreter.dir/all
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/depend
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Compiler_2_0"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Compiler_2_0"
 .PHONY : CMakeFiles/Compiler_2_0.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Compiler_2_0.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Compiler_2_0.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Compiler_2_0.dir/rule
 
 # Convenience name for target.
@@ -121,14 +121,14 @@ interpreter/preinstall:
 interpreter/CMakeFiles/interpreter.dir/all:
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/depend
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=7,8,9,10,11,12,13 "Built target interpreter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=7,8,9,10,11,12,13 "Built target interpreter"
 .PHONY : interpreter/CMakeFiles/interpreter.dir/all
 
 # Build rule for subdir invocation for target.
 interpreter/CMakeFiles/interpreter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 interpreter/CMakeFiles/interpreter.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/Ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
 .PHONY : interpreter/CMakeFiles/interpreter.dir/rule
 
 # Convenience name for target.

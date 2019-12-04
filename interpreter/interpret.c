@@ -43,6 +43,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
             tree = tree->right;
         }
 
+        interpret(tree->left, e);
         return interpret(tree->right, e);
 
     } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
