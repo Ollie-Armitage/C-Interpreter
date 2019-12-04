@@ -1,0 +1,9 @@
+int main(){
+
+    int inner_main(int a, int b, int c, int d, int e){
+        return c;
+    }
+
+    print_int(inner_main(2*5, 3+4, 4-3 * 5, 2-3, 5));
+
+}

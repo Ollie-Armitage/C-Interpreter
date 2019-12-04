@@ -1,0 +1,9 @@
+int main(){
+
+    int inner_main(){
+        return 10;
+    }
+
+    print_int(inner_main(1+1, 2*3));
+
+}
