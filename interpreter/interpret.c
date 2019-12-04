@@ -24,30 +24,43 @@ VALUE *interpret_if(NODE* tree, ENV* e);
 VALUE *interpret(NODE *tree, ENV *e) {
     if (tree == NULL) return NULL;
     if (tree->type == LEAF) { return interpret(tree->left, e); }
-    else if (tree->type == 'D'){
+    else if (tree->type == 'D') {
 
-        if(tree->left->type == 'F'){interpret(tree->left, e); return interpret(tree->right, e);}
+        if (tree->left->type == 'F') {
+            interpret(tree->left, e);
+            return interpret(tree->right, e);
+        }
         else {
             declaration_method((TOKEN *) tree->left->right->left->left, e->frames);
-            assignment((TOKEN*)tree->left->right->left->left, e->frames, build_closure(e->frames, tree->left->right->right, tree->right));
+            assignment((TOKEN *) tree->left->right->left->left, e->frames,
+                       build_closure(e->frames, tree->left->right->right, tree->right));
         }
 
-    }
-    else if (tree->type == ';'){ while(tree != NULL){
-        interpret(tree->left, e);
-        tree = tree->right;
-    }}
-    else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
+    } else if (tree->type == ';') {
+
+        while (tree->right->type == ';') {
+            interpret(tree->left, e);
+            tree = tree->right;
+        }
+
+        return interpret(tree->right, e);
+
+    } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return node_to_value(tree); }
     else if (tree->type == RETURN) {
-        return return_method(tree->left, e);} // Only should be run when in a function.
+        return return_method(tree->left, e);
+    } // TODO:
     else if (tree->type == '~') {
-        if (tree->right->type == LEAF){ declaration_method((TOKEN *) tree->right->left, e->frames); } // For a closure declaration.
-        else{ declaration_method((TOKEN *) tree->right->left->left, e->frames); if(tree->right->type == '=') interpret(tree->right, e);} // For a variable's declaration, and if necessary assignment.
-    }
-    else if (tree->type == APPLY) { return apply((TOKEN*)tree->left->left, tree->right, e);}
-    else if(tree->type == IF){ return interpret_if(tree, e);}
+        if (tree->right->type == LEAF) {
+            declaration_method((TOKEN *) tree->right->left, e->frames);
+        } // For a closure declaration.
+        else {
+            declaration_method((TOKEN *) tree->right->left->left, e->frames);
+            if (tree->right->type == '=') interpret(tree->right, e);
+        } // For a variable's declaration, and if necessary assignment.
+    } else if (tree->type == APPLY) { return apply((TOKEN *) tree->left->left, tree->right, e); }
+    else if (tree->type == IF) { return interpret_if(tree, e); }
     else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }
     else if (tree->type == '+') { return add_method(tree->left, tree->right, e); }
     else if (tree->type == '-') { return subtract_method(tree->left, tree->right, e); }
