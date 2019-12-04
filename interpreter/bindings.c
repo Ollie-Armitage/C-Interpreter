@@ -5,22 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "headers/value.h"
 #include "headers/environment.h"
 #include "Lexer_Parser_Files/token.h"
-
-VALUE* get_variable_value_from_string(char* string, FRAME *frame) {
-    while (frame != NULL) {
-        BINDING *bindings = frame->bindings;
-        while (bindings != NULL) {
-            if (bindings->name->lexeme == string) return bindings->val;
-            bindings = (BINDING *) bindings->next;
-        }
-
-        frame = (FRAME *) frame->next;
-    }
-    printf("Unbound Variable: \"%s\"\n", string);
-}
 
 VALUE *name_method(TOKEN *token, FRAME *frame) {
     while (frame != NULL) {

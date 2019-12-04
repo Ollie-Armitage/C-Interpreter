@@ -3,17 +3,19 @@
 //
 
 #include <stdio.h>
-#include <interpreter/headers/value.h>
 #include <Lexer_Parser_Files/token.h>
 #include <string.h>
 #include <stdlib.h>
+#include <Lexer_Parser_Files/nodes.h>
+#include <interpreter/headers/environment.h>
+#include <interpreter/headers/interpret.h>
+#include "headers/closures.h"
 
 VALUE* read_int();
 
 VALUE* read_string();
 
-VALUE* apply(TOKEN* name, VALUE* value){
-
+VALUE* apply(TOKEN* name, NODE* args, ENV* e){
 
     VALUE* answer = malloc(sizeof(VALUE));
 
@@ -24,11 +26,16 @@ VALUE* apply(TOKEN* name, VALUE* value){
         answer = read_string();
     }
     else if(strcmp(name->lexeme, "print_string") == 0){
-        printf("%s\n", value->v.string);
+        printf("%s\n", interpret(args, e)->v.string);
     }
     else if(strcmp(name->lexeme, "print_int") == 0){
-        printf("%ld\n", value->v.integer);
+        printf("%ld\n", interpret(args, e)->v.integer);
     }
+    else{
+        answer = lexical_call_method(name, args, e);
+    }
+
+
 
     return answer;
 

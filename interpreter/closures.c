@@ -8,9 +8,21 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <interpreter/headers/bindings.h>
+#include <interpreter/headers/environment.h>
+#include <Lexer_Parser_Files/C.tab.h>
 #include "headers/interpret.h"
 
-FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
+VALUE* build_closure(FRAME* env, NODE* ids, NODE* body){
+    VALUE* value = malloc(sizeof(VALUE));
+    CLOSURE* closure = malloc(sizeof(CLOSURE));
+    closure->env = env;
+    closure->ids = ids;
+    closure->body = body;
+    value->v.closure = closure;
+    return value;
+}
+
+FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
     NODE *ip;
     NODE *ap;
 
@@ -19,25 +31,47 @@ FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
         printf("Frame Allocation Failed.\n ");
         return NULL;
     }
-    newEnv->bindings = NULL;
-
     // For the sequence of identifiers and the sequence of arguments, while neither of them are equal to null, work through them.
 
-    for (ip = ids, ap = args; ip != NULL && ap != NULL; ip = ip->right, ap = ap->right) {
-        BINDING *new = malloc(sizeof(BINDING));
-        if (new != 0) {
-            new->name = (TOKEN *) ip->left;
-            new->val = interpret(ip->right, env);
-            new->next = (struct BINDING *) newEnv->bindings;
+    for (ip = ids, ap = args; (ip->left != NULL) && (ap->left != NULL) && (ip->type == ','); ip = ip->left, ap = ap->left) {
+        BINDING *newBinding = malloc(sizeof(BINDING));
+        if (newBinding != 0) {
+            newBinding->name = (TOKEN *) ip->right->right->left;
+            newBinding->val = interpret(ap->right->left, env);
+            newBinding->next = (struct BINDING *) newEnv->bindings;
+            newEnv->bindings = newBinding;
+            printf("Binding Allocated: %s\n", newBinding->name->lexeme);
+        }
+        else{
+            printf("Error: Binding Allocation Failed.\n");
+        }
+
+    }
+
+    if(ip->type == '~' && ap->type == LEAF){
+        BINDING* newBinding = malloc(sizeof(BINDING));
+        if (newBinding != 0) {
+            newBinding->name = (TOKEN *) ip->right->left;
+            newBinding->val = interpret(ap->left, env);
+            newBinding->next = (struct BINDING *) newEnv->bindings;
+            newEnv->bindings = newBinding;
+            printf("Binding Allocated: %s\n", newBinding->name->lexeme);
+        }
+        else{
+            printf("Error: Binding Allocation Failed\n.");
         }
     }
+    newEnv->next = (struct FRAME *) env->frames;
+    return newEnv;
 }
 
 VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
-    CLOSURE* f = name_method(name, env->frames);
-    FRAME* newEnv = extend_frame(env, f->ids, args);
-    newEnv->next = (struct FRAME *) env->frames;
-    return interpret(f->body, env);
+    CLOSURE* f = name_method(name, env->frames)->v.closure;
+    ENV* tempEnv = malloc(sizeof(ENV));
+    FRAME* newFrame = extend_frame(env, f->ids, args);
+    tempEnv->frames = newFrame;
+    VALUE* answer = interpret(f->body, tempEnv);
+    return answer;
 }
 
 #endif //COMPILER_2_0_CLOSURES_C

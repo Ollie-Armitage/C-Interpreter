@@ -5,6 +5,6 @@
 #ifndef COMPILER_2_0_APPLY_H
 #define COMPILER_2_0_APPLY_H
 
-VALUE* apply(TOKEN* name, VALUE* value);
+VALUE* apply(TOKEN* name, NODE* args, ENV* e);
 
 #endif //COMPILER_2_0_APPLY_H

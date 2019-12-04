@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <interpreter/headers/value.h>
 #include <dirent.h>
 
 #include "interpreter/headers/interpret.h"
@@ -18,7 +17,6 @@ extern NODE *ans;
 
 extern FILE* yyin;
 extern int yylex();
-
 extern void init_symbtable(void);
 
 // buildAST Should take the input parameter of a specific file directory, and output the tree node.
@@ -58,7 +56,6 @@ int interpreter(char* fileDirectory) {
 
     if(fileDirectory != NULL){
         tree = buildAST(fileDirectory);
-
     }
     else{
         tree = buildAST(NULL);

@@ -5,6 +5,11 @@
 #ifndef COMPILER_2_0_CLOSURES_H
 #define COMPILER_2_0_CLOSURES_H
 
-FRAME *extend_frame(ENV *env, NODE *ids, NODE *args);
+
+#include "environment.h"
+
+FRAME *extend_frame(ENV *frame, NODE *ids, NODE *args);
+VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env);
+VALUE* build_closure(FRAME* env, NODE* ids, NODE* body);
 
 #endif //COMPILER_2_0_CLOSURES_H

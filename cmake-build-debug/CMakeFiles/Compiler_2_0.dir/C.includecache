@@ -10,8 +10,6 @@
 
 ../interpreter/headers/bindings.h
 
-../interpreter/headers/value.h
-
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 token.h
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
@@ -23,12 +21,8 @@ Lexer_Parser_Files/token.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/Lexer_Parser_Files/token.h
 Lexer_Parser_Files/nodes.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/Lexer_Parser_Files/nodes.h
-value.h
-/home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/value.h
 
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/interpret.h
-value.h
-/home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/value.h
 environment.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/environment.h
 Lexer_Parser_Files/nodes.h
@@ -36,16 +30,12 @@ Lexer_Parser_Files/nodes.h
 
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/prints.h
 
-/home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/value.h
-
 /home/ollie/CLionProjects/Compiler_2.0/main.c
 stdlib.h
 -
 stdio.h
 -
 string.h
--
-interpreter/headers/value.h
 -
 dirent.h
 -
