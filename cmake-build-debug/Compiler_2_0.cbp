@@ -171,6 +171,9 @@
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c">
 			<Option target="interpreter"/>
 		</Unit>
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c">
+			<Option target="interpreter"/>
+		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/main.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>

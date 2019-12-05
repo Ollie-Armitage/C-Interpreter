@@ -39,8 +39,8 @@ VALUE *interpret(NODE *tree, ENV *e) {
 
         while (tree->type == ';') {
             answer = interpret(tree->left, e);
-//            if(answer != NULL)
-  //              return answer;
+            if(answer != NULL)
+                return answer;
             tree = tree->right;
         }
 

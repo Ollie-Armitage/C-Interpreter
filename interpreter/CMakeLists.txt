@@ -8,4 +8,5 @@ add_library(interpreter
         closures.c
         interpret.c
         prints.c
-        apply.c)
+        apply.c
+        value.c)
