@@ -29,7 +29,8 @@ VALUE* apply(TOKEN* name, NODE* args, ENV* e){
         printf("%s\n", interpret(args, e)->v.string);
     }
     else if(strcmp(name->lexeme, "print_int") == 0){
-        printf("Print_int: %ld\n", interpret(args, e)->v.integer);
+        answer->v.integer = interpret(args, e)->v.integer;
+        printf("Print_int: %ld\n", answer->v.integer);
     }
     else{
         answer = lexical_call_method(name, args, e);

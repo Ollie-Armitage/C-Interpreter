@@ -31,17 +31,22 @@ VALUE *interpret(NODE *tree, ENV *e) {
         else {
             declaration_method((TOKEN *) tree->left->right->left->left, e->frames);
             assignment((TOKEN *) tree->left->right->left->left, e->frames, build_closure(e->frames, tree->left->right->right, tree->right));
+            return NULL;
         }
 
     } else if (tree->type == ';') {
 
-        while (tree->right->type == ';') {
-            interpret(tree->left, e);
+        VALUE* answer = NULL;
+
+        while (tree->type == ';') {
+            answer = interpret(tree->left, e);
+            if(answer != NULL) return answer;
             tree = tree->right;
         }
 
-        interpret(tree->left, e);
-        return interpret(tree->right, e);
+        answer = interpret(tree->left, e);
+        return answer;
+
 
     } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
@@ -72,7 +77,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == '<') { return LT_method(tree->left, tree->right, e); }
     else if (tree->type == '>') { return GT_method(tree->left, tree->right, e); }
 
-}
+ }
 
 VALUE *interpret_if(NODE* tree, ENV* e) {
     if(interpret(tree->left, e)->v.boolean == 1){
