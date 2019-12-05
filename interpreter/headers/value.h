@@ -5,6 +5,8 @@
 #ifndef COMPILER_2_0_VALUE_H
 #define COMPILER_2_0_VALUE_H
 
+#include "environment.h"
+
 VALUE* make_lint_value(long integer);
 VALUE* make_bool_value(int boolean);
 VALUE* make_string_value(char* string);

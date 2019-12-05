@@ -5,6 +5,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <interpreter/headers/value.h>
 
 #include "Lexer_Parser_Files/nodes.h"
 #include "headers/environment.h"
@@ -35,19 +36,8 @@ VALUE *interpret(NODE *tree, ENV *e) {
 
     } else if (tree->type == ';') {
 
-        VALUE* answer = NULL;
-
-        while (tree->type == ';') {
-            answer = interpret(tree->left, e);
-            if(answer != NULL)
-                return answer;
-            tree = tree->right;
-        }
-
-
-        answer = interpret(tree, e);
-        return answer;
-
+        interpret(tree->left, e);
+        return interpret(tree->right, e);
 
     } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
@@ -99,21 +89,20 @@ VALUE *interpret_if(NODE* tree, ENV* e) {
 }
 
 VALUE *node_to_value(NODE *node) {
+
+    if(node == NULL) return NULL;
+
     TOKEN *n = (TOKEN *) node;
-    VALUE *endValue = malloc(sizeof(VALUE));
+    VALUE *endValue = NULL;
 
     if (n->type == CONSTANT) {
-        endValue->type = 0;
-        endValue->v.integer = n->value;//
-        return endValue;
+        endValue = make_lint_value(n->value);
     } else if (n->type == STRING_LITERAL) {
-        endValue->type = 2;
-        endValue->v.string = n->lexeme;
-        return endValue;
+        endValue = make_string_value(n->lexeme);
     }
 
-    free(endValue);
-    return NULL;
+    return endValue;
+
 }
 
 

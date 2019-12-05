@@ -28,7 +28,6 @@ VALUE* make_string_value(char* string){
 }
 
 VALUE* make_closure_value(CLOSURE* closure){
-
     VALUE* answer = malloc(sizeof(VALUE));
     answer->type = 3;
     answer->v.closure = closure;

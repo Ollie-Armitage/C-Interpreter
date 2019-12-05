@@ -8,6 +8,10 @@
 #include "headers/environment.h"
 #include "Lexer_Parser_Files/token.h"
 
+BINDING* make_binding(){
+
+}
+
 VALUE *name_method(TOKEN *token, FRAME *frame) {
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
