@@ -24,6 +24,7 @@ typedef struct closure {
 typedef struct VALUE
 {
     int type;
+    int return_answer;
     union {
         long int integer;
         int boolean;

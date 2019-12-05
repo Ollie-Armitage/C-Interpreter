@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
 
     printf("--C COMPILER\n");
 
-    interpreter("tests/function_definition_args");
+    interpreter("tests/factorial");
 
     return 0;
 }

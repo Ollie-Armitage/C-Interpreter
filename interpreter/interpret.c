@@ -17,8 +17,6 @@
 
 VALUE *node_to_value(NODE *pNode);
 
-VALUE *return_method(struct node *tree, ENV *e);
-
 VALUE *interpret_if(NODE* tree, ENV* e);
 
 VALUE *interpret(NODE *tree, ENV *e) {
@@ -32,8 +30,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
         }
         else {
             declaration_method((TOKEN *) tree->left->right->left->left, e->frames);
-            assignment((TOKEN *) tree->left->right->left->left, e->frames,
-                       build_closure(e->frames, tree->left->right->right, tree->right));
+            assignment((TOKEN *) tree->left->right->left->left, e->frames, build_closure(e->frames, tree->left->right->right, tree->right));
         }
 
     } else if (tree->type == ';') {
@@ -50,8 +47,8 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return node_to_value(tree); }
     else if (tree->type == RETURN) {
-        return return_method(tree->left, e);
-    } // TODO:
+        return interpret(tree->left, e);
+    }
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) {
             declaration_method((TOKEN *) tree->right->left, e->frames);
@@ -65,7 +62,8 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }
     else if (tree->type == '+') { return add_method(tree->left, tree->right, e); }
     else if (tree->type == '-') { return subtract_method(tree->left, tree->right, e); }
-    else if (tree->type == '*') { return multiply_method(tree->left, tree->right, e); }
+    else if (tree->type == '*') {
+        return multiply_method(tree->left, tree->right, e); }
     else if (tree->type == '/') { return divide_method(tree->left, tree->right, e); }
     else if (tree->type == GE_OP) { return GE_OP_method(tree->left, tree->right, e); }
     else if (tree->type == LE_OP) { return LE_OP_method(tree->left, tree->right, e); }
