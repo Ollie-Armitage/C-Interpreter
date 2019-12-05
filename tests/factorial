@@ -9,6 +9,6 @@ int main(){
         return inner_fact(n, 1);
     }
 
-    print_int(fact(10));
+    print_int(fact(read_int()));
     return 0;
 }

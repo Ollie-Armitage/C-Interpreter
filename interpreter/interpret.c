@@ -25,7 +25,6 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == 'D') {
 
         if (tree->left->type == 'F') {
-            interpret(tree->left, e);
             return interpret(tree->right, e);
         }
         else {
@@ -40,20 +39,20 @@ VALUE *interpret(NODE *tree, ENV *e) {
 
         while (tree->type == ';') {
             answer = interpret(tree->left, e);
-            if(answer != NULL) return answer;
+//            if(answer != NULL)
+  //              return answer;
             tree = tree->right;
         }
 
-        answer = interpret(tree->left, e);
+
+        answer = interpret(tree, e);
         return answer;
 
 
     } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return node_to_value(tree); }
-    else if (tree->type == RETURN) {
-        return interpret(tree->left, e);
-    }
+    else if (tree->type == RETURN) {return interpret(tree->left, e);}
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) {
             declaration_method((TOKEN *) tree->right->left, e->frames);
@@ -67,8 +66,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }
     else if (tree->type == '+') { return add_method(tree->left, tree->right, e); }
     else if (tree->type == '-') { return subtract_method(tree->left, tree->right, e); }
-    else if (tree->type == '*') {
-        return multiply_method(tree->left, tree->right, e); }
+    else if (tree->type == '*') {return multiply_method(tree->left, tree->right, e); }
     else if (tree->type == '/') { return divide_method(tree->left, tree->right, e); }
     else if (tree->type == GE_OP) { return GE_OP_method(tree->left, tree->right, e); }
     else if (tree->type == LE_OP) { return LE_OP_method(tree->left, tree->right, e); }
@@ -118,10 +116,5 @@ VALUE *node_to_value(NODE *node) {
     return NULL;
 }
 
-
-VALUE *return_method(NODE *tree, ENV *e) {
-    VALUE *answer = interpret(tree, e);
-    return answer;
-}
 
 #endif //COMPILER_2_0_INTERPRET_C

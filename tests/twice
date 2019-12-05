@@ -1,0 +1,12 @@
+int main(){
+    function twice(function f){
+        int g(int x){ return f(f(x)); }
+        return g;
+    }
+
+    function f = twice(print_int);
+
+    f(10);
+
+    return 0;
+}

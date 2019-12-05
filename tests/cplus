@@ -1,0 +1,13 @@
+
+int main(){
+    function cplus(int a){
+        int cplusa(int b){ return a+b; }
+        return cplusa;
+    }
+
+    function f = cplus(10);
+
+    print_int(f(5));
+    return 0;
+
+}

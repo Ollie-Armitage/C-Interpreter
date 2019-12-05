@@ -34,15 +34,10 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
     NODE *ip;
     NODE *ap;
 
-
-
     if (newEnv == 0) {
         printf("Frame Allocation Failed.\n ");
         return NULL;
     }
-    // For the sequence of identifiers and the sequence of arguments, while neither of them are equal to null, work through them.
-
-
 
     // Do all up to the last one / two values.
     for (ip = ids, ap = args; (ip->left->type == ',' && ap->left->type == ','); ip = ip->left, ap = ap->left) {
@@ -101,11 +96,14 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
 }
 
 VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
+    //TODO: needs to be called with the closure environment.
     printf("Entering function: %s\n", name->lexeme);
     CLOSURE* f = name_method(name, env->frames)->v.closure;
     ENV* tempEnv = malloc(sizeof(ENV));
-    FRAME* newFrame = extend_frame(env, f->ids, args);
-    tempEnv->frames = newFrame;
+    tempEnv->frames = f->env;
+    tempEnv->frames = extend_frame(env, f->ids, args);
+
+
     VALUE* answer = interpret(f->body, tempEnv);
     return answer;
 }
