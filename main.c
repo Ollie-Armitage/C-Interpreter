@@ -74,7 +74,7 @@ int main(int argc, char **argv) {
 
     printf("--C COMPILER\n");
 
-    interpreter("tests/cplus");
+    interpreter("tests/twice");
 
     return 0;
 }

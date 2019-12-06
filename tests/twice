@@ -1,12 +1,17 @@
 int main(){
+
+    function timesTwo(int a){
+        return a*2;
+    }
+
     function twice(function f){
         int g(int x){ return f(f(x)); }
         return g;
     }
 
-    function f = twice(print_int);
+    function f = twice(timesTwo);
 
-    f(10);
+    print_int(f(10));
 
     return 0;
 }

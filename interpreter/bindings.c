@@ -31,7 +31,8 @@ VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value) {
         BINDING *bindings = frame->bindings;
         while (bindings != NULL) {
             if (bindings->name == token) bindings->val = value;
-            return value;
+            printf("Binding Allocated: %s\n", token->lexeme);
+            return NULL;
 
         }
         frame = (FRAME *) frame->next;

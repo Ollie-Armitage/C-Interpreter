@@ -79,6 +79,7 @@ VALUE *interpret_if(NODE* tree, ENV* e) {
 
     }
     else{
+
         if(tree->right->type != ELSE){
             return NULL;
         }
