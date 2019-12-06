@@ -25,8 +25,12 @@ VALUE* build_closure(FRAME* env, NODE* ids, NODE* body){
 
 FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
 
+    // Build a new frame for a function and attach the current frame from the environment provided to it's end.
+
     FRAME *newFrame = malloc(sizeof(FRAME));
     newFrame->next = (struct FRAME *) env->frames;
+
+    // If there are no parameters or no arguments, return the new frame as such.
 
     if(ids == NULL || args == NULL) return newFrame;
 
@@ -82,19 +86,24 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
     else{
         printf("Error: Binding Allocation Failed.\n");
     }
+
+    // Once all the parameters have arguments bound to them, and are stored in the new frame, return the new frame.
+
     return newFrame;
 }
 
 VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
-    //TODO: needs to be called with the closure environment.
-    printf("Entering function: %s\n", name->lexeme);
+
+    // Gets the function from the environment.
     CLOSURE* f = name_method(name, env->frames)->v.closure;
-    ENV* tempEnv = malloc(sizeof(ENV));
-    tempEnv->frames = f->env;
-    tempEnv->frames = extend_frame(env, f->ids, args);
 
+    env->frames = f->env;
+    env->frames = extend_frame(env, f->ids, args);
 
-    VALUE* answer = interpret(f->body, tempEnv);
+    // Runs the function and returns its output.
+    printf("Entering function: %s\n", name->lexeme);
+    VALUE* answer = interpret(f->body, env);
+    env->frames = (FRAME *) env->frames->next;
     return answer;
 }
 
