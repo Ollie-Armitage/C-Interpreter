@@ -36,13 +36,22 @@ VALUE *interpret(NODE *tree, ENV *e) {
 
     } else if (tree->type == ';') {
 
-        interpret(tree->left, e);
+        VALUE* left = interpret(tree->left, e);
+
+
+        if(left != NULL && left->return_answer == 1){
+            return left;
+        }
+
         return interpret(tree->right, e);
 
     } else if (tree->type == INT || tree->type == FUNCTION || tree->type == VOID) {}
     else if (tree->type == IDENTIFIER) { return name_method((TOKEN *) tree, e->frames); }
     else if (tree->type == CONSTANT || tree->type == STRING_LITERAL) { return node_to_value(tree); }
-    else if (tree->type == RETURN) {return interpret(tree->left, e);}
+    else if (tree->type == RETURN) {
+        VALUE* returnValue = interpret(tree->left, e);
+        returnValue->return_answer = 1;
+        return returnValue;}
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) {
             declaration_method((TOKEN *) tree->right->left, e->frames);
