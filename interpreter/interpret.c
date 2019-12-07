@@ -55,11 +55,16 @@ VALUE *interpret(NODE *tree, ENV *e) {
     else if (tree->type == '~') {
         if (tree->right->type == LEAF) {
             declaration_method((TOKEN *) tree->right->left, e->frames);
+
         } // For a closure declaration.
         else {
             declaration_method((TOKEN *) tree->right->left->left, e->frames);
             if (tree->right->type == '=') interpret(tree->right, e);
-        } // For a variable's declaration, and if necessary assignment.
+        }
+
+        return NULL;
+
+        // For a variable's declaration, and if necessary assignment.
     } else if (tree->type == APPLY) { return apply((TOKEN *) tree->left->left, tree->right, e); }
     else if (tree->type == IF) { return interpret_if(tree, e); }
     else if (tree->type == '=') { assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e)); }

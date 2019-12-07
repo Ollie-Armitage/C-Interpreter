@@ -1,5 +1,5 @@
 int main(){
-
+    int a = 10;
     function timesTwo(int a){
         return a*2;
     }
@@ -11,7 +11,7 @@ int main(){
 
     function f = twice(timesTwo);
 
-    print_int(f(10));
+    print_int(f(a));
 
     return 0;
 }

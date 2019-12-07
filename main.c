@@ -38,6 +38,7 @@ NODE *buildAST(char *fileDirectory) {
         yylex();
         yyparse();
         printf("\n");
+
     }
     else{
         yyparse();
@@ -70,11 +71,15 @@ int interpreter(char* fileDirectory) {
 
 int main(int argc, char **argv) {
     if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
+
+    char* file_path = NULL;
+
+    if(argv[1] != NULL){ file_path = argv[1]; }
     init_symbtable();
 
     printf("--C COMPILER\n");
 
-    interpreter("tests/cplus");
+    interpreter(file_path);
 
     return 0;
 }
