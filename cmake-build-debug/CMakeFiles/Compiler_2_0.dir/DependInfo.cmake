@@ -17,11 +17,13 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../."
   "."
   "../interpreter"
+  "../TAC"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/CMakeFiles/interpreter.dir/DependInfo.cmake"
+  "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/CMakeFiles/TAC.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

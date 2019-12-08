@@ -1,5 +1,7 @@
 int main(){
-    int a = 10;
+
+    int a = read_int();
+
     function timesTwo(int a){
         return a*2;
     }

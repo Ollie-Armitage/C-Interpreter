@@ -140,6 +140,7 @@ Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/build.make
 Compiler_2_0: interpreter/libinterpreter.a
+Compiler_2_0: TAC/libTAC.a
 Compiler_2_0: CMakeFiles/Compiler_2_0.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable Compiler_2_0"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Compiler_2_0.dir/link.txt --verbose=$(VERBOSE)

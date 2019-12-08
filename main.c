@@ -6,6 +6,7 @@
 #include "interpreter/headers/interpret.h"
 #include "interpreter/headers/environment.h"
 #include "interpreter/headers/prints.h"
+#include "TAC/TAC.h"
 #include "Lexer_Parser_Files/nodes.h"
 
 #include <interpreter/headers/bindings.h>
@@ -48,7 +49,7 @@ NODE *buildAST(char *fileDirectory) {
 
 }
 
-int interpreter(char* fileDirectory) {
+int run(char* fileDirectory, int runType) {
 
     ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
@@ -63,23 +64,31 @@ int interpreter(char* fileDirectory) {
     }
 
     print_tree(tree);
-    answer = interpret(tree, e);
+
+    if(runType == 0){
+        interpret(tree, e);
+    }
+    else if(runType == 1){
+        ThreeAddressCode(tree);
+    }
+
+
+    free(e->frames);
+    free(e);
 
     return 1;
-
 }
 
+
+
 int main(int argc, char **argv) {
-    if (argc > 1 && strcmp(argv[1], "-d") == 0) yydebug = 1;
 
     char* file_path = NULL;
-
     if(argv[1] != NULL){ file_path = argv[1]; }
+
     init_symbtable();
 
     printf("--C COMPILER\n");
-
-    interpreter(file_path);
-
+    run(file_path, 1);
     return 0;
 }

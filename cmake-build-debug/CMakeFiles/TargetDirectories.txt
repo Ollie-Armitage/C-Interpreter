@@ -4,3 +4,6 @@
 /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/CMakeFiles/rebuild_cache.dir
 /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/CMakeFiles/interpreter.dir
 /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/CMakeFiles/edit_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/CMakeFiles/rebuild_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/CMakeFiles/TAC.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/CMakeFiles/edit_cache.dir

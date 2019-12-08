@@ -16,6 +16,8 @@ token.h
 
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
 
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
+
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/environment.h
 Lexer_Parser_Files/token.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/Lexer_Parser_Files/token.h
@@ -45,6 +47,8 @@ interpreter/headers/environment.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/environment.h
 interpreter/headers/prints.h
 /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/prints.h
+TAC/TAC.h
+/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
 Lexer_Parser_Files/nodes.h
 /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
 interpreter/headers/bindings.h

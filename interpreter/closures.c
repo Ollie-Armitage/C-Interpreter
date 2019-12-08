@@ -110,6 +110,7 @@ VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
     printf("Entering function: %s\n", name->lexeme);
     VALUE* answer = interpret(f->body, env);
     *env = *tempEnv;
+    free(tempEnv);
     return answer;
 }
 

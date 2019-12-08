@@ -6,6 +6,7 @@ include_directories(.)
 set(CMAKE_C_FLAGS  "-fprofile-arcs -ftest-coverage")
 
 add_subdirectory(interpreter)
+add_subdirectory(TAC)
 
 add_executable(Compiler_2_0
         main.c
@@ -15,7 +16,10 @@ add_executable(Compiler_2_0
         Lexer_Parser_Files/symbol_table.c)
 
 target_link_libraries(Compiler_2_0 PUBLIC interpreter)
+target_link_libraries(Compiler_2_0 PUBLIC TAC)
+
 
 target_include_directories(Compiler_2_0 PUBLIC
         ${PROJECT_BINARY_DIR}
-        ${PROJECT_SOURCE_DIR}/interpreter)
+        ${PROJECT_SOURCE_DIR}/interpreter
+        ${PROJECT_SOURCE_DIR}/TAC)

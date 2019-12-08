@@ -23,6 +23,7 @@ CMakeFiles/Compiler_2_0.dir/main.c.o
  ../interpreter/headers/bindings.h
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
+ /home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
  /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/environment.h
  /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/interpret.h
  /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/prints.h

@@ -212,10 +212,10 @@ CMAKE_STRIP:FILEPATH=/usr/bin/strip
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //Value Computed by CMake
-Compiler_2_0_BINARY_DIR:STATIC=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter
+Compiler_2_0_BINARY_DIR:STATIC=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC
 
 //Value Computed by CMake
-Compiler_2_0_SOURCE_DIR:STATIC=/home/ollie/CLionProjects/Compiler_2.0/interpreter
+Compiler_2_0_SOURCE_DIR:STATIC=/home/ollie/CLionProjects/Compiler_2.0/TAC
 
 //Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc
@@ -332,7 +332,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

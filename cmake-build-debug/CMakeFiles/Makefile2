@@ -55,17 +55,20 @@ CMAKE_BINARY_DIR = /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug
 # The main recursive "all" target.
 all: CMakeFiles/Compiler_2_0.dir/all
 all: interpreter/all
+all: TAC/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
 clean: CMakeFiles/Compiler_2_0.dir/clean
 clean: interpreter/clean
+clean: TAC/clean
 
 .PHONY : clean
 
 # The main recursive "preinstall" target.
 preinstall: interpreter/preinstall
+preinstall: TAC/preinstall
 
 .PHONY : preinstall
 
@@ -74,6 +77,7 @@ preinstall: interpreter/preinstall
 
 # All Build rule for target.
 CMakeFiles/Compiler_2_0.dir/all: interpreter/CMakeFiles/interpreter.dir/all
+CMakeFiles/Compiler_2_0.dir/all: TAC/CMakeFiles/TAC.dir/all
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/depend
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Compiler_2_0"
@@ -81,7 +85,7 @@ CMakeFiles/Compiler_2_0.dir/all: interpreter/CMakeFiles/interpreter.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Compiler_2_0.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 16
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Compiler_2_0.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Compiler_2_0.dir/rule
@@ -121,7 +125,7 @@ interpreter/preinstall:
 interpreter/CMakeFiles/interpreter.dir/all:
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/depend
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=7,8,9,10,11,12,13,14 "Built target interpreter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=9,10,11,12,13,14,15,16 "Built target interpreter"
 .PHONY : interpreter/CMakeFiles/interpreter.dir/all
 
 # Build rule for subdir invocation for target.
@@ -140,6 +144,51 @@ interpreter: interpreter/CMakeFiles/interpreter.dir/rule
 interpreter/CMakeFiles/interpreter.dir/clean:
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/clean
 .PHONY : interpreter/CMakeFiles/interpreter.dir/clean
+
+#=============================================================================
+# Directory level rules for directory TAC
+
+# Recursive "all" directory target.
+TAC/all: TAC/CMakeFiles/TAC.dir/all
+
+.PHONY : TAC/all
+
+# Recursive "clean" directory target.
+TAC/clean: TAC/CMakeFiles/TAC.dir/clean
+
+.PHONY : TAC/clean
+
+# Recursive "preinstall" directory target.
+TAC/preinstall:
+
+.PHONY : TAC/preinstall
+
+#=============================================================================
+# Target rules for target TAC/CMakeFiles/TAC.dir
+
+# All Build rule for target.
+TAC/CMakeFiles/TAC.dir/all:
+	$(MAKE) -f TAC/CMakeFiles/TAC.dir/build.make TAC/CMakeFiles/TAC.dir/depend
+	$(MAKE) -f TAC/CMakeFiles/TAC.dir/build.make TAC/CMakeFiles/TAC.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target TAC"
+.PHONY : TAC/CMakeFiles/TAC.dir/all
+
+# Build rule for subdir invocation for target.
+TAC/CMakeFiles/TAC.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 TAC/CMakeFiles/TAC.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
+.PHONY : TAC/CMakeFiles/TAC.dir/rule
+
+# Convenience name for target.
+TAC: TAC/CMakeFiles/TAC.dir/rule
+
+.PHONY : TAC
+
+# clean rule for target.
+TAC/CMakeFiles/TAC.dir/clean:
+	$(MAKE) -f TAC/CMakeFiles/TAC.dir/build.make TAC/CMakeFiles/TAC.dir/clean
+.PHONY : TAC/CMakeFiles/TAC.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

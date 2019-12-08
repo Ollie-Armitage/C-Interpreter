@@ -5,7 +5,7 @@
 		<Option title="Compiler_2_0"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;CMake Files\interpreter\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\interpreter\;CMake Files\TAC\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
@@ -37,6 +37,7 @@
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/TAC"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -63,6 +64,7 @@
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug"/>
 					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/interpreter"/>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/TAC"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -137,6 +139,54 @@
 					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/interpreter/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
+			<Target title="TAC">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/libTAC.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 TAC"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="TAC/fast">
+				<Option output="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/libTAC.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/ollie/CLionProjects/Compiler_2.0/."/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 TAC/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/TAC/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
 		</Build>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/C.tab.c">
 			<Option target="Compiler_2_0"/>
@@ -152,6 +202,12 @@
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c">
 			<Option target="Compiler_2_0"/>
+		</Unit>
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.c">
+			<Option target="TAC"/>
+		</Unit>
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h">
+			<Option target="TAC"/>
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/apply.c">
 			<Option target="interpreter"/>
@@ -182,6 +238,9 @@
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\interpreter\"/>
+		</Unit>
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/TAC/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\TAC\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

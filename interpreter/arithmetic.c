@@ -22,7 +22,7 @@ VALUE* subtract_method(NODE* left, NODE* right, ENV* e){
 
 VALUE* multiply_method(NODE* left, NODE* right, ENV* e){
     if(left == NULL && right == NULL) return NULL;
-    return make_lint_value(interpret(left, e)->v.integer * interpret(right, e)->v.integer);
+   return make_lint_value(interpret(left, e)->v.integer * interpret(right, e)->v.integer);
 }
 
 VALUE* divide_method(NODE* left, NODE* right, ENV* e){
