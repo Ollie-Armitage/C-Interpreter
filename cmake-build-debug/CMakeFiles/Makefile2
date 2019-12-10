@@ -80,12 +80,12 @@ CMakeFiles/Compiler_2_0.dir/all: interpreter/CMakeFiles/interpreter.dir/all
 CMakeFiles/Compiler_2_0.dir/all: TAC/CMakeFiles/TAC.dir/all
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/depend
 	$(MAKE) -f CMakeFiles/Compiler_2_0.dir/build.make CMakeFiles/Compiler_2_0.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target Compiler_2_0"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target Compiler_2_0"
 .PHONY : CMakeFiles/Compiler_2_0.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Compiler_2_0.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Compiler_2_0.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Compiler_2_0.dir/rule
@@ -125,7 +125,7 @@ interpreter/preinstall:
 interpreter/CMakeFiles/interpreter.dir/all:
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/depend
 	$(MAKE) -f interpreter/CMakeFiles/interpreter.dir/build.make interpreter/CMakeFiles/interpreter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=9,10,11,12,13,14,15,16 "Built target interpreter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=10,11,12,13,14,15,16,17 "Built target interpreter"
 .PHONY : interpreter/CMakeFiles/interpreter.dir/all
 
 # Build rule for subdir invocation for target.
@@ -170,7 +170,7 @@ TAC/preinstall:
 TAC/CMakeFiles/TAC.dir/all:
 	$(MAKE) -f TAC/CMakeFiles/TAC.dir/build.make TAC/CMakeFiles/TAC.dir/depend
 	$(MAKE) -f TAC/CMakeFiles/TAC.dir/build.make TAC/CMakeFiles/TAC.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=7,8 "Built target TAC"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles --progress-num=8,9 "Built target TAC"
 .PHONY : TAC/CMakeFiles/TAC.dir/all
 
 # Build rule for subdir invocation for target.

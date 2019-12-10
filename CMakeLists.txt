@@ -10,6 +10,7 @@ add_subdirectory(TAC)
 
 add_executable(Compiler_2_0
         main.c
+        test.c
         Lexer_Parser_Files/lex.yy.c
         Lexer_Parser_Files/C.tab.c
         Lexer_Parser_Files/nodes.c

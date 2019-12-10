@@ -23,8 +23,12 @@ CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/bindings.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/nodes.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../Lexer_Parser_Files/token.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../TAC/TAC.h
+CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/debug.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/environment.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/interpret.h
-CMakeFiles/Compiler_2_0.dir/main.c.o: ../interpreter/headers/prints.h
 CMakeFiles/Compiler_2_0.dir/main.c.o: ../main.c
+
+CMakeFiles/Compiler_2_0.dir/test.c.o: ../Unity/src/unity.h
+CMakeFiles/Compiler_2_0.dir/test.c.o: ../Unity/src/unity_internals.h
+CMakeFiles/Compiler_2_0.dir/test.c.o: ../test.c
 

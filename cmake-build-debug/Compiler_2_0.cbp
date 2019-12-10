@@ -221,16 +221,19 @@
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/closures.c">
 			<Option target="interpreter"/>
 		</Unit>
-		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/debug.c">
 			<Option target="interpreter"/>
 		</Unit>
-		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/prints.c">
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/interpret.c">
 			<Option target="interpreter"/>
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/value.c">
 			<Option target="interpreter"/>
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/main.c">
+			<Option target="Compiler_2_0"/>
+		</Unit>
+		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/test.c">
 			<Option target="Compiler_2_0"/>
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/CMakeLists.txt">

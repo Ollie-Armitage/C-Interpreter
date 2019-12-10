@@ -2,6 +2,7 @@
 #define COMPILER_2_0_PRINTS_C
 #include <ctype.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <Lexer_Parser_Files/C.tab.h>
 #include "Lexer_Parser_Files/nodes.h"
@@ -82,5 +83,10 @@ void print_tree0(NODE *tree, int level) {
 void print_tree(NODE *tree) {
     print_tree0(tree, 0);
 }
+
+void error_exit_method(char* message){
+    printf("%s\n", message);
+    exit(1);
+};
 
 #endif //COMPILERS_2_0_PRINTS_C

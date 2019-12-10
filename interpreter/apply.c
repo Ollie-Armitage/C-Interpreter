@@ -69,9 +69,7 @@ VALUE* read_int(){
 
 VALUE* read_string(){
     VALUE* answer;
-
     char buffer[BUFSIZ];
-    char* pointer;
 
     printf("Please enter a string: ");
 

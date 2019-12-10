@@ -24,7 +24,11 @@ CMakeFiles/Compiler_2_0.dir/main.c.o
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
  /home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h
+ /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/debug.h
  /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/environment.h
  /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/interpret.h
- /home/ollie/CLionProjects/Compiler_2.0/interpreter/headers/prints.h
  /home/ollie/CLionProjects/Compiler_2.0/main.c
+CMakeFiles/Compiler_2_0.dir/test.c.o
+ /home/ollie/CLionProjects/Compiler_2.0/Unity/src/unity.h
+ /home/ollie/CLionProjects/Compiler_2.0/Unity/src/unity_internals.h
+ /home/ollie/CLionProjects/Compiler_2.0/test.c

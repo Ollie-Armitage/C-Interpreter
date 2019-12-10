@@ -5,6 +5,9 @@
     <sourceRoots>
       <file path="$PROJECT_DIR$/Lexer_Parser_Files" />
     </sourceRoots>
+    <libraryRoots>
+      <file path="$PROJECT_DIR$/Unity" />
+    </libraryRoots>
   </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />

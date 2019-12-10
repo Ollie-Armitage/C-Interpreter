@@ -5,17 +5,17 @@
 
 #include "interpreter/headers/interpret.h"
 #include "interpreter/headers/environment.h"
-#include "interpreter/headers/prints.h"
+#include "interpreter/headers/debug.h"
 #include "TAC/TAC.h"
 #include "Lexer_Parser_Files/nodes.h"
 
 #include <interpreter/headers/bindings.h>
+
+// Linked parser variables.
+
 extern int yydebug;
-
 extern NODE *yyparse(void);
-
 extern NODE *ans;
-
 extern FILE* yyin;
 extern int yylex();
 extern void init_symbtable(void);
@@ -53,7 +53,6 @@ int run(char* fileDirectory, int runType) {
 
     ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
-    VALUE* answer;
     NODE* tree;
 
     if(fileDirectory != NULL){
@@ -89,6 +88,6 @@ int main(int argc, char **argv) {
     init_symbtable();
 
     printf("--C COMPILER\n");
-    run(file_path, 1);
+    run(file_path, 0);
     return 0;
 }

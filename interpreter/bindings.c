@@ -8,10 +8,6 @@
 #include "headers/environment.h"
 #include "Lexer_Parser_Files/token.h"
 
-BINDING* make_binding(){
-
-}
-
 VALUE *name_method(TOKEN *token, FRAME *frame) {
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
@@ -19,25 +15,21 @@ VALUE *name_method(TOKEN *token, FRAME *frame) {
             if (bindings->name == token) return bindings->val;
             bindings = (BINDING *) bindings->next;
         }
-
         frame = (FRAME *) frame->next;
     }
-    printf("Unbound Variable: \"%s\"\n", token->lexeme);
+    return NULL;
 }
 
 VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value) {
-
     while (frame != NULL) {
         BINDING *bindings = frame->bindings;
         while (bindings != NULL) {
             if (bindings->name == token) bindings->val = value;
-            printf("Binding Allocated: %s\n", token->lexeme);
             return NULL;
-
         }
         frame = (FRAME *) frame->next;
     }
-    printf("Assignment Failed.\n");
+    return NULL;
 }
 
 VALUE *declaration_method(TOKEN *token, FRAME *frame) {
@@ -50,8 +42,7 @@ VALUE *declaration_method(TOKEN *token, FRAME *frame) {
         frame->bindings = new;
         return NULL;
     }
-    printf("Binding Allocation Failed.\n");
-
+    else return NULL;
 }
 
 #endif // BINDINGS_C

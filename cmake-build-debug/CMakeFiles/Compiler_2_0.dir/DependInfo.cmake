@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/nodes.c.o"
   "/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o"
   "/home/ollie/CLionProjects/Compiler_2.0/main.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/main.c.o"
+  "/home/ollie/CLionProjects/Compiler_2.0/test.c" "/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/test.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

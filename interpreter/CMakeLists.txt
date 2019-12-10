@@ -7,6 +7,6 @@ add_library(interpreter
         bindings.c
         closures.c
         interpret.c
-        prints.c
+        debug.c
         apply.c
         value.c)

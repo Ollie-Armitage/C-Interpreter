@@ -63,7 +63,6 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
             newBinding->val = interpret(ap->right, env);
             newBinding->next = (struct BINDING *) newFrame->bindings;
             newFrame->bindings = newBinding;
-            printf("Binding Allocated: %s\t Value: %ld\n", newBinding->name->lexeme, newBinding->val->v.integer);
         }
         else{
             printf("Error: Binding Allocation Failed.\n");
@@ -81,19 +80,16 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
         newBinding->val = interpret(ap, env);
         newBinding->next = (struct BINDING *) newFrame->bindings;
         newFrame->bindings = newBinding;
-        printf("Binding Allocated: %s\t Value: %ld\n", newBinding->name->lexeme, newBinding->val->v.integer);
     }
     else{
         printf("Error: Binding Allocation Failed.\n");
     }
 
     // Once all the parameters have arguments bound to them, and are stored in the new frame, return the new frame.
-
     return newFrame;
 }
 
 VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
-    //TODO: Problem is that environment is being updated before args are evaluated.
 
     ENV* tempEnv = malloc(sizeof(ENV));
     *tempEnv = *env;
@@ -107,7 +103,6 @@ VALUE* lexical_call_method(TOKEN* name, NODE* args, ENV* env){
 
 
     // Runs the function and returns its output.
-    printf("Entering function: %s\n", name->lexeme);
     VALUE* answer = interpret(f->body, env);
     *env = *tempEnv;
     free(tempEnv);
