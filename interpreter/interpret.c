@@ -24,6 +24,9 @@ VALUE* sequence_method(NODE *tree, ENV *e);
 VALUE *return_method(NODE *tree, ENV *e);
 VALUE *declare(NODE *tree, ENV *e);
 
+
+
+
 VALUE *interpret(NODE *tree, ENV *e) {
 
     if (tree == NULL) return NULL;
@@ -54,6 +57,19 @@ VALUE *interpret(NODE *tree, ENV *e) {
     }
 
     return NULL;
+}
+
+int bind_initial_args(NODE* tree, ENV* e, char** args){
+    e->frames = extend_frame(e, tree->right, NULL);
+
+}
+
+VALUE* interpreter(NODE* tree, ENV* e, int numberOfArgs, char** args){
+    //TODO: Bind args
+
+    bind_initial_args(tree->left, e, args);
+    interpret(tree->right, e);
+
 }
 
 VALUE *declare(NODE *tree, ENV *e) {

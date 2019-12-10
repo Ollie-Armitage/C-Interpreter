@@ -49,7 +49,7 @@ NODE *buildAST(char *fileDirectory) {
 
 }
 
-int run(char* fileDirectory, int runType) {
+int run(char* fileDirectory, int runType, int numberOfArgs, char** args) {
 
     ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
@@ -65,7 +65,7 @@ int run(char* fileDirectory, int runType) {
     print_tree(tree);
 
     if(runType == 0){
-        interpret(tree, e);
+        interpreter(tree, e, numberOfArgs, args);
     }
     else if(runType == 1){
         ThreeAddressCode(tree);
@@ -82,12 +82,20 @@ int run(char* fileDirectory, int runType) {
 
 int main(int argc, char **argv) {
 
-    char* file_path = NULL;
-    if(argv[1] != NULL){ file_path = argv[1]; }
+    char *file_path = NULL;
+    char **programArgs = malloc(sizeof(char*)*argc - 2);
+    if(argv[1] == NULL){ printf("Entering lexer without preset file.\n"); }
+    else{
+        file_path = argv[1];
+        for(int i = 0; i < argc - 2; i++){
+            programArgs[i] = argv[i+2];
+        }
+    }
 
     init_symbtable();
 
     printf("--C COMPILER\n");
-    run(file_path, 0);
+
+    run(file_path, 0, argc - 2, programArgs);
     return 0;
 }

@@ -41,11 +41,8 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
     for (ip = ids, ap = args; (ip->left->type == ',' && ap->left->type == ','); ip = ip->left, ap = ap->left) {
         BINDING *newBinding = malloc(sizeof(BINDING));
         if (newBinding != 0) {
-
-            newBinding->name = (TOKEN *) ip->right->right->left;
-            newBinding->val = interpret(ap->right, env);
-            newBinding->next = (struct BINDING *) newFrame->bindings;
-            newFrame->bindings = newBinding;
+            declaration_method((TOKEN*)ip->right->right->left, newFrame);
+            assignment((TOKEN*)ip->right->right->left, newFrame, interpret(ap->right, env));
             printf("Binding Allocated: %s\t Value: %ld\n", newBinding->name->lexeme, newBinding->val->v.integer);
         }
         else{
@@ -58,11 +55,11 @@ FRAME *extend_frame(ENV* env, NODE *ids, NODE *args) {
     if(ip->type == ',' && ap->type == ','){
         BINDING *newBinding = malloc(sizeof(BINDING));
         if (newBinding != 0) {
-
             newBinding->name = (TOKEN *) ip->right->right->left;
             newBinding->val = interpret(ap->right, env);
             newBinding->next = (struct BINDING *) newFrame->bindings;
             newFrame->bindings = newBinding;
+
         }
         else{
             printf("Error: Binding Allocation Failed.\n");
