@@ -1,5 +1,3 @@
-#ifndef COMPILER_2_0_PRINTS_C
-#define COMPILER_2_0_PRINTS_C
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -88,5 +86,3 @@ void error_exit_method(char* message){
     printf("%s\n", message);
     exit(1);
 };
-
-#endif //COMPILERS_2_0_PRINTS_C

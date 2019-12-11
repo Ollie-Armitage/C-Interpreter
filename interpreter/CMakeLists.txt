@@ -4,9 +4,6 @@ set(CMAKE_C_STANDARD 11)
 
 add_library(interpreter
         arithmetic.c
-        bindings.c
-        closures.c
         interpret.c
         debug.c
-        apply.c
         value.c)

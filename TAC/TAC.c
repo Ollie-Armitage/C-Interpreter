@@ -3,7 +3,7 @@
 #include <bits/types/FILE.h>
 #include "TAC_VALUE.h"
 
-int ThreeAddressCode(NODE* tree){
+int three_address_code(NODE* tree){
     FILE* tacOut;
     tacOut = fopen("TAC_OUT", "w");
 

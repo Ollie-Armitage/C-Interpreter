@@ -20,7 +20,6 @@ CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.o
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c
 CMakeFiles/Compiler_2_0.dir/main.c.o
  ../Lexer_Parser_Files/token.h
- ../interpreter/headers/bindings.h
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/nodes.h
  /home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/token.h
  /home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h

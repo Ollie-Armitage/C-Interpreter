@@ -209,16 +209,7 @@
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/TAC/TAC.h">
 			<Option target="TAC"/>
 		</Unit>
-		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/apply.c">
-			<Option target="interpreter"/>
-		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/arithmetic.c">
-			<Option target="interpreter"/>
-		</Unit>
-		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/bindings.c">
-			<Option target="interpreter"/>
-		</Unit>
-		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/closures.c">
 			<Option target="interpreter"/>
 		</Unit>
 		<Unit filename="/home/ollie/CLionProjects/Compiler_2.0/interpreter/debug.c">

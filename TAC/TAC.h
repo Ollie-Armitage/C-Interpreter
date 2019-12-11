@@ -5,6 +5,6 @@
 #ifndef COMPILER_2_0_TAC_H
 #define COMPILER_2_0_TAC_H
 
-int ThreeAddressCode(NODE* tree);
+int three_address_code(NODE* tree);
 
 #endif //COMPILER_2_0_TAC_H
