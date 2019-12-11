@@ -1,6 +1,0 @@
-int main(){
-    int a = 5;
-    int b = 10;
-    print_int(a*b);
-    return 0;
-}
