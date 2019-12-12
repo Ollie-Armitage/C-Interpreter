@@ -1,0 +1,12 @@
+/*22*/
+
+int main(){
+    function cplus(int a){
+        int cplusa(int b){return a+b; }
+        return cplusa;
+    }
+
+    function f = cplus(5);
+    output_int_to_file(f(17));
+    return 0;
+}

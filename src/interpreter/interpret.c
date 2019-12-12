@@ -12,6 +12,8 @@
 #include "headers/interpret.h"
 
 
+void output_int_to_file(long integer);
+
 VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args) {
     //TODO: Bind args from command line.
 
@@ -240,10 +242,17 @@ VALUE *apply(TOKEN *name, NODE *args, ENV *e) {
     else if (strcmp(name->lexeme, "read_string") == 0) answer = read_string();
     else if (strcmp(name->lexeme, "print_string") == 0) printf("%s\n", interpret(args, e)->v.string);
     else if (strcmp(name->lexeme, "print_int") == 0) printf("Print_int: %ld\n", interpret(args, e)->v.integer);
+    else if (strcmp(name->lexeme, "output_int_to_file") == 0) output_int_to_file(interpret(args, e)->v.integer);
     else answer = lexical_call_method(name, args, e);
 
     return answer;
 
+}
+
+void output_int_to_file(long integer) {
+    FILE* file = fopen("temp", "a");
+    fprintf(file, "/*%ld*/\n", integer);
+    fclose(file);
 }
 
 int bind_initial_args(NODE *tree, ENV *e, char **args) {

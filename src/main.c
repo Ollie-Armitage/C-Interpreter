@@ -10,6 +10,10 @@ extern FILE* yyin;
 extern int yylex();
 extern void init_symbtable(void);
 
+void clean_files();
+
+void check_and_record(char *path);
+
 void bad_args_error() {
     printf("Please run program in the format: <Program> <File> <FileArgs1> <FileArgs2> ...\n");
     exit(1);
@@ -66,6 +70,8 @@ int run(char* file_directory, int run_type, int number_of_args, char** args) {
 
 int main(int argc, char **argv) {
 
+    clean_files();
+
     char *file_path = NULL, **program_args = NULL;
     if(argv[1] == NULL) printf("Entering lexer without preset file.\n");
     else{
@@ -80,5 +86,46 @@ int main(int argc, char **argv) {
     printf("--C COMPILER\n");
 
     run(file_path, INTERPRETER_TYPE, argc - 2, program_args);
+
+    check_and_record(file_path);
+
+    FILE* results = fopen("results", "r");
+
+    char ch;
+    while((ch = fgetc(results)) != EOF)
+        printf("%c", ch);
+
+    fclose(results);
+
     return 0;
+}
+
+void check_and_record(char *path) {
+    char answer[BUFSIZ];
+    char true_answer[BUFSIZ];
+    FILE *f = fopen("temp", "r");
+    fgets(answer, BUFSIZ, f);
+    fclose(f);
+
+    FILE *f2 = fopen(path, "r");
+
+    fgets(true_answer, BUFSIZ, f2);
+
+    fclose(f2);
+
+    FILE* test_results = fopen("results", "a");
+
+    if(strcmp(answer, true_answer) == 0) fprintf(test_results, "Test Passed: %s\n", path);
+    else fprintf(test_results, "Test Failed: %s\n", path);
+
+    fclose(test_results);
+
+
+}
+
+void clean_files() {
+    FILE* f = fopen("temp", "w");
+    fclose(f);
+    f = fopen("results", "w");
+    fclose(f);
 }
