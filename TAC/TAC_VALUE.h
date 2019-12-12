@@ -9,9 +9,6 @@
 // Created by ollie on 08/12/2019.
 //
 
-#ifndef COMPILER_2_0_TAC_H
-#define COMPILER_2_0_TAC_H
-
 typedef struct call {
     TOKEN* name;
     int arity;
@@ -30,10 +27,5 @@ typedef struct tac{
 typedef struct bb{
     TAC* leader;
 } BB;
-
-
-
-#endif //COMPILER_2_0_TAC_H
-
 
 #endif //COMPILER_2_0_TAC_VALUE_H
