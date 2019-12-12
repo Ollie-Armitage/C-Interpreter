@@ -2,7 +2,7 @@
 #include "src/main.h"
 
 START_TEST(INTERPRET_FACTORIAL){
-    run("tests/factorial", INTERPRETER_TYPE, 0, NULL);
+    run("tests/factorial_in_main", INTERPRETER_TYPE, 0, NULL);
 }
 END_TEST
 
