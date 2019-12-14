@@ -6,7 +6,6 @@ include_directories(.)
 set(CMAKE_C_FLAGS  "-fprofile-arcs -ftest-coverage -lcheck")
 
 add_subdirectory(src)
-add_subdirectory(tests)
 target_link_libraries(interpreter_files)
 
 add_executable(Compiler_2_0

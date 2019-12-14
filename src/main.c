@@ -10,11 +10,6 @@ extern FILE* yyin;
 extern int yylex();
 extern void init_symbtable(void);
 
-void bad_args_error() {
-    printf("Please run program in the format: <Program> <File> <FileArgs1> <FileArgs2> ...\n");
-    exit(1);
-}
-
 /* build_AST Should take the input parameter of a specific file directory, and output the tree node. */
 
 NODE *build_AST(char *file_directory) {
@@ -25,7 +20,7 @@ NODE *build_AST(char *file_directory) {
         char* line = NULL;
         if(!file){
             printf("Cannot open file.\n");
-            bad_args_error();
+            exit(1);
         }
 
         yyin = file;
