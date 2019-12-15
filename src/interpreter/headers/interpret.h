@@ -8,6 +8,8 @@ VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args);
 
 VALUE *interpret(NODE *tree, ENV *e);
 
+CLOSURE* get_main(FRAME* frame);
+
 VALUE *node_to_value(NODE *tree);
 
 VALUE *interpret_if(NODE *tree, ENV *e);
@@ -18,7 +20,9 @@ VALUE *sequence_method(NODE *tree, ENV *e);
 
 VALUE *return_method(NODE *tree, ENV *e);
 
-VALUE *untyped_declare_method(NODE *tree, ENV *e);
+VALUE* declare_function_method(NODE* tree, ENV* e);
+
+VALUE* declaration_list_method(NODE *node, ENV *e);
 
 VALUE *apply(TOKEN *name, NODE *args, ENV *e);
 

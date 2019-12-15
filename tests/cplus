@@ -1,9 +1,9 @@
-int main(){
-    function cplus(int a){
+function cplus(int a){
         int cplusa(int b){return a+b; }
         return cplusa;
-    }
+}
 
+int main(){
     function f = cplus(5);
     print_int(f(17));
     return 0;

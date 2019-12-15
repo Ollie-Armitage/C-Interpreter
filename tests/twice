@@ -1,16 +1,15 @@
-int main(){
-
-    function cplus(int a){
+function cplus(int a){
         int cplusa(int b){return a+b; }
         return cplusa;
-    }
+}
 
-    function twice(function f){
+function twice(function f){
         int g(int x){ return f(f(x)); }
         return g;
-    }
+}
 
+int main(){
     function f = twice(cplus(7));
-    print_int(f(10));
+    print_int(f(read_int()));
 
 }

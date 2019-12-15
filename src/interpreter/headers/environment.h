@@ -19,6 +19,7 @@ typedef struct closure {
     FRAME *env;
     NODE *ids;
     NODE *body;
+    TOKEN* temp_name;
 } CLOSURE;
 
 typedef struct VALUE

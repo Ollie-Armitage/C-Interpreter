@@ -1,0 +1,28 @@
+int functiona(int a, int b){
+    return a;
+}
+
+int functionb(int a, int b){
+    return a;
+}
+
+int functionc(int a, int b){
+    return a;
+}
+
+int functiond(int a, int b){
+    return a;
+}
+
+int functione(int a, int b){
+    return a;
+}
+
+int functionf(int a, int b){
+    return a;
+}
+
+int main(){
+    print_int(functiond(5, 10));
+    return 0;
+}

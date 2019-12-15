@@ -1,0 +1,5 @@
+int main(){
+    int a = 10;
+    print_int(a);
+    return a;
+}

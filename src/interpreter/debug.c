@@ -1,6 +1,7 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <src/interpreter/headers/environment.h>
 
 #include "Lexer_Parser_Files/C.tab.h"
 #include "Lexer_Parser_Files/nodes.h"
@@ -52,6 +53,30 @@ char *named(int t) {
             return "break";
         case RETURN:
             return "return";
+    }
+}
+
+void print_all_bindings(ENV* e){
+
+    FRAME* frame = e->frames;
+
+    while (frame != NULL) {
+        BINDING *bindings = frame->bindings;
+        while (bindings != NULL) {
+            printf("%s:\t", bindings->name->lexeme);
+            if(bindings->val != NULL){
+                if(bindings->val->type == 0) printf("%ld\n", bindings->val->v.integer);
+                else if(bindings->val->type == 3){
+                    if (bindings->val->v.closure->body != NULL) printf("\tNOT NULL CLOSURE.\n");
+                    else printf("\t NULL BY DESIGN.\n");
+                }
+            }
+            else printf("NULL\n");
+
+
+            bindings = (BINDING *) bindings->next;
+        }
+        frame = (FRAME *) frame->next;
     }
 }
 
