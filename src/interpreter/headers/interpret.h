@@ -4,7 +4,7 @@
 #include "environment.h"
 #include "Lexer_Parser_Files/nodes.h"
 
-int interpreter(NODE *tree, ENV *e);
+int interpreter(NODE *tree, ENV *e, char* file_directory, int mode);
 
 VALUE *interpret(NODE *tree, ENV *e);
 
@@ -19,6 +19,10 @@ VALUE *function_definition(NODE *tree, ENV *e);
 VALUE *sequence_method(NODE *tree, ENV *e);
 
 VALUE *return_method(NODE *tree, ENV *e);
+
+VALUE *leaf_method(NODE *tree, ENV *e);
+
+void declaration_method(NODE *tree, ENV *e);
 
 VALUE* declare_function_method(NODE* tree, ENV* e);
 

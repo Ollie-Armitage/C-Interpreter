@@ -1,3 +1,5 @@
+/*3628800*/
+
 int main(){
     int fact(int n){
         int inner_fact(int n,int a){
@@ -7,7 +9,6 @@ int main(){
         return inner_fact(n,1);
     }
 
-    print_int(fact(10));
-    return 0;
+    return fact(10);
 
 }

@@ -1,3 +1,5 @@
+/*70*/
+
 int other_random(int n){
     return n;
 }
@@ -24,6 +26,5 @@ int main(){
         return b+e;
     }
 
-    print_int(inner_main());
-    return 0;
+    return inner_main();
 }

@@ -1,0 +1,16 @@
+/*20*/
+
+int main(){
+    int a = 10;
+
+    int inner_main(){
+        int a = 20;
+        return a;
+    }
+
+    a = 15;
+
+    return inner_main();
+
+
+}

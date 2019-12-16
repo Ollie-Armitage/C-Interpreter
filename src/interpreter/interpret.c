@@ -3,24 +3,25 @@
 #include <string.h>
 #include <stdio.h>
 #include <src/interpreter/headers/environment.h>
+#include <src/main.h>
 
 #include "headers/value.h"
 #include "Lexer_Parser_Files/nodes.h"
 #include "Lexer_Parser_Files/C.tab.h"
-#include "headers/environment.h"
 #include "headers/arithmetic.h"
 #include "headers/debug.h"
 #include "headers/interpret.h"
 
-VALUE *leaf_method(NODE *tree, ENV *e);
 
-void declaration_method(NODE *tree, ENV *e);
+VALUE *get_true_answer(char *directory, int type);
+
+void output_results(int results, char *directory);
 
 /* Main function for the interpreter, returns 0 if successful, 1 if not. Interprets the definition of the global scope
  * functions, and assuming it finds the main function in the global scope it interprets it, then prints the value
  * returned from it. The type of the value handles which v to print out. */
 
-int interpreter(NODE *tree, ENV *e) {
+int interpreter(NODE *tree, ENV *e, char* file_directory, int mode) {
 
     CLOSURE *main;
 
@@ -47,26 +48,85 @@ int interpreter(NODE *tree, ENV *e) {
         printf("No return type given. Exiting.\n");
         exit(0);
     }
+    int results = 0;
+    if(mode == TEST){
+        VALUE* true_answer = get_true_answer(file_directory, interpretation->type);
 
-    switch (interpretation->type) {
-        case 0:
-            printf("int: %ld\n", interpretation->v.integer);
-            break;
-        case 1:
-            if (interpretation->v.boolean == 0) {
-                printf("Boolean: FALSE.\n");
+        switch (interpretation->type) {
+            case 0:
+                printf("int: %ld\n", interpretation->v.integer);
+                if(true_answer->v.integer == interpretation->v.integer) results = 1;
+                output_results(results, file_directory);
+
                 break;
-            } else printf("Boolean: TRUE.\n");
-            break;
-        case 2:
-            printf("String: %s\n", interpretation->v.string);
-            break;
-        case 3:
-            printf("Function returned.\n");
-            break;
+            case 1:
+                if (interpretation->v.boolean == 0) printf("Boolean: FALSE.\n");
+                else printf("Boolean: TRUE.\n");
+
+                if(true_answer->v.boolean == interpretation->v.boolean) results = 1;
+                output_results(results, file_directory);
+                break;
+            case 2:
+                printf("String: %s\n", interpretation->v.string);
+                break;
+            case 3:
+                printf("Function returned.\n");
+                break;
+        }
+    }
+    else{
+        switch (interpretation->type) {
+            case 0:
+                printf("int: %ld\n", interpretation->v.integer);
+                break;
+            case 1:
+                if (interpretation->v.boolean == 0) {
+                    printf("Boolean: FALSE.\n");
+                    break;
+                } else printf("Boolean: TRUE.\n");
+                break;
+            case 2:
+                printf("String: %s\n", interpretation->v.string);
+                break;
+            case 3:
+                printf("Function returned.\n");
+                break;
+        }
     }
 
+
+
+
+
     return 0;
+}
+
+void output_results(int results, char *directory) {
+    FILE* f = fopen("Results", "a");
+
+    if(results == 1) fprintf(f, "Test Passed: %s\n", directory);
+    else fprintf(f, "Test Failed: %s\n", directory);
+
+    fclose(f);
+}
+
+VALUE *get_true_answer(char *directory, int type) {
+    char *line_ptr = NULL;
+    size_t n = 0;
+
+    FILE* f = fopen(directory, "r");
+    getline(&line_ptr, &n, f);
+
+
+    if(line_ptr == NULL){
+        printf("Line pointer equal to null\n");
+        return NULL;
+    }
+
+    if(type == 0){ return make_lint_value(strtol(line_ptr + 2, NULL, 10)); }
+    else if(type == 1) return make_bool_value((int)strtol(line_ptr + 2, NULL, 10));
+    else return NULL;
+
 }
 
 /* One off function using strcmp to find the function with the name "main" and return it, only searching within the

@@ -1,3 +1,5 @@
+/*22*/
+
 int main(){
     function cplus(int a){
         int cplusa(int b){return a+b; }
@@ -5,6 +7,5 @@ int main(){
     }
 
     function f = cplus(5);
-    print_int(f(17));
-    return 0;
+    return f(17);
 }
