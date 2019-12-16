@@ -24,6 +24,8 @@ VALUE* declare_function_method(NODE* tree, ENV* e);
 
 VALUE* declaration_list_method(NODE *node, ENV *e);
 
+int scan_for_variable_dec(NODE* node);
+
 VALUE *apply(TOKEN *name, NODE *args, ENV *e);
 
 VALUE *name_method(TOKEN *token, FRAME *frame);

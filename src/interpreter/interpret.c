@@ -13,14 +13,6 @@
 #include "headers/interpret.h"
 
 
-void output_int_to_file(long integer);
-
-
-
-
-/*TODO: This function should first define all global scope closures, then run the main function. And then maybe bind
- * args from command line.*/
-
 VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args) {
 
     CLOSURE* main;
@@ -31,7 +23,7 @@ VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args) {
 
     main = get_main(e->frames);
 
-    if(main == NULL){ // If its not found some function named main
+    if(main == NULL){
         interpret(tree->right, e);
         main = get_main(e->frames);
 
@@ -46,7 +38,22 @@ VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args) {
         }
     }
 
-    interpret(main->body, e);
+    VALUE* interpretation = interpret(main->body, e);
+
+    switch(interpretation->type){
+        case 0: printf("%ld\n", interpretation->v.integer); break;
+        case 1:
+            if(interpretation->v.boolean == 0) {
+                printf("FALSE.\n");
+                break;
+            }
+            else printf("TRUE.\n");
+            break;
+        case 2: printf("%s\n", interpretation->v.string);
+                break;
+        case 3: printf("Function returned.\n");
+                break;
+    }
 
 
     return NULL;
@@ -76,8 +83,10 @@ VALUE *interpret(NODE *tree, ENV *e) {
             if(tree->right->type == '=') declaration_method((TOKEN*)tree->right->left->left, e->frames);
             else if (tree->right->type == ',') declaration_list_method(tree->right, e);
             else{
+                declaration_method((TOKEN*)tree->right->left, e->frames);
                 interpret(tree->left, e);
             }
+
             interpret(tree->right, e);
             break;
         case ',':
@@ -98,7 +107,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
         case STRING_LITERAL:
             return node_to_value(tree);
         case RETURN:
-            //print_all_bindings(e);
+
             return return_method(tree, e);
         case APPLY:
             return apply((TOKEN *) tree->left->left, tree->right, e);
@@ -107,6 +116,7 @@ VALUE *interpret(NODE *tree, ENV *e) {
         case '=':
             return assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e));
         case '+':
+            //print_all_bindings(e);
             return add_method(tree->left, tree->right, e);
         case '-':
             return subtract_method(tree->left, tree->right, e);
@@ -130,6 +140,22 @@ VALUE *interpret(NODE *tree, ENV *e) {
     }
 
     return NULL;
+}
+
+int scan_for_variable_dec(NODE* node){
+    int type = node->left->left->type;
+
+    int has_type = 0;
+
+    switch(type){
+        case INT:
+        case VOID:
+        case FUNCTION: has_type = 1;
+        default: break;
+    }
+
+    if(has_type && node->right->left->left->type == IDENTIFIER) return 1;
+    else return 0;
 }
 
 VALUE* declaration_list_method(NODE *node, ENV *e) {

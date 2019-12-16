@@ -6,7 +6,9 @@
 
 VALUE* add_method(NODE* left, NODE* right, ENV* e){
     if(left == NULL && right == NULL) return NULL;
-    return make_lint_value(interpret(left, e)->v.integer + interpret(right, e)->v.integer);
+    VALUE* left_value = interpret(left, e);
+    VALUE* right_value = interpret(right, e);
+    return make_lint_value(left_value->v.integer + right_value->v.integer);
 }
 
 VALUE* subtract_method(NODE* left, NODE* right, ENV* e){
@@ -16,7 +18,9 @@ VALUE* subtract_method(NODE* left, NODE* right, ENV* e){
 
 VALUE* multiply_method(NODE* left, NODE* right, ENV* e){
     if(left == NULL && right == NULL) return NULL;
-   return make_lint_value(interpret(left, e)->v.integer * interpret(right, e)->v.integer);
+    VALUE* left_value = interpret(left, e);
+    VALUE* right_value = interpret(right, e);
+    return make_lint_value(left_value->v.integer * right_value->v.integer);
 }
 
 VALUE* divide_method(NODE* left, NODE* right, ENV* e){
