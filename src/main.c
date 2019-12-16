@@ -56,19 +56,28 @@ int run(char* file_directory, int run_type, int test_mode) {
 }
 
 int main(int argc, char **argv) {
-
+    init_symbtable();
     char *file_path = NULL, **program_args = NULL;
-    if(argv[1] == NULL) printf("Entering lexer without preset file.\n");
-    else{
-        program_args = malloc(sizeof(char*) * argc - 2);
+    if (argv[1] == NULL) printf("Entering lexer without preset file.\n");
+    else {
+        program_args = malloc(sizeof(char *) * argc - 2);
         file_path = argv[1];
-        for(int i = 0; i < argc - 2; i++){
+        for (int i = 0; i < argc - 2; i++) {
             program_args[i] = argv[i + 2];
         }
     }
-    init_symbtable();
+
+
+    if (argv[2] != NULL) {
+        if (atoi(argv[2]) == 1) run(file_path, INTERPRETER_TYPE, TEST);
+        else run(file_path, INTERPRETER_TYPE, 0);
+    }
+    else {
+        run(file_path, INTERPRETER_TYPE, 0);
+    }
+
     printf("--C COMPILER\n");
 
-    run(file_path, INTERPRETER_TYPE, TEST);
+
     return 0;
 }

@@ -1,0 +1,32 @@
+/*52*/
+
+int main(){
+    int a = 10;
+    int b = 20;
+    int c = 30;
+    int d = 40;
+    int e;
+    int f;
+
+    if(a*2 == b){
+        f = 2;
+    }
+    else{
+        f = 3;
+    }
+
+
+
+    if(d - c != a){
+        e = 40;
+    }
+    else{
+        e = 50;
+    }
+
+    print_int(e);
+
+    return e+f;
+
+
+}

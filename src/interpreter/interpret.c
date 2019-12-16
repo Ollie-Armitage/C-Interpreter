@@ -263,7 +263,6 @@ VALUE *function_definition(NODE *tree, ENV *e) {
 VALUE *declare_function_method(NODE *tree, ENV *e) {
     declaration((TOKEN *) tree->left->left, e->frames);
     VALUE *closure = build_closure(e->frames, tree->right, NULL);
-    //print_all_bindings(e);
     assignment((TOKEN *) tree->left->left, e->frames, closure);
     return closure;
 }
@@ -380,7 +379,6 @@ VALUE *lexical_call_method(TOKEN *name, NODE *args, ENV *env) {
 
     tempEnv->frames = function_frame(env, f->ids, args);
     tempEnv->frames->next = (struct FRAME *) f->env;
-    print_all_bindings(tempEnv);
 
     /* Runs the function and returns its output and resets the return_answer value to 0, given it was only a return for
     a single function. */
@@ -499,12 +497,16 @@ VALUE *interpret_if(NODE *tree, ENV *e) {
 
     //TODO: extend frames.
 
+    ENV* if_env = malloc(sizeof(ENV));
+    if_env->frames = malloc(sizeof(FRAME));
+    if_env->frames->next = (struct FRAME *) e->frames;
+
     if (interpret(tree->left, e)->v.boolean == 1) {
-        if (tree->right->type != ELSE) return interpret(tree->right, e);
-        else return interpret(tree->right->left, e);
+        if (tree->right->type != ELSE) return interpret(tree->right, if_env);
+        else return interpret(tree->right->left, if_env);
     } else {
         if (tree->right->type != ELSE) return NULL;
-        else return interpret(tree->right->right, e);
+        else return interpret(tree->right->right, if_env);
     }
 }
 
