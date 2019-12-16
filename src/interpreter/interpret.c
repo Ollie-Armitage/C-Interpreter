@@ -263,6 +263,7 @@ VALUE *function_definition(NODE *tree, ENV *e) {
 VALUE *declare_function_method(NODE *tree, ENV *e) {
     declaration((TOKEN *) tree->left->left, e->frames);
     VALUE *closure = build_closure(e->frames, tree->right, NULL);
+    //print_all_bindings(e);
     assignment((TOKEN *) tree->left->left, e->frames, closure);
     return closure;
 }
@@ -301,9 +302,13 @@ VALUE *name_method(TOKEN *token, FRAME *frame) {
  * i.e. the body, if the closure is only declared and not defined. */
 
 VALUE *build_closure(FRAME *env, NODE *ids, NODE *body) {
+
+    FRAME* closure_environment = malloc(sizeof(FRAME));
+    *closure_environment = *env;
+
     VALUE *value;
     CLOSURE *closure = malloc(sizeof(CLOSURE));
-    closure->env = env;
+    closure->env = closure_environment;
     closure->ids = ids;
     closure->body = body;
     value = make_closure_value(closure);
@@ -314,12 +319,11 @@ VALUE *build_closure(FRAME *env, NODE *ids, NODE *body) {
  * In the case of a function, will bind it's supplied list of node arguments
  * to it's supplied list of parameters. */
 
-FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
+FRAME *function_frame(ENV *env, NODE *ids, NODE *args) {
 
     // Build a new frame for a function and attach the current frame from the environment provided to it's end.
 
     FRAME *newFrame = malloc(sizeof(FRAME));
-    //TODO: Necessary? newFrame->next = (struct FRAME *) env->frames;
 
     // If there are no parameters or no arguments, return the new frame empty.
 
@@ -370,19 +374,18 @@ FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
 VALUE *lexical_call_method(TOKEN *name, NODE *args, ENV *env) {
 
     ENV *tempEnv = malloc(sizeof(ENV));
-    *tempEnv = *env;
 
     // Gets the function from the environment.
     CLOSURE *f = name_method(name, env->frames)->v.closure;
 
-    env->frames = extend_frame(env, f->ids, args);
-    env->frames->next = (struct FRAME *) f->env;
+    tempEnv->frames = function_frame(env, f->ids, args);
+    tempEnv->frames->next = (struct FRAME *) f->env;
+    print_all_bindings(tempEnv);
 
     /* Runs the function and returns its output and resets the return_answer value to 0, given it was only a return for
     a single function. */
-    VALUE *answer = interpret(f->body, env);
+    VALUE *answer = interpret(f->body, tempEnv);
     answer->return_answer = 0;
-    *env = *tempEnv;
     free(tempEnv);
     return answer;
 }

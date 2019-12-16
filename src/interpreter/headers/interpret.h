@@ -38,7 +38,7 @@ VALUE *build_closure(FRAME *env, NODE *ids, NODE *body);
 
 VALUE *declaration(TOKEN *token, FRAME *frame);
 
-FRAME *extend_frame(ENV *env, NODE *ids, NODE *args);
+FRAME *function_frame(ENV *env, NODE *ids, NODE *args);
 
 VALUE *lexical_call_method(TOKEN *name, NODE *args, ENV *env);
 

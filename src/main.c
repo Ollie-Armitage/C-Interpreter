@@ -50,7 +50,6 @@ int run(char* file_directory, int run_type, int test_mode) {
         case MIPS_TYPE:
         case INTERPRETER_TYPE: interpreter(tree, e, file_directory, test_mode);
         default:
-            free(e->frames);
             free(e);
             return 0;
     }

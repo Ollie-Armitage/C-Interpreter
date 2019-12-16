@@ -1,4 +1,4 @@
-/*10*/
+/*20*/
 int outer_main(int c, int d){
     int a = 30;
     return a;
@@ -9,11 +9,12 @@ int main(){
     int a = 10;
 
     int inner_main(int b, int g){
+        a = 20;
         return a;
     }
 
 
     int b = outer_main(14, 30);
     int c = inner_main(40, 15);
-    return inner_main(30, 20);
+    return a;
 }
