@@ -3,7 +3,8 @@ function cplus(int a){
         return cplusa;
 }
 
-int main(){    function f = cplus(5);
-    print_int(f(17));
-    return 0;
+int main(){
+    function f = cplus(5);
+
+    return f(17);
 }

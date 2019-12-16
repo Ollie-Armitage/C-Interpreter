@@ -6,12 +6,6 @@ int fact(int n){
         return inner_fact(n,1);
     }
 
-int random(int n){
-    return n;
-}
-
 int main(){
-    print_int(fact(10));
-    return 0;
-
+    return fact(10);
 }

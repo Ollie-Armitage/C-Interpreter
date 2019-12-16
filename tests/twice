@@ -10,6 +10,5 @@ function twice(function f){
 
 int main(){
     function f = twice(cplus(7));
-    print_int(f(read_int()));
-
+    return f(10);
 }

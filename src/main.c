@@ -33,25 +33,22 @@ NODE *build_AST(char *file_directory) {
     return ans;
 }
 
-int run(char* file_directory, int run_type, int number_of_args, char** args) {
+int run(char* file_directory, int run_type) {
 
     ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
     NODE* tree;
 
-    if(file_directory != NULL){
-        tree = build_AST(file_directory);
-    }
-    else{
-        tree = build_AST(NULL);
-    }
+    if(file_directory != NULL) tree = build_AST(file_directory);
+    else tree = build_AST(NULL);
+
 
     print_tree(tree);
 
     switch(run_type){
         case TAC_TYPE:
         case MIPS_TYPE:
-        case INTERPRETER_TYPE: interpreter(tree, e, number_of_args, args);
+        case INTERPRETER_TYPE: interpreter(tree, e);
         default:
             free(e->frames);
             free(e);
@@ -74,6 +71,6 @@ int main(int argc, char **argv) {
     init_symbtable();
     printf("--C COMPILER\n");
 
-    run(file_path, INTERPRETER_TYPE, argc - 2, program_args);
+    run(file_path, INTERPRETER_TYPE);
     return 0;
 }

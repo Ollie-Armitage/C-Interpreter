@@ -4,7 +4,7 @@
 #include "environment.h"
 #include "Lexer_Parser_Files/nodes.h"
 
-VALUE *interpreter(NODE *tree, ENV *e, int numberOfArgs, char **args);
+int interpreter(NODE *tree, ENV *e);
 
 VALUE *interpret(NODE *tree, ENV *e);
 
@@ -24,19 +24,15 @@ VALUE* declare_function_method(NODE* tree, ENV* e);
 
 VALUE* declaration_list_method(NODE *node, ENV *e);
 
-int scan_for_variable_dec(NODE* node);
-
 VALUE *apply(TOKEN *name, NODE *args, ENV *e);
 
 VALUE *name_method(TOKEN *token, FRAME *frame);
 
 VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value);
 
-int bind_initial_args(NODE *tree, ENV *e, char **args);
-
 VALUE *build_closure(FRAME *env, NODE *ids, NODE *body);
 
-VALUE *declaration_method(TOKEN *token, FRAME *frame);
+VALUE *declaration(TOKEN *token, FRAME *frame);
 
 FRAME *extend_frame(ENV *env, NODE *ids, NODE *args);
 

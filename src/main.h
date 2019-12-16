@@ -10,7 +10,7 @@
 #include "interpreter/headers/debug.h"
 #include "Lexer_Parser_Files/nodes.h"
 
-int run(char* file_directory, int run_type, int number_of_args, char** args);
+int run(char* file_directory, int run_type);
 NODE *build_AST(char *file_directory);
 
 #define INTERPRETER_TYPE 0
