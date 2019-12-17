@@ -17,5 +17,5 @@ add_executable(Compiler_2_0
         Lexer_Parser_Files/lex.yy.c
         Lexer_Parser_Files/C.tab.c
         Lexer_Parser_Files/nodes.c
-        Lexer_Parser_Files/symbol_table.c)
+        Lexer_Parser_Files/symbol_table.c src/TAC/TAC.c src/TAC/headers/TAC.h)
 

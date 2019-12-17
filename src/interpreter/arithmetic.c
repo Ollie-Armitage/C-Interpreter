@@ -28,6 +28,11 @@ VALUE* divide_method(NODE* left, NODE* right, ENV* e){
     return make_lint_value(interpret(left, e)->v.integer / interpret(right, e)->v.integer);
 }
 
+VALUE* mod_method(NODE* left, NODE* right, ENV* e){
+    if(left == NULL && right == NULL) return NULL;
+    return make_lint_value(interpret(left, e)->v.integer % interpret(right, e)->v.integer);
+}
+
 // TODO: What about BOOL comparison with BOOL?
 
 VALUE* LT_method(NODE* left, NODE* right, ENV* e){

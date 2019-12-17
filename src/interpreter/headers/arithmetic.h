@@ -11,5 +11,5 @@ VALUE* NE_OP_method(NODE* left, NODE* right, ENV* e);
 VALUE* EQ_OP_method(NODE* left, NODE* right, ENV* e);
 VALUE* LE_OP_method(NODE* left, NODE* right, ENV* e);
 VALUE* GE_OP_method(NODE* left, NODE* right, ENV* e);
-
+VALUE* mod_method(NODE* left, NODE* right, ENV* e);
 #endif // COMPILER_2_0_ARITHMETIC_H

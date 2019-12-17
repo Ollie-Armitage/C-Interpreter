@@ -33,7 +33,7 @@ NODE *build_AST(char *file_directory) {
     return ans;
 }
 
-int run(char* file_directory, int run_type, int test_mode) {
+int run(char* file_directory, int debug, int interpret,  int generate_tac, int generate_mc) {
 
     ENV *e = malloc(sizeof(ENV));
     e->frames = malloc(sizeof(FRAME));
@@ -45,39 +45,59 @@ int run(char* file_directory, int run_type, int test_mode) {
 
     print_tree(tree);
 
-    switch(run_type){
-        case TAC_TYPE:
-        case MIPS_TYPE:
-        case INTERPRETER_TYPE: interpreter(tree, e, file_directory, test_mode);
-        default:
-            free(e);
-            return 0;
-    }
+
+    if(interpret) interpreter(tree, e, file_directory, debug);
+    if(generate_tac) generate_TAC(tree, e, file_directory, debug);
+    //if(generate_mc) generate_MC(tree, e, file_directory, debug);
+
+}
+
+void print_arg_usage(char **argv){
+    printf("Usage: %s..\n\t -f <file_name> : file to be compiled\n", argv[0]);
+    printf("\t -d : debug mode (run tests)\n");
+    printf("\t -i : Interpretation Mode\n");
+    printf("\t -t : Generate TAC code\n");
+    printf("\t -m : Generate Machine code\n");
+    exit(2);
 }
 
 int main(int argc, char **argv) {
     init_symbtable();
-    char *file_path = NULL, **program_args = NULL;
-    if (argv[1] == NULL) printf("Entering lexer without preset file.\n");
-    else {
-        program_args = malloc(sizeof(char *) * argc - 2);
-        file_path = argv[1];
-        for (int i = 0; i < argc - 2; i++) {
-            program_args[i] = argv[i + 2];
+    int d_flag = 0, t_flag = 0, m_flag = 0, i_flag = 0;
+    char* file_path = NULL;
+    int opt;
+    /* I will need flags for a) the input file, b) test mode c) generating TAC code d) generating machine code*/
+    while((opt = getopt(argc, argv, "f:dtmi"))  != -1){
+        switch(opt){
+            case 'f':
+                printf("File mode selected. (%s)\n", optarg);
+                file_path = optarg;
+                break;// file input flag
+            case 'i':
+                printf("Interpretation selected.\n");
+                i_flag = 1;
+                break;
+            case 'd':
+                printf("Debug mode selected.\n");
+                d_flag = 1;
+                break;// debug mode flag
+            case 't':
+                printf("TAC Generation selected.\n");
+                t_flag = 1;
+                break;// TAC code generation
+            case 'm':
+                printf("Machine Code generation selected.\n");
+                m_flag = 1;
+                break;// Machine code generation
+            case '?':
+                print_arg_usage(argv);
+                break;
         }
     }
-
-
-    if (argv[2] != NULL) {
-        if (atoi(argv[2]) == 1) run(file_path, INTERPRETER_TYPE, TEST);
-        else run(file_path, INTERPRETER_TYPE, 0);
-    }
-    else {
-        run(file_path, INTERPRETER_TYPE, 0);
-    }
-
     printf("--C COMPILER\n");
 
+
+    run(file_path, d_flag, i_flag, t_flag, m_flag);
 
     return 0;
 }

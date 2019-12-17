@@ -21,7 +21,7 @@ void output_results(int results, char *directory);
  * functions, and assuming it finds the main function in the global scope it interprets it, then prints the value
  * returned from it. The type of the value handles which v to print out. */
 
-int interpreter(NODE *tree, ENV *e, char* file_directory, int mode) {
+int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
 
     CLOSURE *main;
 
@@ -49,7 +49,7 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int mode) {
         exit(0);
     }
     int results = 0;
-    if(mode == TEST){
+    if(debug){
         VALUE* true_answer = get_true_answer(file_directory, interpretation->type);
 
         switch (interpretation->type) {
@@ -104,8 +104,8 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int mode) {
 void output_results(int results, char *directory) {
     FILE* f = fopen("Results", "a");
 
-    if(results == 1) fprintf(f, "Test Passed: %s\n", directory);
-    else fprintf(f, "Test Failed: %s\n", directory);
+    if(results == 1) fprintf(f, "Interpreter Test Passed: %s\n", directory);
+    else fprintf(f, "Interpreter Test Failed: %s\n", directory);
 
     fclose(f);
 }
@@ -187,6 +187,8 @@ VALUE *interpret(NODE *tree, ENV *e) {
             return multiply_method(tree->left, tree->right, e);
         case '/':
             return divide_method(tree->left, tree->right, e);
+        case '%':
+            return mod_method(tree->left, tree->right, e);
         case GE_OP:
             return GE_OP_method(tree->left, tree->right, e);
         case LE_OP:
