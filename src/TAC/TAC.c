@@ -1,60 +1,94 @@
-//
-// Created by ollie on 17/12/2019.
-//
-
-
 #include <src/TAC/headers/TAC.h>
 
+FILE* out;
 
-TAC *generate(NODE *tree, BB *basic_block);
+void generate_func_def(NODE *node);
 
-void *load_name(NODE *node, TAC* tac);
+INS* make_instruction(label l, i_type type);
 
-void load_constant(NODE *node, TAC* tac);
+INS* make_param_instruction(INS* instruction);
 
-int generate_TAC(NODE *tree, char* file_directory, int debug){
-    BB* basic_block = malloc(sizeof(BB));
-    TAC* tac = malloc(sizeof(TAC));
-    tac->tac_number = 0;
-    basic_block->leader = tac;
-    generate(tree, basic_block);
-    return 0;
+INS* make_quad_instruction(INS* instruction);
+
+INS* make_jump_instruction(INS* instruction);
+
+BLOCK* make_block(NODE* node);
+
+INS* generate_assignment(NODE *node);
+
+void generate_TAC(NODE* tree, char* file_directory, int debug){
+    out = fopen("TAC_OUT", "w");
+    generate(tree);
+    fclose(out);
 }
 
-TAC *generate(NODE *tree, BB *basic_block) {
-    printf("hi\n");
+INS* generate(NODE* tree){
+
     if(tree == NULL) return NULL;
 
     switch(tree->type){
-        case LEAF:
-            return generate(tree->left, basic_block);
-        case IDENTIFIER:
-            load_name(tree, basic_block->leader);
+        case 'D':
+            generate_func_def(tree);
             break;
-        case CONSTANT: /* Use STRING_LITERAL case. */
-            load_constant(tree, basic_block->leader);
-            break;
-        default:
-            generate(tree->left, basic_block);
-            generate(tree->right, basic_block);
+        case 'd':
+        case 'F':
+        /* Ins from book. */
+        case '=':
+            generate_assignment(tree);
+        default: break;
     }
+
     return NULL;
 }
 
-void load_constant(NODE *node, TAC* tac) {
-    tac->args.load.value.constant = ((TOKEN*)node)->value;
-    printf("load t%d %d\n", tac->tac_number, ((TOKEN*)node)->value);
+INS* generate_assignment(NODE *node) {
+    INS* instruction = malloc(sizeof(INS));
+    instruction->val.copy.arg1 = ;
 }
 
-void *load_name(NODE *node, TAC* tac) {
-    tac->args.load.value.variable = (TOKEN *) node;
+void generate_func_def(NODE *node) {
+    if(node->left->type == 'F') printf("proc %s\n", ((TOKEN*)node->left->left->left)->lexeme);
+    else printf("proc %s\n", ((TOKEN*)node->left->left->left->left)->lexeme);
+
+
+    BLOCK* block = make_block(node->right);
+
+    printf("endproc");
 }
 
-TAC* generate_instruction(enum OP *op, TOKEN* arg1, TOKEN* arg2, TOKEN* result){
-    TAC* tac = malloc(sizeof(TAC));
-    tac->op = op;
-    tac->result = result;
-    return tac;
+
+
+BLOCK* make_block(NODE* node){
+    BLOCK* block = malloc(sizeof(BLOCK));
+    return block;
 }
 
+INS* make_instruction(label l, i_type type){
+    INS* instruction = malloc(sizeof(INS));
+    instruction->type = type;
+
+    switch(instruction->type){
+        case PARAM:
+            instruction = make_param_instruction(instruction);
+        case QUAD:
+            instruction = make_quad_instruction(instruction);
+        case JUMP:
+            instruction = make_jump_instruction(instruction);
+
+    }
+
+    return instruction;
+}
+
+INS* make_quad_instruction(INS* instruction) {
+    return instruction;
+}
+
+INS* make_param_instruction(INS* instruction) {
+    return instruction;
+}
+
+INS* make_jump_instruction(INS* instruction){
+    return instruction;
+}
 
