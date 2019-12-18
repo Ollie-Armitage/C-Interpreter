@@ -5,76 +5,56 @@
 
 #include <src/TAC/headers/TAC.h>
 
-QUAD* generate(NODE* tree, ENV* e);
 
-int generate_TAC(NODE *tree, ENV *e, char* file_directory, int debug){
+TAC *generate(NODE *tree, BB *basic_block);
 
-    generate(tree, e);
+void *load_name(NODE *node, TAC* tac);
+
+void load_constant(NODE *node, TAC* tac);
+
+int generate_TAC(NODE *tree, char* file_directory, int debug){
+    BB* basic_block = malloc(sizeof(BB));
+    TAC* tac = malloc(sizeof(TAC));
+    tac->tac_number = 0;
+    basic_block->leader = tac;
+    generate(tree, basic_block);
     return 0;
 }
 
-QUAD* generate(NODE* tree, ENV* e){
-
+TAC *generate(NODE *tree, BB *basic_block) {
+    printf("hi\n");
     if(tree == NULL) return NULL;
 
     switch(tree->type){
         case LEAF:
-            //return leaf_method(tree, e);
-        case '~':
-            //declaration_method(tree, e);
-            break;
-        case ',':
-
-            break;
-        case 'd':
-            //return generate(tree->right, e);
-        case 'D':
-            //return function_definition(tree, e);
-        case 'F':
-            //return declare_function_method(tree, e);
-        case ';':
-            //return sequence_method(tree, e);
+            return generate(tree->left, basic_block);
         case IDENTIFIER:
-            //return name_method((TOKEN *) tree, e->frames);
+            load_name(tree, basic_block->leader);
+            break;
         case CONSTANT: /* Use STRING_LITERAL case. */
-        case STRING_LITERAL:
-        case RETURN:
-            //return return_method(tree, e);
-        case APPLY:
-            //return apply((TOKEN *) tree->left->left, tree->right, e);
-        case IF:
-            //return interpret_if(tree, e);
-        case '=':
-        case '+':
-      //      return add_method(tree->left, tree->right, e);
-        case '-':
-     //       return subtract_method(tree->left, tree->right, e);
-        case '*':
-     //       return multiply_method(tree->left, tree->right, e);
-        case '/':
-     //       return divide_method(tree->left, tree->right, e);
-        case GE_OP:
-      //      return GE_OP_method(tree->left, tree->right, e);
-        case LE_OP:
-   //         return LE_OP_method(tree->left, tree->right, e);
-        case NE_OP:
-    //        return NE_OP_method(tree->left, tree->right, e);
-        case EQ_OP:
-   //         return EQ_OP_method(tree->left, tree->right, e);
-        case '<':
-     //       return LT_method(tree->left, tree->right, e);
-        case '>': break;
-     //       return GT_method(tree->left, tree->right, e);
+            load_constant(tree, basic_block->leader);
+            break;
+        default:
+            generate(tree->left, basic_block);
+            generate(tree->right, basic_block);
     }
-
+    return NULL;
 }
 
-QUAD* generate_instruction(enum OP *op, TOKEN* arg1, TOKEN* arg2, TOKEN* result){
-    QUAD* quad = malloc(sizeof(QUAD));
-    quad->op = op;
-    quad->arg1 = arg1;
-    quad->arg2 = arg2;
-    quad->result = result;
-    return quad;
+void load_constant(NODE *node, TAC* tac) {
+    tac->args.load.value.constant = ((TOKEN*)node)->value;
+    printf("load t%d %d\n", tac->tac_number, ((TOKEN*)node)->value);
 }
+
+void *load_name(NODE *node, TAC* tac) {
+    tac->args.load.value.variable = (TOKEN *) node;
+}
+
+TAC* generate_instruction(enum OP *op, TOKEN* arg1, TOKEN* arg2, TOKEN* result){
+    TAC* tac = malloc(sizeof(TAC));
+    tac->op = op;
+    tac->result = result;
+    return tac;
+}
+
 

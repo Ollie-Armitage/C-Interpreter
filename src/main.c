@@ -47,7 +47,7 @@ int run(char* file_directory, int debug, int interpret,  int generate_tac, int g
 
 
     if(interpret) interpreter(tree, e, file_directory, debug);
-    if(generate_tac) generate_TAC(tree, e, file_directory, debug);
+    if(generate_tac) generate_TAC(tree, file_directory, debug);
     //if(generate_mc) generate_MC(tree, e, file_directory, debug);
 
 }

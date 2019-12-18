@@ -8,10 +8,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "Lexer_Parser_Files/nodes.h"
-#include "src/interpreter/headers/environment.h"
 #include "Lexer_Parser_Files/C.tab.h"
 #include "src/TAC/headers/TAC.h"
-#include "src/interpreter/headers/interpret.h"
 #include "Lexer_Parser_Files/token.h"
 
 enum op{
@@ -28,27 +26,6 @@ enum op{
     NOT_EQUAL_TO
 } OP;
 
-typedef struct quad{
-    enum OP* op;
-    TOKEN* arg1;
-    TOKEN* arg2;
-    TOKEN* result;
-    struct QUAD* next;
-} QUAD;
-
-typedef struct triple{
-    enum OP* op;
-    TOKEN* arg1;
-    TOKEN* arg2;
-} TRIPLE;
-
-/* Basic block - List of Quads. */
-
-typedef  struct  bb {
-    QUAD* leader;
-} BB;
-
-
 /* TOKEN* name - Procedure to be called.
  * int arity - How many args that procedure has.*/
 
@@ -57,13 +34,56 @@ typedef struct call{
     int arity;
 } CALL;
 
-/* */
+/* There will be n variables in this block. */
 
 typedef struct block{
     int nvars;
 } BLOCK;
 
-int generate_TAC(NODE *tree, ENV *e, char* file_directory, int debug);
+/* Load an int or a variable name into a temp. */
+
+typedef struct load{
+    struct TAC* temp;
+    union{
+        int constant;
+        TOKEN* variable;
+    } value;
+
+} LOAD;
+
+/* Store a temp value in a token (variable). */
+
+typedef struct store{
+    struct TAC* temp;
+    TOKEN* name;
+} STORE;
+
+
+typedef struct tac{
+    int tac_number;
+    enum OP* op;
+    union {
+        BLOCK block;
+        CALL call;
+        LOAD load;
+        STORE store;
+    } args;
+    TOKEN* result;
+    struct TAC* next;
+} TAC;
+
+/* Basic block - List of TACs. */
+
+typedef  struct  bb {
+    TAC* leader;
+} BB;
+
+
+
+
+
+
+int generate_TAC(NODE *tree, char* file_directory, int debug);
 
 
 #endif //COMPILER_2_0_TAC_H
