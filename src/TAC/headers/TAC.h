@@ -32,6 +32,7 @@ typedef struct ret {
     union{
         TOKEN* name;
         int constant;
+        char* temporary;
     } value;
 } RET;
 

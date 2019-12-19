@@ -8,8 +8,6 @@ void generate_assign(NODE *node, TAC **env);
 
 void generate_arithmetic(NODE *node, TAC **env, char *type);
 
-TAC *load_tac();
-
 BLOCK* build_block(int nvars);
 
 void generate_load(struct node *node, TAC **env);
@@ -19,8 +17,6 @@ TAC* generate(NODE* tree, TAC **env);
 LOAD* build_load(int type, NODE* node, char *temporary);
 
 void generate_store(TOKEN *token, TAC **env);
-
-char *get_current_temp(int offset);
 
 TAC *new_tac(TAC **env, OP op);
 
@@ -67,7 +63,8 @@ void print_TAC(TAC* env){
     }
     else if(env->op == eRET) {
         if(env->args.ret.type == 0) fprintf(out, "return %s\n", env->args.ret.value.name->lexeme);
-        else fprintf(out, "return %d\n", env->args.ret.value.constant);
+        else if(env->args.ret.type == 1) fprintf(out, "return %d\n", env->args.ret.value.constant);
+        else fprintf(out, "return %s\n", env->args.ret.value.temporary);
     }
     else if(env->op == eMATH) fprintf(out, "%s %s %s %s\n", env->args.math.type, env->args.math.t1, env->args.math.t2, env->args.math.t3);
     else if(env->op == eSTORE) fprintf(out, "store %s %s\n", env->args.store.t1, env->args.store.name->lexeme);
@@ -112,22 +109,45 @@ TAC* generate(NODE* tree, TAC **env) {
     }
 }
 
-void generate_return(NODE *node, TAC **env) {
-    if(node == NULL) return;
-    else if(node->type == RETURN){
+void generate_return(NODE* node, TAC** env){
+
+    if(node->left->left->type == IDENTIFIER){
         new_tac(env, eRET);
-        generate_return(node->left, env);
-
-    }
-    else if(node->type == IDENTIFIER){
         (*env)->args.ret.type = 0;
-        (*env)->args.ret.value.name = (TOKEN*)node; }
-    else if(node->type == CONSTANT){
+        (*env)->args.ret.value.name = (TOKEN*)node->left->left;
+        return;
+    }
+    else if(node->left->left->type == CONSTANT){
+        new_tac(env, eRET);
         (*env)->args.ret.type = 1;
-        (*env)->args.ret.value.constant = ((TOKEN*)node)->value; }
-    else if(node->type == LEAF) generate_return(node->left, env);
-    else{ perror("Unknown node is generate_return\n"); exit(1);}
+        (*env)->args.ret.value.constant = ((TOKEN*)node)->value;
+        return;
+    }
 
+    load_values(node, env);
+    new_tac(env, eRET);
+    (*env)->args.ret.type = 2;
+    (*env)->args.ret.value.temporary = make_temporary(get_temporary_num());
+}
+
+RET* build_return(int type, NODE* node, TAC **env){
+    RET* ret = malloc(sizeof(RET));
+
+    if(type == IDENTIFIER){
+        ret->type = 0;
+        ret->value.name = get_assign_name(node);
+    }
+    else if(type == CONSTANT){
+        ret->type = 1;
+    }
+    else {
+        ret->type = 2;
+        new_tac(env, eLOAD);
+        load_values(node, env);
+        ret->value.temporary = (*env)->args.math.t3;
+    }
+
+    return ret;
 }
 
 int call_arity(NODE* node, TAC** env, int count) {
@@ -282,6 +302,7 @@ void generate_assign(NODE *node, TAC **env) {
 void load_values(NODE *node, TAC **env) {
     if(node == NULL) return;
     else if(node->type == '=') return load_values(node->right, env);
+    else if(node->type == RETURN) return load_values(node->left, env);
     else if(node->type == LEAF) return load_values(node->left, env);
     else if(node->type == CONSTANT || node->type == IDENTIFIER) generate_load(node, env);
     else if(node->type == '+') generate_arithmetic(node, env, "add");
