@@ -10,12 +10,61 @@
 #include <Lexer_Parser_Files/C.tab.h>
 
 typedef enum op{
-    PLUS
-} op;
+    eBLOCK,
+    eCALL,
+    eSTORE,
+    eLOAD,
+    eMATH,
+    ePROC
+} OP;
 typedef int arg;
-typedef int result;
-typedef int constant;
-typedef int label; // Represents the index of an instruction in a sequence of instructions.
+
+typedef struct call{
+    TOKEN* name;
+    int arity;
+} CALL;
+
+
+typedef struct block{
+    int nvars;
+} BLOCK;
+
+// stores a temporary into a variable.
+typedef struct store{
+    char* t1;
+    TOKEN* name;
+} STORE;
+
+
+// Puts a value into a temporary.
+typedef struct load{
+    int type;
+    union{
+        TOKEN* name;
+        int constant;
+    } value;
+    char* t1;
+} LOAD;
+
+
+typedef struct arithmetic{
+    char* type;
+    char* t1;
+    char* t2;
+    char* t3;
+} MATH;
+
+typedef struct tac{
+    OP op;
+    union {
+        BLOCK block;
+        CALL call;
+        STORE store;
+        LOAD load;
+        MATH math;
+    } args;
+    struct TAC* next;
+} TAC;
 
 /* An assignment instruction could take the form: x = y op z where op is binary arithmetic or logical operation, and
  * x, y and z are addresses. */
@@ -41,69 +90,6 @@ typedef int label; // Represents the index of an instruction in a sequence of in
  * param n
  * call p, n OR y = call p, n where p is the function name, and n is the function argument number (arity). */
 
-typedef struct jump{
-    op op;
-    arg arg1;
-    arg arg2;
-    label result;
-} JMP;
-
-typedef struct param{
-    op op;
-    arg arg1;
-} param;
-
-/*typedef struct unary{
-    op op;
-    arg arg1;
-    result result;
-} unary; No unary operators in --C. */
-
-typedef struct quadruple{
-    op op;
-    TOKEN* arg1;
-    TOKEN* arg2;
-    TOKEN* result;
-} quad;
-
-
-typedef enum instruction_type{
-    PARAM,
-    QUAD,
-    JUMP,
-} i_type;
-
-
-typedef struct instruction{
-    i_type type;
-    union{
-        param param;
-        quad quad;
-        JMP jump;
-    } val;
-    struct INS* next;
-} INS;
-
-
-typedef struct temporary{
-    char* name;
-}TEMP;
-
-typedef struct block{
-    INS* instruction;
-} BLOCK;
-
-typedef struct address{
-    int type;
-    union{
-        TOKEN* name;
-        int constant;
-        TEMP* temporary;
-        char* string;
-    };
-} ADDRESS;
 
 void generate_TAC(NODE* tree, char* file_directory, int debug);
-INS * generate(NODE* tree);
-
 #endif //COMPILER_2_0_TAC_H
