@@ -1,5 +1,6 @@
 int main(){
     int x = 0;
-    x = x + 1 - 2;
+    x = x + 1;
+    print_int(x);
     return x;
 }

@@ -10,12 +10,15 @@
 #include <Lexer_Parser_Files/C.tab.h>
 
 typedef enum op{
+    eNULL,
     eBLOCK,
     eCALL,
     eSTORE,
     eLOAD,
     eMATH,
-    ePROC
+    ePROC,
+    eRET,
+    eEND
 } OP;
 typedef int arg;
 
@@ -24,6 +27,17 @@ typedef struct call{
     int arity;
 } CALL;
 
+typedef struct ret {
+    int type;
+    union{
+        TOKEN* name;
+        int constant;
+    } value;
+} RET;
+
+typedef struct procedure{
+    TOKEN* name;
+} PROC;
 
 typedef struct block{
     int nvars;
@@ -46,6 +60,9 @@ typedef struct load{
     char* t1;
 } LOAD;
 
+typedef struct end{
+    char* type;
+}END;
 
 typedef struct arithmetic{
     char* type;
@@ -57,11 +74,14 @@ typedef struct arithmetic{
 typedef struct tac{
     OP op;
     union {
+        RET ret;
         BLOCK block;
         CALL call;
         STORE store;
         LOAD load;
         MATH math;
+        PROC proc;
+        END end;
     } args;
     struct TAC* next;
 } TAC;

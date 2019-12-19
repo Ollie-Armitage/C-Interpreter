@@ -10,15 +10,21 @@ void generate_arithmetic(NODE *node, TAC **env, char *type);
 
 TAC *load_tac();
 
+BLOCK* build_block(int nvars);
+
 void generate_load(struct node *node, TAC **env);
 
 TAC* generate(NODE* tree, TAC **env);
+
+LOAD* build_load(int type, NODE* node, char *temporary);
 
 void generate_store(TOKEN *token, TAC **env);
 
 char *get_current_temp(int offset);
 
 TAC *new_tac(TAC **env, OP op);
+
+CALL* build_call(TOKEN* name, int arity);
 
 char* make_new_temporary();
 
@@ -32,23 +38,40 @@ void enumerate_temporary_num(){
     temporary_num++;
 }
 
+TOKEN* get_assign_name(NODE* node);
+
 void load_values(NODE *node, TAC **env);
 
-void generate_proc(NODE *node, TAC **tac);
+void generate_proc(NODE *node, TAC **env);
+
+void generate_block(NODE *node, TAC **env);
+
+void generate_call(NODE *node, TAC **env);
+
+void generate_arity_load(NODE *node, TAC **env, int count);
+
+void generate_return(NODE *node, TAC **env);
+
+void generate_end_block(TAC **env);
 
 void print_TAC(TAC* env){
     if(env->next != NULL) print_TAC((TAC *) env->next);
 
     if(env->op == eBLOCK) fprintf(out, "block %d\n", env->args.block.nvars);
-    else if(env->op == ePROC) return;
+    else if(env->op == ePROC) fprintf(out, "proc %s ()\n", env->args.proc.name->lexeme);
     else if(env->op == eCALL) fprintf(out, "call %s %d\n", env->args.call.name->lexeme, env->args.call.arity);
     else if(env->op == eLOAD) {
         fprintf(out, "load %s ", env->args.load.t1);
         if(env->args.load.type == 0) fprintf(out, "%s\n", env->args.load.value.name->lexeme);
         else fprintf(out, "%d\n", env->args.load.value.constant);
     }
+    else if(env->op == eRET) {
+        if(env->args.ret.type == 0) fprintf(out, "return %s\n", env->args.ret.value.name->lexeme);
+        else fprintf(out, "return %d\n", env->args.ret.value.constant);
+    }
     else if(env->op == eMATH) fprintf(out, "%s %s %s %s\n", env->args.math.type, env->args.math.t1, env->args.math.t2, env->args.math.t3);
     else if(env->op == eSTORE) fprintf(out, "store %s %s\n", env->args.store.t1, env->args.store.name->lexeme);
+    else if(env->op == eEND) fprintf(out, "end%s\n", env->args.end.type);
 }
 
 void generate_TAC(NODE* tree, char* file_directory, int debug){
@@ -60,8 +83,8 @@ void generate_TAC(NODE* tree, char* file_directory, int debug){
 
 }
 
-TAC* generate(NODE* tree, TAC **env){
-    if(tree == NULL) return NULL;
+TAC* generate(NODE* tree, TAC **env) {
+    if (tree == NULL) return NULL;
 
     switch (tree->type) {
         case '~':
@@ -72,7 +95,6 @@ TAC* generate(NODE* tree, TAC **env){
             break;
         case 'D':
             generate_proc(tree, env);
-            generate(tree->right, env);
             break;
         case ';':
             generate(tree->left, env);
@@ -82,15 +104,131 @@ TAC* generate(NODE* tree, TAC **env){
             generate_assign(tree, env);
             break;
         case RETURN:
-            generate(tree->left, env);
+            generate_return(tree, env);
+            break;
+        case APPLY:
+            generate_call(tree, env);
             break;
     }
 }
 
-void generate_proc(NODE *node, TAC **tac) {
+void generate_return(NODE *node, TAC **env) {
+    if(node == NULL) return;
+    else if(node->type == RETURN){
+        new_tac(env, eRET);
+        generate_return(node->left, env);
+
+    }
+    else if(node->type == IDENTIFIER){
+        (*env)->args.ret.type = 0;
+        (*env)->args.ret.value.name = (TOKEN*)node; }
+    else if(node->type == CONSTANT){
+        (*env)->args.ret.type = 1;
+        (*env)->args.ret.value.constant = ((TOKEN*)node)->value; }
+    else if(node->type == LEAF) generate_return(node->left, env);
+    else{ perror("Unknown node is generate_return\n"); exit(1);}
 
 }
 
+int call_arity(NODE* node, TAC** env, int count) {
+    if (node == NULL) return count;
+    else if (node->type == APPLY) count = call_arity(node->right, env, count);
+    else if (node->type == ',') {
+        count = call_arity(node->right, env, call_arity(node->left, env, count));
+    }
+    else if(node->type == LEAF) count = call_arity(node->left, env, count);
+    else if(node->type == IDENTIFIER || node->type == CONSTANT){
+        generate_arity_load(node, env, count);
+        count = count + 1;
+        return count;
+    }
+    else{
+        perror("Unrecognised node in call_arity\n");
+        exit(1);
+    }
+    return count;
+}
+
+char* make_new_arg(count){
+    char* string = malloc(sizeof(char));
+    sprintf(string, "a%d", count);
+    return string;
+}
+
+void generate_arity_load(NODE *node, TAC **env, int count) {
+    new_tac(env, eLOAD);
+    if(node->type == IDENTIFIER){
+        (*env)->args.load = *build_load(0, node, make_new_arg(count));
+    }
+    else if(node->type == CONSTANT){
+        (*env)->args.load = *build_load(1, node, make_new_arg(count));
+    }
+    else{
+        perror("Unknown node type for generating load.");
+        exit(1);
+    }
+}
+
+void generate_call(NODE *node, TAC **env) {
+    if(node == NULL) return;
+    else if(node->type == APPLY){
+        int arity = call_arity(node, env, 1) - 1;
+        new_tac(env, eCALL);
+        (*env)->args.call = *build_call(get_assign_name(node->left), arity);
+    }
+}
+
+void generate_block(NODE *node, TAC **env) {
+    if(node == NULL) return;
+    else if(node->type == 'D'){
+        new_tac(env, eBLOCK);
+        (*env)->args.block = *build_block(0);
+    }
+
+    generate(node->right, env);
+
+    new_tac(env, eEND);
+    (*env)->args.end.type = malloc(sizeof(char));
+    (*env)->args.end.type = "block";
+
+
+}
+
+CALL* build_call(TOKEN* name, int arity){
+    CALL* call = malloc(sizeof(CALL));
+    call->name = name;
+    call->arity = arity;
+    return call;
+}
+
+BLOCK* build_block(int nvars){
+    BLOCK* block = malloc(sizeof(BLOCK));
+    block->nvars = nvars;
+    return block;
+}
+
+PROC* build_procedure(TOKEN* name){
+    PROC* proc = malloc(sizeof(PROC));
+    proc->name = name;
+    return proc;
+}
+
+void generate_proc(NODE *node, TAC **env) {
+    if(node == NULL) return;
+    else if(node->type == 'D'){ new_tac(env, ePROC); generate_proc(node->left, env); }
+    else if(node->type == 'd') return generate_proc(node->left, env);
+    else if(node->type == 'F'){ (*env)->args.proc = *build_procedure(get_assign_name(node->left)); return; }
+    else{
+        perror("Unrecognised Node type building procedure.");
+        exit(1);
+    }
+    generate_block(node, env);
+
+    new_tac(env, eEND);
+
+    (*env)->args.end.type = malloc(sizeof(char));
+    (*env)->args.end.type = "proc";
+}
 
 void generate_arithmetic(NODE *node, TAC **env, char *type) {
     load_values(node->left, env);
@@ -155,7 +293,6 @@ void load_values(NODE *node, TAC **env) {
 }
 
 TAC *new_tac(TAC **env, OP op) {
-
     TAC* tac = malloc(sizeof(TAC));
     tac->op = op;
     tac->next = (struct TAC *) *env;
