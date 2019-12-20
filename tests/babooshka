@@ -1,0 +1,14 @@
+/*10*/
+
+int main(){
+    int inner_main(){
+        int inner_inner_main(){
+            int inner_inner_inner_main(){
+                return 10;
+            }
+            return inner_inner_inner_main();
+        }
+        return inner_inner_main();
+    }
+    return inner_main();
+}

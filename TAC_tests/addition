@@ -1,0 +1,8 @@
+proc main ()
+block
+load t1 5
+load t2 5
+add t1 t2 t3
+return (null)
+endblock
+endproc

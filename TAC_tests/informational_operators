@@ -1,0 +1,13 @@
+proc main ()
+block
+load t1 0
+store t1 x
+load t2 x
+load t3 1
+add t2 t3 t4
+store t4 x
+load a1 x
+call print_int 1
+return x
+endblock
+endproc

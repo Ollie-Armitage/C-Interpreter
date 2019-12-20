@@ -21,7 +21,7 @@ void output_results(int results, char *directory);
  * functions, and assuming it finds the main function in the global scope it interprets it, then prints the value
  * returned from it. The type of the value handles which v to print out. */
 
-int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
+int interpreter(NODE *tree, ENV *e, char *file_directory, int debug) {
 
     CLOSURE *main;
 
@@ -44,18 +44,18 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
 
     VALUE *interpretation = interpret(main->body, e);
 
-    if(interpretation == NULL){
+    if (interpretation == NULL) {
         printf("No return type given. Exiting.\n");
         exit(0);
     }
     int results = 0;
-    if(debug){
-        VALUE* true_answer = get_true_answer(file_directory, interpretation->type);
+    if (debug) {
+        VALUE *true_answer = get_true_answer(file_directory, interpretation->type);
 
         switch (interpretation->type) {
             case 0:
                 printf("int: %ld\n", interpretation->v.integer);
-                if(true_answer->v.integer == interpretation->v.integer) results = 1;
+                if (true_answer->v.integer == interpretation->v.integer) results = 1;
                 output_results(results, file_directory);
 
                 break;
@@ -63,7 +63,7 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
                 if (interpretation->v.boolean == 0) printf("Boolean: FALSE.\n");
                 else printf("Boolean: TRUE.\n");
 
-                if(true_answer->v.boolean == interpretation->v.boolean) results = 1;
+                if (true_answer->v.boolean == interpretation->v.boolean) results = 1;
                 output_results(results, file_directory);
                 break;
             case 2:
@@ -73,8 +73,7 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
                 printf("Function returned.\n");
                 break;
         }
-    }
-    else{
+    } else {
         switch (interpretation->type) {
             case 0:
                 printf("int: %ld\n", interpretation->v.integer);
@@ -94,17 +93,13 @@ int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
         }
     }
 
-
-
-
-
     return 0;
 }
 
 void output_results(int results, char *directory) {
-    FILE* f = fopen("Results", "a");
+    FILE *f = fopen("Results", "a");
 
-    if(results == 1) fprintf(f, "Interpreter Test Passed: %s\n", directory);
+    if (results == 1) fprintf(f, "Interpreter Test Passed: %s\n", directory);
     else fprintf(f, "Interpreter Test Failed: %s\n", directory);
 
     fclose(f);
@@ -114,17 +109,17 @@ VALUE *get_true_answer(char *directory, int type) {
     char *line_ptr = NULL;
     size_t n = 0;
 
-    FILE* f = fopen(directory, "r");
+    FILE *f = fopen(directory, "r");
     getline(&line_ptr, &n, f);
 
 
-    if(line_ptr == NULL){
+    if (line_ptr == NULL) {
         printf("Line pointer equal to null\n");
         return NULL;
     }
 
-    if(type == 0){ return make_lint_value(strtol(line_ptr + 2, NULL, 10)); }
-    else if(type == 1) return make_bool_value((int)strtol(line_ptr + 2, NULL, 10));
+    if (type == 0) { return make_lint_value(strtol(line_ptr + 2, NULL, 10)); }
+    else if (type == 1) return make_bool_value((int) strtol(line_ptr + 2, NULL, 10));
     else return NULL;
 
 }
@@ -147,8 +142,7 @@ CLOSURE *get_main(FRAME *frame) {
 VALUE *interpret(NODE *tree, ENV *e) {
 
     if (tree == NULL) return NULL;
-
-    switch (tree->type) {
+    switch (tree->type){
         case LEAF:
             return leaf_method(tree, e);
         case '~':
@@ -201,7 +195,6 @@ VALUE *interpret(NODE *tree, ENV *e) {
             return LT_method(tree->left, tree->right, e);
         case '>':
             return GT_method(tree->left, tree->right, e);
-
     }
 
     return NULL;
@@ -228,7 +221,7 @@ void declaration_method(NODE *tree, ENV *e) {
  * Therefore return the interpreted value of the left child node. */
 
 VALUE *leaf_method(NODE *tree, ENV *e) {
-    if(tree == NULL) return NULL;
+    if (tree == NULL) return NULL;
     else return interpret(tree->left, e);
 }
 
@@ -299,12 +292,13 @@ VALUE *name_method(TOKEN *token, FRAME *frame) {
     }
     return NULL;
 }
+
 /* Builds a closure type value, binding given arguments to closure parameters. Note that the values can be NULL values,
  * i.e. the body, if the closure is only declared and not defined. */
 
 VALUE *build_closure(FRAME *env, NODE *ids, NODE *body) {
 
-    FRAME* closure_environment = malloc(sizeof(FRAME));
+    FRAME *closure_environment = malloc(sizeof(FRAME));
     *closure_environment = *env;
 
     VALUE *value;
@@ -320,7 +314,7 @@ VALUE *build_closure(FRAME *env, NODE *ids, NODE *body) {
  * In the case of a function, will bind it's supplied list of node arguments
  * to it's supplied list of parameters. */
 
-FRAME *function_frame(ENV *env, NODE *ids, NODE *args) {
+FRAME *extend_frame(ENV *env, NODE *ids, NODE *args) {
 
     // Build a new frame for a function and attach the current frame from the environment provided to it's end.
 
@@ -379,7 +373,7 @@ VALUE *lexical_call_method(TOKEN *name, NODE *args, ENV *env) {
     // Gets the function from the environment.
     CLOSURE *f = name_method(name, env->frames)->v.closure;
 
-    tempEnv->frames = function_frame(env, f->ids, args);
+    tempEnv->frames = extend_frame(env, f->ids, args);
     tempEnv->frames->next = (struct FRAME *) f->env;
 
     /* Runs the function and returns its output and resets the return_answer value to 0, given it was only a return for
@@ -497,9 +491,7 @@ VALUE *sequence_method(NODE *tree, ENV *e) {
 
 VALUE *interpret_if(NODE *tree, ENV *e) {
 
-    //TODO: extend frames.
-
-    ENV* if_env = malloc(sizeof(ENV));
+    ENV *if_env = malloc(sizeof(ENV));
     if_env->frames = malloc(sizeof(FRAME));
     if_env->frames->next = (struct FRAME *) e->frames;
 

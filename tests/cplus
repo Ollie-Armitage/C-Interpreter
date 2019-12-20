@@ -7,6 +7,5 @@ function cplus(int a){
 
 int main(){
     function f = cplus(5);
-
     return f(17);
 }

@@ -4,12 +4,13 @@
 
 #ifndef COMPILER_2_0_TAC_H
 #define COMPILER_2_0_TAC_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <Lexer_Parser_Files/nodes.h>
 #include <Lexer_Parser_Files/C.tab.h>
 
-typedef enum op{
+typedef enum op {
     eNULL,
     eBLOCK,
     eCALL,
@@ -22,57 +23,58 @@ typedef enum op{
 } OP;
 typedef int arg;
 
-typedef struct call{
-    TOKEN* name;
+typedef struct call {
+    TOKEN *name;
     int arity;
 } CALL;
 
+
 typedef struct ret {
     int type;
-    union{
-        TOKEN* name;
+    union {
+        TOKEN *name;
         int constant;
-        char* temporary;
+        char *temporary;
     } value;
 } RET;
 
-typedef struct procedure{
-    TOKEN* name;
+typedef struct procedure {
+    TOKEN *name;
 } PROC;
 
-typedef struct block{
-    int nvars;
+typedef struct block {
+    struct TAC *leader;
 } BLOCK;
 
-// stores a temporary into a variable.
-typedef struct store{
-    char* t1;
-    TOKEN* name;
+
+typedef struct store {
+    char *t1;
+    TOKEN *name;
 } STORE;
 
 
 // Puts a value into a temporary.
-typedef struct load{
+typedef struct load {
     int type;
-    union{
-        TOKEN* name;
+    union {
+        TOKEN *name;
         int constant;
     } value;
-    char* t1;
+    char *t1;
 } LOAD;
 
-typedef struct end{
-    char* type;
-}END;
+typedef struct end {
+    char *type;
+} END;
 
-typedef struct arithmetic{
-    char* type;
-    char* t1;
-    char* t2;
-    char* t3;
+typedef struct arithmetic {
+    char *type;
+    char *t1;
+    char *t2;
+    char *t3;
 } MATH;
 
-typedef struct tac{
+typedef struct tac {
     OP op;
     union {
         RET ret;
@@ -84,7 +86,7 @@ typedef struct tac{
         PROC proc;
         END end;
     } args;
-    struct TAC* next;
+    struct TAC *next;
 } TAC;
 
 /* An assignment instruction could take the form: x = y op z where op is binary arithmetic or logical operation, and
@@ -112,5 +114,42 @@ typedef struct tac{
  * call p, n OR y = call p, n where p is the function name, and n is the function argument number (arity). */
 
 
-void generate_TAC(NODE* tree, char* file_directory, int debug);
+void generate_TAC(NODE *tree, char *file_directory, int debug);
+
+char *make_temporary(int number);
+
+void generate_assign(NODE *node, TAC **env);
+
+void generate_arithmetic(NODE *node, TAC **env, char *type);
+
+BLOCK *build_block(TAC *tac);
+
+void generate_load(struct node *node, TAC **env);
+
+TAC *generate(NODE *tree, TAC **env);
+
+LOAD *build_load(int type, NODE *node, char *temporary);
+
+void generate_store(TOKEN *token, TAC **env);
+
+TAC *new_tac(TAC **env, OP op);
+
+CALL *build_call(TOKEN *name, int arity);
+
+char *make_new_temporary();
+
+TOKEN *get_assign_name(NODE *node);
+
+void load_values(NODE *node, TAC **env);
+
+void generate_proc(NODE *node, TAC **env);
+
+void generate_block(NODE *node, TAC **env);
+
+void generate_call(NODE *node, TAC **env);
+
+void generate_param_load(NODE *node, TAC **env, int count);
+
+void generate_return(NODE *node, TAC **env);
+
 #endif //COMPILER_2_0_TAC_H
