@@ -1,0 +1,2 @@
+/usr/bin/ar qc libinterpreter.a  CMakeFiles/interpreter.dir/arithmetic.c.o CMakeFiles/interpreter.dir/interpret.c.o CMakeFiles/interpreter.dir/debug.c.o CMakeFiles/interpreter.dir/value.c.o
+/usr/bin/ranlib libinterpreter.a

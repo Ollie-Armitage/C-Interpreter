@@ -1,0 +1,48 @@
+        -:    0:Source:/home/ollie/CLionProjects/Compiler_2.0/src/interpreter/value.c
+        -:    0:Graph:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/interpreter/value.c.gcno
+        -:    0:Data:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/interpreter/value.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "headers/environment.h"
+        -:    2:#include <stdlib.h>
+        -:    3:
+    #####:    4:VALUE* make_value(int type){
+    $$$$$:    4-block  0
+    #####:    5:    VALUE* answer = malloc(sizeof(VALUE));
+    #####:    6:    answer->type = type;
+    #####:    7:    answer->return_answer = 0;
+    #####:    8:    return answer;
+    $$$$$:    8-block  0
+        -:    9:}
+        -:   10:
+    #####:   11:VALUE* make_lint_value(long integer){
+    $$$$$:   11-block  0
+    #####:   12:    VALUE* answer = make_value(0);
+    $$$$$:   12-block  0
+    #####:   13:    answer->v.integer = integer;
+    #####:   14:    return answer;
+        -:   15:}
+        -:   16:
+    #####:   17:VALUE* make_bool_value(int boolean){
+    $$$$$:   17-block  0
+    #####:   18:    VALUE* answer = make_value(1);
+    $$$$$:   18-block  0
+    #####:   19:    answer->v.boolean = boolean;
+    #####:   20:    return answer;
+        -:   21:}
+        -:   22:
+    #####:   23:VALUE* make_string_value(char* string){
+    $$$$$:   23-block  0
+    #####:   24:    VALUE* answer = make_value(2);
+    $$$$$:   24-block  0
+    #####:   25:    answer->v.string = string;
+    #####:   26:    return answer;
+        -:   27:}
+        -:   28:
+    #####:   29:VALUE* make_closure_value(CLOSURE* closure){
+    $$$$$:   29-block  0
+    #####:   30:    VALUE* answer = make_value(3);
+    $$$$$:   30-block  0
+    #####:   31:    answer->v.closure = closure;
+    #####:   32:    return answer;
+        -:   33:}

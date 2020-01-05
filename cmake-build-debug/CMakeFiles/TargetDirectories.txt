@@ -1,0 +1,8 @@
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/src/CMakeFiles/edit_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/src/interpreter/CMakeFiles/rebuild_cache.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/src/interpreter/CMakeFiles/interpreter_files.dir
+/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/src/interpreter/CMakeFiles/edit_cache.dir

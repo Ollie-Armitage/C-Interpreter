@@ -1,0 +1,77 @@
+        -:    0:Source:/home/ollie/CLionProjects/Compiler_2.0/Lexer_Parser_Files/symbol_table.c
+        -:    0:Graph:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.gcno
+        -:    0:Data:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/Lexer_Parser_Files/symbol_table.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:/*
+        -:    2: * Adapted from 
+        -:    3: * CM20029 Coursework Assignment 1
+        -:    4: * Tom Crick
+        -:    5: * cs1tc@bath.ac.uk
+        -:    6: * 30 Apr 2003
+        -:    7: *
+        -:    8: * symbol_table.c
+        -:    9: */
+        -:   10:
+        -:   11:#include <stdio.h>
+        -:   12:#include <stdlib.h>
+        -:   13:#include <string.h>
+        -:   14:#include "token.h"
+        -:   15:#include "C.tab.h"
+        -:   16:
+        -:   17:static TOKEN** symbtable;
+        -:   18:#define HASH_SIZE (1000)
+        -:   19:TOKEN *int_token, *void_token, *function_token;
+        -:   20:
+        1:   21:void init_symbtable(void)
+        1:   21-block  0
+        -:   22:{
+        1:   23:    symbtable = (TOKEN**)calloc(HASH_SIZE, sizeof(TOKEN*));
+        1:   24:    int_token = new_token(INT);
+        1:   24-block  0
+        1:   25:    int_token->lexeme = "int";
+        1:   26:    function_token = new_token(FUNCTION);
+        1:   27:    function_token->lexeme = "function";
+        1:   28:    void_token = new_token(VOID);
+        1:   29:    void_token->lexeme = "void";
+        1:   30:}
+        -:   31:
+        5:   32:int hash(char *s)
+        5:   32-block  0
+        -:   33:{
+        5:   34:    int h = 0;
+       13:   35:    while (*s != '\0') {
+        5:   35-block  0
+       13:   35-block  1
+        8:   36:      h = (h<<4) ^ *s++;
+        8:   36-block  0
+        -:   37:    }
+        5:   38:    return (0x7fffffff&h) % HASH_SIZE;
+        5:   38-block  0
+        -:   39:}
+        -:   40:
+        5:   41:TOKEN* lookup_token(char *s)
+        5:   41-block  0
+        -:   42:{
+        5:   43:    int	h = hash(s);
+        5:   43-block  0
+        5:   44:    TOKEN *a = symbtable[h];
+        -:   45:    TOKEN *ans;
+        -:   46:/*     printf("\nLookup: %s\n", s); */
+        5:   47:    while (a!=NULL) {
+        5:   47-block  0
+        3:   48:      if (strcmp(a->lexeme, s)==0) return a;
+        3:   48-block  0
+        3:   48-block  1
+    #####:   49:      a = a->next;
+    $$$$$:   49-block  0
+        -:   50:    }
+        2:   51:    ans = new_token(IDENTIFIER);
+        2:   51-block  0
+        2:   52:    ans->lexeme = (char*)malloc(1+strlen(s));
+        2:   53:    strcpy(ans->lexeme, s);
+        2:   54:    ans->next = symbtable[h];
+        2:   55:    symbtable[h] = ans;
+        -:   56:/*     printf(" stored at %p\n", ans); */
+        2:   57:    return ans;
+        -:   58:}

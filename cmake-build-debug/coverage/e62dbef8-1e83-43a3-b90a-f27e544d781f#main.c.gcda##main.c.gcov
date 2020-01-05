@@ -1,0 +1,136 @@
+        -:    0:Source:/home/ollie/CLionProjects/Compiler_2.0/src/main.c
+        -:    0:Graph:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/main.c.gcno
+        -:    0:Data:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/main.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include "main.h"
+        -:    2:
+        -:    3:
+        -:    4:/* Linked parser variables. */
+        -:    5:
+        -:    6:extern int yydebug;
+        -:    7:extern NODE *yyparse(void);
+        -:    8:extern NODE *ans;
+        -:    9:extern FILE* yyin;
+        -:   10:extern int yylex();
+        -:   11:extern void init_symbtable(void);
+        -:   12:
+        -:   13:/* build_AST Should take the input parameter of a specific file directory, and output the tree node. */
+        -:   14:
+        1:   15:NODE *build_AST(char *file_directory) {
+        1:   15-block  0
+        1:   16:    if(file_directory != NULL){
+        1:   16-block  0
+        -:   17:        FILE *file;
+        1:   18:        file = fopen(file_directory, "r");
+        1:   18-block  0
+        -:   19:
+        1:   20:        char* line = NULL;
+        1:   21:        if(!file){
+    #####:   22:            printf("Cannot open file.\n");
+    $$$$$:   22-block  0
+    #####:   23:            exit(1);
+        -:   24:        }
+        -:   25:
+        1:   26:        yyin = file;
+        1:   27:        yylex();
+        1:   27-block  0
+        1:   28:        yyparse();
+        1:   29:        printf("\n");
+        -:   30:
+        -:   31:    }
+    #####:   32:    else yyparse();
+    $$$$$:   32-block  0
+        1:   33:    return ans;
+        1:   33-block  0
+        -:   34:}
+        -:   35:
+        1:   36:int run(char* file_directory, int debug, int interpret,  int generate_tac, int generate_mc) {
+        1:   36-block  0
+        -:   37:
+        1:   38:    ENV *e = malloc(sizeof(ENV));
+        1:   39:    e->frames = malloc(sizeof(FRAME));
+        -:   40:    NODE* tree;
+        -:   41:
+        1:   42:    if(file_directory != NULL) tree = build_AST(file_directory);
+        1:   42-block  0
+        1:   42-block  1
+    #####:   43:    else tree = build_AST(NULL);
+    $$$$$:   43-block  0
+        -:   44:
+        -:   45:
+        1:   46:    print_tree(tree);
+        1:   46-block  0
+        -:   47:
+        -:   48:
+        1:   49:    if(interpret) interpreter(tree, e, file_directory, debug);
+    $$$$$:   49-block  0
+        1:   50:    if(generate_tac) generate_TAC(tree, file_directory, debug);
+        1:   50-block  0
+        1:   50-block  1
+        -:   51:    //if(generate_mc) generate_MC(tree, e, file_directory, debug);
+        -:   52:
+        1:   53:}
+        -:   54:
+    #####:   55:void print_arg_usage(char **argv){
+    $$$$$:   55-block  0
+    #####:   56:    printf("Usage: %s..\n\t -f <file_name> : file to be compiled\n", argv[0]);
+    $$$$$:   56-block  0
+    #####:   57:    printf("\t -d : debug mode (run tests)\n");
+    #####:   58:    printf("\t -i : Interpretation Mode\n");
+    #####:   59:    printf("\t -t : Generate TAC code\n");
+    #####:   60:    printf("\t -m : Generate Machine code\n");
+    #####:   61:    exit(2);
+        -:   62:}
+        -:   63:
+        1:   64:int main(int argc, char **argv) {
+        1:   64-block  0
+        1:   65:    init_symbtable();
+        1:   65-block  0
+        1:   66:    int d_flag = 0, t_flag = 0, m_flag = 0, i_flag = 0;
+        1:   67:    char* file_path = NULL;
+        -:   68:    int opt;
+        -:   69:    /* I will need flags for a) the input file, b) test mode c) generating TAC code d) generating machine code*/
+        4:   70:    while((opt = getopt(argc, argv, "f:dtmi"))  != -1){
+        4:   70-block  0
+        3:   71:        switch(opt){
+        3:   71-block  0
+        1:   72:            case 'f':
+        1:   73:                printf("File mode selected. (%s)\n", optarg);
+        1:   73-block  0
+        1:   74:                file_path = optarg;
+        1:   75:                break;// file input flag
+    #####:   76:            case 'i':
+    #####:   77:                printf("Interpretation selected.\n");
+    $$$$$:   77-block  0
+    #####:   78:                i_flag = 1;
+    #####:   79:                break;
+        1:   80:            case 'd':
+        1:   81:                printf("Debug mode selected.\n");
+        1:   81-block  0
+        1:   82:                d_flag = 1;
+        1:   83:                break;// debug mode flag
+        1:   84:            case 't':
+        1:   85:                printf("TAC Generation selected.\n");
+        1:   85-block  0
+        1:   86:                t_flag = 1;
+        1:   87:                break;// TAC code generation
+    #####:   88:            case 'm':
+    #####:   89:                printf("Machine Code generation selected.\n");
+    $$$$$:   89-block  0
+    #####:   90:                m_flag = 1;
+    #####:   91:                break;// Machine code generation
+    #####:   92:            case '?':
+    #####:   93:                print_arg_usage(argv);
+    $$$$$:   93-block  0
+    #####:   94:                break;
+        -:   95:        }
+        -:   96:    }
+        1:   97:    printf("--C COMPILER\n");
+        1:   97-block  0
+        -:   98:
+        -:   99:
+        1:  100:    run(file_path, d_flag, i_flag, t_flag, m_flag);
+        -:  101:
+        1:  102:    return 0;
+        -:  103:}

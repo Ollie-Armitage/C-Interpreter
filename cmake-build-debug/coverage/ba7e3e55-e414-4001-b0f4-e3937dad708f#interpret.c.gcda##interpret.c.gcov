@@ -1,0 +1,744 @@
+        -:    0:Source:/home/ollie/CLionProjects/Compiler_2.0/src/interpreter/interpret.c
+        -:    0:Graph:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/interpreter/interpret.c.gcno
+        -:    0:Data:/home/ollie/CLionProjects/Compiler_2.0/cmake-build-debug/CMakeFiles/Compiler_2_0.dir/src/interpreter/interpret.c.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <stddef.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <string.h>
+        -:    4:#include <stdio.h>
+        -:    5:#include <src/interpreter/headers/environment.h>
+        -:    6:#include <src/main.h>
+        -:    7:
+        -:    8:#include "headers/value.h"
+        -:    9:#include "Lexer_Parser_Files/nodes.h"
+        -:   10:#include "Lexer_Parser_Files/C.tab.h"
+        -:   11:#include "headers/arithmetic.h"
+        -:   12:#include "headers/debug.h"
+        -:   13:#include "headers/interpret.h"
+        -:   14:
+        -:   15:
+        -:   16:VALUE *get_true_answer(char *directory, int type);
+        -:   17:
+        -:   18:void output_results(int results, char *directory);
+        -:   19:
+        -:   20:/* Main function for the interpreter, returns 0 if successful, 1 if not. Interprets the definition of the global scope
+        -:   21: * functions, and assuming it finds the main function in the global scope it interprets it, then prints the value
+        -:   22: * returned from it. The type of the value handles which v to print out. */
+        -:   23:
+    #####:   24:int interpreter(NODE *tree, ENV *e, char* file_directory, int debug) {
+    $$$$$:   24-block  0
+        -:   25:
+        -:   26:    CLOSURE *main;
+        -:   27:
+    #####:   28:    if (tree == NULL) return 1;
+    $$$$$:   28-block  0
+    $$$$$:   28-block  1
+        -:   29:
+    #####:   30:    interpret(tree->left, e);
+    $$$$$:   30-block  0
+    #####:   31:    main = get_main(e->frames);
+        -:   32:
+    #####:   33:    if (main == NULL) {
+    #####:   34:        interpret(tree->right, e);
+    $$$$$:   34-block  0
+    #####:   35:        main = get_main(e->frames);
+        -:   36:
+    #####:   37:        if (main == NULL) {
+    #####:   38:            printf("Could not find main function in the global scope. Exiting.\n");
+    $$$$$:   38-block  0
+    #####:   39:            exit(0);
+        -:   40:        }
+        -:   41:    } else {
+    #####:   42:        if (main->body == NULL) main->body = tree->right;
+    $$$$$:   42-block  0
+    $$$$$:   42-block  1
+        -:   43:    }
+        -:   44:
+    #####:   45:    VALUE *interpretation = interpret(main->body, e);
+    $$$$$:   45-block  0
+        -:   46:
+    #####:   47:    if(interpretation == NULL){
+    #####:   48:        printf("No return type given. Exiting.\n");
+    $$$$$:   48-block  0
+    #####:   49:        exit(0);
+        -:   50:    }
+    #####:   51:    int results = 0;
+    #####:   52:    if(debug){
+    $$$$$:   52-block  0
+    #####:   53:        VALUE* true_answer = get_true_answer(file_directory, interpretation->type);
+    $$$$$:   53-block  0
+        -:   54:
+    #####:   55:        switch (interpretation->type) {
+    #####:   56:            case 0:
+    #####:   57:                printf("int: %ld\n", interpretation->v.integer);
+    $$$$$:   57-block  0
+    #####:   58:                if(true_answer->v.integer == interpretation->v.integer) results = 1;
+    $$$$$:   58-block  0
+    #####:   59:                output_results(results, file_directory);
+    $$$$$:   59-block  0
+        -:   60:
+    #####:   61:                break;
+    #####:   62:            case 1:
+    #####:   63:                if (interpretation->v.boolean == 0) printf("Boolean: FALSE.\n");
+    $$$$$:   63-block  0
+    $$$$$:   63-block  1
+    #####:   64:                else printf("Boolean: TRUE.\n");
+    $$$$$:   64-block  0
+        -:   65:
+    #####:   66:                if(true_answer->v.boolean == interpretation->v.boolean) results = 1;
+    $$$$$:   66-block  0
+    $$$$$:   66-block  1
+    #####:   67:                output_results(results, file_directory);
+    $$$$$:   67-block  0
+    #####:   68:                break;
+    #####:   69:            case 2:
+    #####:   70:                printf("String: %s\n", interpretation->v.string);
+    $$$$$:   70-block  0
+    #####:   71:                break;
+    #####:   72:            case 3:
+    #####:   73:                printf("Function returned.\n");
+    $$$$$:   73-block  0
+    #####:   74:                break;
+    $$$$$:   74-block  0
+        -:   75:        }
+        -:   76:    }
+        -:   77:    else{
+    #####:   78:        switch (interpretation->type) {
+    $$$$$:   78-block  0
+    #####:   79:            case 0:
+    #####:   80:                printf("int: %ld\n", interpretation->v.integer);
+    $$$$$:   80-block  0
+    #####:   81:                break;
+    #####:   82:            case 1:
+    #####:   83:                if (interpretation->v.boolean == 0) {
+    $$$$$:   83-block  0
+    #####:   84:                    printf("Boolean: FALSE.\n");
+    $$$$$:   84-block  0
+    #####:   85:                    break;
+    #####:   86:                } else printf("Boolean: TRUE.\n");
+    $$$$$:   86-block  0
+    #####:   87:                break;
+    #####:   88:            case 2:
+    #####:   89:                printf("String: %s\n", interpretation->v.string);
+    $$$$$:   89-block  0
+    #####:   90:                break;
+    #####:   91:            case 3:
+    #####:   92:                printf("Function returned.\n");
+    $$$$$:   92-block  0
+    #####:   93:                break;
+        -:   94:        }
+        -:   95:    }
+        -:   96:
+        -:   97:
+        -:   98:
+        -:   99:
+        -:  100:
+    #####:  101:    return 0;
+    $$$$$:  101-block  0
+        -:  102:}
+        -:  103:
+    #####:  104:void output_results(int results, char *directory) {
+    $$$$$:  104-block  0
+    #####:  105:    FILE* f = fopen("Results", "a");
+    $$$$$:  105-block  0
+        -:  106:
+    #####:  107:    if(results == 1) fprintf(f, "Interpreter Test Passed: %s\n", directory);
+    $$$$$:  107-block  0
+    #####:  108:    else fprintf(f, "Interpreter Test Failed: %s\n", directory);
+    $$$$$:  108-block  0
+        -:  109:
+    #####:  110:    fclose(f);
+    $$$$$:  110-block  0
+    #####:  111:}
+        -:  112:
+    #####:  113:VALUE *get_true_answer(char *directory, int type) {
+    $$$$$:  113-block  0
+    #####:  114:    char *line_ptr = NULL;
+    #####:  115:    size_t n = 0;
+        -:  116:
+    #####:  117:    FILE* f = fopen(directory, "r");
+    $$$$$:  117-block  0
+    #####:  118:    getline(&line_ptr, &n, f);
+        -:  119:
+        -:  120:
+    #####:  121:    if(line_ptr == NULL){
+    #####:  122:        printf("Line pointer equal to null\n");
+    $$$$$:  122-block  0
+    #####:  123:        return NULL;
+        -:  124:    }
+        -:  125:
+    #####:  126:    if(type == 0){ return make_lint_value(strtol(line_ptr + 2, NULL, 10)); }
+    $$$$$:  126-block  0
+    $$$$$:  126-block  1
+    #####:  127:    else if(type == 1) return make_bool_value((int)strtol(line_ptr + 2, NULL, 10));
+    $$$$$:  127-block  0
+    $$$$$:  127-block  1
+    #####:  128:    else return NULL;
+    $$$$$:  128-block  0
+    $$$$$:  128-block  1
+        -:  129:
+        -:  130:}
+        -:  131:
+        -:  132:/* One off function using strcmp to find the function with the name "main" and return it, only searching within the
+        -:  133: * global scope. If it doesn't find it, it returns null.*/
+        -:  134:
+    #####:  135:CLOSURE *get_main(FRAME *frame) {
+    $$$$$:  135-block  0
+    #####:  136:    BINDING *bindings = frame->bindings;
+    #####:  137:    while (bindings != NULL) {
+    $$$$$:  137-block  0
+    $$$$$:  137-block  1
+    #####:  138:        if (strcmp(bindings->name->lexeme, "main") == 0) return bindings->val->v.closure;
+    $$$$$:  138-block  0
+    $$$$$:  138-block  1
+    #####:  139:        bindings = (BINDING *) bindings->next;
+    $$$$$:  139-block  0
+        -:  140:    }
+    #####:  141:    return NULL;
+    $$$$$:  141-block  0
+        -:  142:}
+        -:  143:
+        -:  144:/* The main interpretation function, which handles each node differently dependant on it's type. If the type isn't
+        -:  145: * recognized, or the tree is null, it will return null. */
+        -:  146:
+    #####:  147:VALUE *interpret(NODE *tree, ENV *e) {
+    $$$$$:  147-block  0
+        -:  148:
+    #####:  149:    if (tree == NULL) return NULL;
+    $$$$$:  149-block  0
+    $$$$$:  149-block  1
+        -:  150:
+    #####:  151:    switch (tree->type) {
+    $$$$$:  151-block  0
+    #####:  152:        case LEAF:
+    #####:  153:            return leaf_method(tree, e);
+    $$$$$:  153-block  0
+    #####:  154:        case '~':
+    #####:  155:            declaration_method(tree, e);
+    $$$$$:  155-block  0
+    #####:  156:            break;
+    #####:  157:        case ',':
+    #####:  158:            interpret(tree->left, e);
+    $$$$$:  158-block  0
+    #####:  159:            interpret(tree->right, e);
+    #####:  160:            break;
+    #####:  161:        case 'd':
+    #####:  162:            return interpret(tree->right, e);
+    $$$$$:  162-block  0
+    #####:  163:        case 'D':
+    #####:  164:            return function_definition(tree, e);
+    $$$$$:  164-block  0
+    #####:  165:        case 'F':
+    #####:  166:            return declare_function_method(tree, e);
+    $$$$$:  166-block  0
+    #####:  167:        case ';':
+    #####:  168:            return sequence_method(tree, e);
+    $$$$$:  168-block  0
+    #####:  169:        case IDENTIFIER:
+    #####:  170:            return name_method((TOKEN *) tree, e->frames);
+    $$$$$:  170-block  0
+    #####:  171:        case CONSTANT: /* Use STRING_LITERAL case. */
+        -:  172:        case STRING_LITERAL:
+    #####:  173:            return node_to_value(tree);
+    $$$$$:  173-block  0
+    #####:  174:        case RETURN:
+    #####:  175:            return return_method(tree, e);
+    $$$$$:  175-block  0
+    #####:  176:        case APPLY:
+    #####:  177:            return apply((TOKEN *) tree->left->left, tree->right, e);
+    $$$$$:  177-block  0
+    #####:  178:        case IF:
+    #####:  179:            return interpret_if(tree, e);
+    $$$$$:  179-block  0
+    #####:  180:        case '=':
+    #####:  181:            return assignment((TOKEN *) tree->left->left, e->frames, interpret(tree->right, e));
+    $$$$$:  181-block  0
+    #####:  182:        case '+':
+    #####:  183:            return add_method(tree->left, tree->right, e);
+    $$$$$:  183-block  0
+    #####:  184:        case '-':
+    #####:  185:            return subtract_method(tree->left, tree->right, e);
+    $$$$$:  185-block  0
+    #####:  186:        case '*':
+    #####:  187:            return multiply_method(tree->left, tree->right, e);
+    $$$$$:  187-block  0
+    #####:  188:        case '/':
+    #####:  189:            return divide_method(tree->left, tree->right, e);
+    $$$$$:  189-block  0
+    #####:  190:        case '%':
+    #####:  191:            return mod_method(tree->left, tree->right, e);
+    $$$$$:  191-block  0
+    #####:  192:        case GE_OP:
+    #####:  193:            return GE_OP_method(tree->left, tree->right, e);
+    $$$$$:  193-block  0
+    #####:  194:        case LE_OP:
+    #####:  195:            return LE_OP_method(tree->left, tree->right, e);
+    $$$$$:  195-block  0
+    #####:  196:        case NE_OP:
+    #####:  197:            return NE_OP_method(tree->left, tree->right, e);
+    $$$$$:  197-block  0
+    #####:  198:        case EQ_OP:
+    #####:  199:            return EQ_OP_method(tree->left, tree->right, e);
+    $$$$$:  199-block  0
+    #####:  200:        case '<':
+    #####:  201:            return LT_method(tree->left, tree->right, e);
+    $$$$$:  201-block  0
+    #####:  202:        case '>':
+    #####:  203:            return GT_method(tree->left, tree->right, e);
+    $$$$$:  203-block  0
+        -:  204:
+        -:  205:    }
+        -:  206:
+    #####:  207:    return NULL;
+    $$$$$:  207-block  0
+        -:  208:}
+        -:  209:
+        -:  210:/* Deals with the various types of uses for '~'. Start by checking the right nodes type. If the right type is '=',
+        -:  211: * declare a singular variable from the left value of the '='. If the right type is however a ',', run a function
+        -:  212: * to declare a list of variables, as that is what the comma indicates. If neither of these conditions are met,
+        -:  213: * declare a single variable from the right node and interpret the left node, then the right node. Interpretations
+        -:  214: * are run on the values so that if they need to be assigned into the environment they are. */
+        -:  215:
+    #####:  216:void declaration_method(NODE *tree, ENV *e) {
+    $$$$$:  216-block  0
+    #####:  217:    if (tree->right->type == '=') declaration((TOKEN *) tree->right->left->left, e->frames);
+    $$$$$:  217-block  0
+    $$$$$:  217-block  1
+    #####:  218:    else if (tree->right->type == ',') declaration_list_method(tree->right, e);
+    $$$$$:  218-block  0
+    $$$$$:  218-block  1
+        -:  219:    else {
+    #####:  220:        declaration((TOKEN *) tree->right->left, e->frames);
+    $$$$$:  220-block  0
+    #####:  221:        interpret(tree->left, e);
+        -:  222:    }
+        -:  223:
+    #####:  224:    interpret(tree->right, e);
+    $$$$$:  224-block  0
+    #####:  225:}
+        -:  226:
+        -:  227:/* If the node read in is null, return null, otherwise there is always only one child of a leaf node; the left node.
+        -:  228: * Therefore return the interpreted value of the left child node. */
+        -:  229:
+    #####:  230:VALUE *leaf_method(NODE *tree, ENV *e) {
+    $$$$$:  230-block  0
+    #####:  231:    if(tree == NULL) return NULL;
+    $$$$$:  231-block  0
+    $$$$$:  231-block  1
+    #####:  232:    else return interpret(tree->left, e);
+    $$$$$:  232-block  0
+        -:  233:}
+        -:  234:
+        -:  235:/* Used for declaring lists of functions or variables. Essentially just a smaller version of interpret for a subtree.
+        -:  236: * Recursively runs the function along the left children of each node as long as the left type is ','. If the left
+        -:  237: * child is however '=', perform a declaration on the left child of that '='. If the right child is a function, perform
+        -:  238: * a function declaration on that node. Otherwise if it's a leaf, perform a declaration on it's child. Like the left
+        -:  239: * child, if the right child is '=', perform a declaration on it'sleft child. Otherwise if none of these right type
+        -:  240: * conditions are met, print that the node type isn't recognised.*/
+        -:  241:
+    #####:  242:VALUE *declaration_list_method(NODE *node, ENV *e) {
+    $$$$$:  242-block  0
+    #####:  243:    if (node->left->type == ',') declaration_list_method(node->left, e);
+    $$$$$:  243-block  0
+    $$$$$:  243-block  1
+    #####:  244:    else if (node->left->type == '=') declaration((TOKEN *) node->left->left->left, e->frames);
+    $$$$$:  244-block  0
+    $$$$$:  244-block  1
+    #####:  245:    if (node->right->type == 'F') declare_function_method(node->right, e);
+    $$$$$:  245-block  0
+    $$$$$:  245-block  1
+    #####:  246:    else if (node->right->type == LEAF) declaration((TOKEN *) node->right->left, e->frames);
+    $$$$$:  246-block  0
+    $$$$$:  246-block  1
+    #####:  247:    else if (node->right->type == '=') declaration((TOKEN *) node->right->left->left, e->frames);
+    $$$$$:  247-block  0
+    $$$$$:  247-block  1
+    #####:  248:    else printf("Unrecognized type in list.\n");
+    $$$$$:  248-block  0
+    #####:  249:    return NULL;
+    $$$$$:  249-block  0
+        -:  250:}
+        -:  251:
+        -:  252:/* The interpretation of the node type 'D'. The closure returned from the interpretation of the left node should have
+        -:  253: * no body, as it's only a declaration. The body is bound here to the right node, meaning when the body of the closure
+        -:  254: * is accessed, it calls the subtree on the right child of this node. */
+        -:  255:
+    #####:  256:VALUE *function_definition(NODE *tree, ENV *e) {
+    $$$$$:  256-block  0
+    #####:  257:    VALUE *function = interpret(tree->left, e);
+    $$$$$:  257-block  0
+    #####:  258:    function->v.closure->body = tree->right;
+    #####:  259:    return NULL;
+        -:  260:}
+        -:  261:
+        -:  262:/* Binds the function name to the current frame, builds an empty closure and assigns that empty closure to the
+        -:  263: * name, then returns the closure so the body can be bound elsewhere.*/
+        -:  264:
+    #####:  265:VALUE *declare_function_method(NODE *tree, ENV *e) {
+    $$$$$:  265-block  0
+    #####:  266:    declaration((TOKEN *) tree->left->left, e->frames);
+    $$$$$:  266-block  0
+    #####:  267:    VALUE *closure = build_closure(e->frames, tree->right, NULL);
+    #####:  268:    assignment((TOKEN *) tree->left->left, e->frames, closure);
+    #####:  269:    return closure;
+        -:  270:}
+        -:  271:
+        -:  272:/* Create a new binding in the supplied frame with it's name as the supplied token and it's value as null, given
+        -:  273: * this is just a declaration. Doesn't return anything, just stores a value in the environment.*/
+        -:  274:
+    #####:  275:VALUE *declaration(TOKEN *token, FRAME *frame) {
+    $$$$$:  275-block  0
+    #####:  276:    BINDING *bindings = frame->bindings;
+    #####:  277:    BINDING *new = malloc(sizeof(BINDING));
+    #####:  278:    if (new != 0) {
+    $$$$$:  278-block  0
+    #####:  279:        new->name = token;
+    #####:  280:        new->val = NULL;
+    #####:  281:        new->next = (struct BINDING *) bindings;
+    #####:  282:        frame->bindings = new;
+    #####:  283:        return NULL;
+    $$$$$:  283-block  0
+    #####:  284:    } else return NULL;
+    $$$$$:  284-block  0
+        -:  285:}
+        -:  286:
+        -:  287:/* Search for a token matching the supplied token in the supplied frame. If it finds the binding with the same
+        -:  288: * token, return it's corresponding value. Otherwise check next binding, until no more bindings in frame, in which
+        -:  289: * case check next frame. If it doesn't find a corresponding value, return null. */
+        -:  290:
+    #####:  291:VALUE *name_method(TOKEN *token, FRAME *frame) {
+    $$$$$:  291-block  0
+    #####:  292:    while (frame != NULL) {
+    $$$$$:  292-block  0
+    $$$$$:  292-block  1
+    #####:  293:        BINDING *bindings = frame->bindings;
+    #####:  294:        while (bindings != NULL) {
+    $$$$$:  294-block  0
+    $$$$$:  294-block  1
+    #####:  295:            if (bindings->name == token) return bindings->val;
+    $$$$$:  295-block  0
+    $$$$$:  295-block  1
+    #####:  296:            bindings = (BINDING *) bindings->next;
+    $$$$$:  296-block  0
+        -:  297:        }
+    #####:  298:        frame = (FRAME *) frame->next;
+    $$$$$:  298-block  0
+        -:  299:    }
+    #####:  300:    return NULL;
+    $$$$$:  300-block  0
+        -:  301:}
+        -:  302:/* Builds a closure type value, binding given arguments to closure parameters. Note that the values can be NULL values,
+        -:  303: * i.e. the body, if the closure is only declared and not defined. */
+        -:  304:
+    #####:  305:VALUE *build_closure(FRAME *env, NODE *ids, NODE *body) {
+    $$$$$:  305-block  0
+        -:  306:
+    #####:  307:    FRAME* closure_environment = malloc(sizeof(FRAME));
+    #####:  308:    *closure_environment = *env;
+        -:  309:
+        -:  310:    VALUE *value;
+    #####:  311:    CLOSURE *closure = malloc(sizeof(CLOSURE));
+    #####:  312:    closure->env = closure_environment;
+    #####:  313:    closure->ids = ids;
+    #####:  314:    closure->body = body;
+    #####:  315:    value = make_closure_value(closure);
+    $$$$$:  315-block  0
+    #####:  316:    return value;
+        -:  317:}
+        -:  318:
+        -:  319:/* Makes a new frame for a new environment i.e. function, if condition, while loop etc.
+        -:  320: * In the case of a function, will bind it's supplied list of node arguments
+        -:  321: * to it's supplied list of parameters. */
+        -:  322:
+    #####:  323:FRAME *function_frame(ENV *env, NODE *ids, NODE *args) {
+    $$$$$:  323-block  0
+        -:  324:
+        -:  325:    // Build a new frame for a function and attach the current frame from the environment provided to it's end.
+        -:  326:
+    #####:  327:    FRAME *newFrame = malloc(sizeof(FRAME));
+        -:  328:
+        -:  329:    // If there are no parameters or no arguments, return the new frame empty.
+        -:  330:
+    #####:  331:    if (ids == NULL || args == NULL) return newFrame;
+    $$$$$:  331-block  0
+    $$$$$:  331-block  1
+    $$$$$:  331-block  2
+        -:  332:
+        -:  333:    NODE *ip;
+        -:  334:    NODE *ap;
+        -:  335:
+        -:  336:    // Do all up to the last one / two values.
+    #####:  337:    for (ip = ids, ap = args; (ip->left->type == ',' && ap->left->type == ','); ip = ip->left, ap = ap->left) {
+    $$$$$:  337-block  0
+    $$$$$:  337-block  1
+    $$$$$:  337-block  2
+    $$$$$:  337-block  3
+    #####:  338:        BINDING *newBinding = malloc(sizeof(BINDING));
+    #####:  339:        if (newBinding != 0) {
+    $$$$$:  339-block  0
+    #####:  340:            declaration((TOKEN *) ip->right->right->left, newFrame);
+    $$$$$:  340-block  0
+    #####:  341:            assignment((TOKEN *) ip->right->right->left, newFrame, interpret(ap->right, env));
+    #####:  342:            printf("Binding Allocated: %s\t Value: %ld\n", newBinding->name->lexeme, newBinding->val->v.integer);
+    #####:  343:        } else printf("Error: Binding Allocation Failed.\n");
+    $$$$$:  343-block  0
+        -:  344:    }
+        -:  345:
+        -:  346:    // If two values left.
+        -:  347:
+    #####:  348:    if (ip->type == ',' && ap->type == ',') {
+    $$$$$:  348-block  0
+    $$$$$:  348-block  1
+    #####:  349:        BINDING *newBinding = malloc(sizeof(BINDING));
+    #####:  350:        if (newBinding != 0) {
+    $$$$$:  350-block  0
+    #####:  351:            declaration((TOKEN *) ip->right->right->left, newFrame);
+    $$$$$:  351-block  0
+    #####:  352:            assignment((TOKEN *) ip->right->right->left, newFrame, interpret(ap->right, env));
+    #####:  353:        } else printf("Error: Binding Allocation Failed.\n");
+    $$$$$:  353-block  0
+        -:  354:
+    #####:  355:        ip = ip->left;
+    #####:  356:        ap = ap->left;
+    $$$$$:  356-block  0
+        -:  357:    }
+        -:  358:
+        -:  359:    // If one left.
+        -:  360:
+    #####:  361:    BINDING *newBinding = malloc(sizeof(BINDING));
+    #####:  362:    if (newBinding != 0) {
+    $$$$$:  362-block  0
+    #####:  363:        declaration((TOKEN *) ip->right->left, newFrame);
+    $$$$$:  363-block  0
+    #####:  364:        assignment((TOKEN *) ip->right->left, newFrame, interpret(ap, env));
+    #####:  365:    } else printf("Error: Binding Allocation Failed.\n");
+    $$$$$:  365-block  0
+        -:  366:
+        -:  367:    // Once all the parameters have arguments bound to them, and are stored in the new frame, return the new frame.
+    #####:  368:    return newFrame;
+    $$$$$:  368-block  0
+        -:  369:}
+        -:  370:
+        -:  371:/* The prerequisite that needs to be performed in order to call a closure i.e. --c function. Gets the closure that's
+        -:  372: * token in the bindings matches the token supplied. Builds the new environment for that function and binds the previous
+        -:  373: * environment to it's end.*/
+        -:  374:
+    #####:  375:VALUE *lexical_call_method(TOKEN *name, NODE *args, ENV *env) {
+    $$$$$:  375-block  0
+        -:  376:
+    #####:  377:    ENV *tempEnv = malloc(sizeof(ENV));
+        -:  378:
+        -:  379:    // Gets the function from the environment.
+    #####:  380:    CLOSURE *f = name_method(name, env->frames)->v.closure;
+    $$$$$:  380-block  0
+        -:  381:
+    #####:  382:    tempEnv->frames = function_frame(env, f->ids, args);
+    #####:  383:    tempEnv->frames->next = (struct FRAME *) f->env;
+        -:  384:
+        -:  385:    /* Runs the function and returns its output and resets the return_answer value to 0, given it was only a return for
+        -:  386:    a single function. */
+    #####:  387:    VALUE *answer = interpret(f->body, tempEnv);
+    #####:  388:    answer->return_answer = 0;
+    #####:  389:    free(tempEnv);
+    #####:  390:    return answer;
+        -:  391:}
+        -:  392:
+        -:  393:/* Finds a matching token in the bindings, for each frame. Sets the corresponding value to the value supplied. Returns
+        -:  394: * nothing, only storing a value in the environment.*/
+        -:  395:
+    #####:  396:VALUE *assignment(TOKEN *token, FRAME *frame, VALUE *value) {
+    $$$$$:  396-block  0
+    #####:  397:    while (frame != NULL) {
+    $$$$$:  397-block  0
+    $$$$$:  397-block  1
+    #####:  398:        BINDING *bindings = frame->bindings;
+    #####:  399:        while (bindings != NULL) {
+    $$$$$:  399-block  0
+    $$$$$:  399-block  1
+    #####:  400:            if (bindings->name == token) {
+    $$$$$:  400-block  0
+    #####:  401:                bindings->val = value;
+    #####:  402:                return NULL;
+    $$$$$:  402-block  0
+        -:  403:            }
+    #####:  404:            bindings = (BINDING *) bindings->next;
+    $$$$$:  404-block  0
+        -:  405:        }
+    #####:  406:        frame = (FRAME *) frame->next;
+    $$$$$:  406-block  0
+        -:  407:    }
+    #####:  408:    return NULL;
+    $$$$$:  408-block  0
+        -:  409:}
+        -:  410:
+        -:  411:/* Take in a value from the user. If the value cannot be converted to a long int, ask for the value again till it can
+        -:  412: * be. */
+        -:  413:
+    #####:  414:VALUE *read_int() {
+    $$$$$:  414-block  0
+        -:  415:
+        -:  416:    VALUE *answer;
+        -:  417:    char buffer[BUFSIZ];
+        -:  418:    char *pointer;
+        -:  419:    long int number;
+        -:  420:
+    #####:  421:    printf("Please enter a number: ");
+    $$$$$:  421-block  0
+        -:  422:
+        -:  423:    while (1) {
+    #####:  424:        if (fgets(buffer, BUFSIZ, stdin) != NULL) {
+    $$$$$:  424-block  0
+    $$$$$:  424-block  1
+    #####:  425:            number = strtol(buffer, &pointer, 10);
+    $$$$$:  425-block  0
+    #####:  426:            if (buffer[0] != '\n' && (*pointer == '\n' || *pointer == '\0')) {
+    $$$$$:  426-block  0
+    $$$$$:  426-block  1
+    #####:  427:                answer = make_lint_value(number);
+    $$$$$:  427-block  0
+    #####:  428:                break;
+    #####:  429:            } else printf("Invalid number entered, Please enter again: ");
+    $$$$$:  429-block  0
+        -:  430:        }
+        -:  431:    }
+        -:  432:
+    #####:  433:    return answer;
+    $$$$$:  433-block  0
+        -:  434:
+        -:  435:}
+        -:  436:
+        -:  437:/* Reads in a string from the user. No error checking, because it is a string. */
+        -:  438:
+    #####:  439:VALUE *read_string() {
+    $$$$$:  439-block  0
+        -:  440:    VALUE *answer;
+        -:  441:    char buffer[BUFSIZ];
+        -:  442:
+    #####:  443:    printf("Please enter a string: ");
+    $$$$$:  443-block  0
+        -:  444:
+        -:  445:    while (1) {
+    #####:  446:        if (fgets(buffer, BUFSIZ, stdin) != NULL) {
+    $$$$$:  446-block  0
+    $$$$$:  446-block  1
+    #####:  447:            if (buffer[0] != '\n') {
+    $$$$$:  447-block  0
+    #####:  448:                answer = make_string_value(buffer);
+    $$$$$:  448-block  0
+    #####:  449:                break;
+    #####:  450:            } else printf("Please enter a string: ");
+    $$$$$:  450-block  0
+        -:  451:        }
+        -:  452:    }
+        -:  453:
+    #####:  454:    return answer;
+    $$$$$:  454-block  0
+        -:  455:}
+        -:  456:
+        -:  457:/* Unless one of the specified 'inbuilt' functions (read_int, read_string, print_int, print_string) call a function to
+        -:  458: * run. Otherwise run the 'inbuilt' functions. */
+        -:  459:
+    #####:  460:VALUE *apply(TOKEN *name, NODE *args, ENV *e) {
+    $$$$$:  460-block  0
+        -:  461:
+    #####:  462:    VALUE *answer = NULL;
+        -:  463:
+    #####:  464:    if (strcmp(name->lexeme, "read_int") == 0) answer = read_int();
+    $$$$$:  464-block  0
+    $$$$$:  464-block  1
+    #####:  465:    else if (strcmp(name->lexeme, "read_string") == 0) answer = read_string();
+    $$$$$:  465-block  0
+    $$$$$:  465-block  1
+    #####:  466:    else if (strcmp(name->lexeme, "print_string") == 0) printf("%s\n", interpret(args, e)->v.string);
+    $$$$$:  466-block  0
+    $$$$$:  466-block  1
+    #####:  467:    else if (strcmp(name->lexeme, "print_int") == 0) printf("Print_int: %ld\n", interpret(args, e)->v.integer);
+    $$$$$:  467-block  0
+    $$$$$:  467-block  1
+    #####:  468:    else answer = lexical_call_method(name, args, e);
+    $$$$$:  468-block  0
+        -:  469:
+    #####:  470:    return answer;
+    $$$$$:  470-block  0
+        -:  471:
+        -:  472:}
+        -:  473:
+        -:  474:/* Only when the return statement is reached is the return value set to 1, thereby indicating to anything that holds
+        -:  475: * the value that it should be passed back up the tree.*/
+        -:  476:
+    #####:  477:VALUE *return_method(NODE *tree, ENV *e) {
+    $$$$$:  477-block  0
+    #####:  478:    VALUE *returnValue = interpret(tree->left, e);
+    $$$$$:  478-block  0
+    #####:  479:    returnValue->return_answer = 1;
+    #####:  480:    return returnValue;
+        -:  481:}
+        -:  482:
+        -:  483:/* Run a sequence of statements. The only reason not to return the right side of the tree is if the left side is
+        -:  484: * the return value. If the return value has been worked out, the right side doesn't need to be run as no more
+        -:  485: * statements can run after the return. */
+        -:  486:
+    #####:  487:VALUE *sequence_method(NODE *tree, ENV *e) {
+    $$$$$:  487-block  0
+    #####:  488:    VALUE *left = interpret(tree->left, e);
+    $$$$$:  488-block  0
+    #####:  489:    if (left != NULL && left->return_answer == 1) return left;
+    $$$$$:  489-block  0
+    $$$$$:  489-block  1
+    #####:  490:    else free(left);
+    #####:  491:    return interpret(tree->right, e);
+    $$$$$:  491-block  0
+        -:  492:}
+        -:  493:
+        -:  494:/* Interpret an if statement. If the interpretation of the condition returns 1 (i.e. TRUE) run the truth condition, which
+        -:  495: * maybe tree->right->left if else exists, and tree->right if else does not exist. If the interpretation of the condition
+        -:  496: * returns 0 (i.e. FALSE), if there exists an else statement return it's interpretation, otherwise return nothing.*/
+        -:  497:
+    #####:  498:VALUE *interpret_if(NODE *tree, ENV *e) {
+    $$$$$:  498-block  0
+        -:  499:
+        -:  500:    //TODO: extend frames.
+        -:  501:
+    #####:  502:    ENV* if_env = malloc(sizeof(ENV));
+    #####:  503:    if_env->frames = malloc(sizeof(FRAME));
+    #####:  504:    if_env->frames->next = (struct FRAME *) e->frames;
+        -:  505:
+    #####:  506:    if (interpret(tree->left, e)->v.boolean == 1) {
+    $$$$$:  506-block  0
+    #####:  507:        if (tree->right->type != ELSE) return interpret(tree->right, if_env);
+    $$$$$:  507-block  0
+    $$$$$:  507-block  1
+    #####:  508:        else return interpret(tree->right->left, if_env);
+    $$$$$:  508-block  0
+        -:  509:    } else {
+    #####:  510:        if (tree->right->type != ELSE) return NULL;
+    $$$$$:  510-block  0
+    $$$$$:  510-block  1
+    #####:  511:        else return interpret(tree->right->right, if_env);
+    $$$$$:  511-block  0
+        -:  512:    }
+        -:  513:}
+        -:  514:
+        -:  515:/* Converts a node to a token, then takes the value from it dependant on the token type. Only run for constants and
+        -:  516: * string literals, identifiers are handled by the name_method. */
+        -:  517:
+    #####:  518:VALUE *node_to_value(NODE *node) {
+    $$$$$:  518-block  0
+        -:  519:
+    #####:  520:    if (node == NULL) return NULL;
+    $$$$$:  520-block  0
+    $$$$$:  520-block  1
+        -:  521:
+    #####:  522:    TOKEN *n = (TOKEN *) node;
+        -:  523:
+    #####:  524:    if (n->type == CONSTANT) return make_lint_value(n->value);
+    $$$$$:  524-block  0
+    $$$$$:  524-block  1
+    #####:  525:    else if (n->type == STRING_LITERAL) return make_string_value(n->lexeme);
+    $$$$$:  525-block  0
+    $$$$$:  525-block  1
+    #####:  526:    else error_exit_method("Node type invalid; cannot convert to value.");
+    $$$$$:  526-block  0
+    #####:  527:    return NULL;
+        -:  528:}
