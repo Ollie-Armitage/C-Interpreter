@@ -1,0 +1,5 @@
+proc main ()
+block
+return (null)
+endblock
+endproc

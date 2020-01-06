@@ -11,7 +11,6 @@
 #include <Lexer_Parser_Files/C.tab.h>
 
 typedef enum op {
-    eNULL,
     eBLOCK,
     eCALL,
     eSTORE,
@@ -21,7 +20,6 @@ typedef enum op {
     eRET,
     eEND
 } OP;
-typedef int arg;
 
 typedef struct call {
     TOKEN *name;
@@ -41,11 +39,6 @@ typedef struct ret {
 typedef struct procedure {
     TOKEN *name;
 } PROC;
-
-typedef struct block {
-    struct TAC *leader;
-} BLOCK;
-
 
 typedef struct store {
     char *t1;
@@ -74,6 +67,10 @@ typedef struct arithmetic {
     char *t3;
 } MATH;
 
+typedef struct block {
+    struct TAC **leader;
+} BLOCK;
+
 typedef struct tac {
     OP op;
     union {
@@ -88,6 +85,9 @@ typedef struct tac {
     } args;
     struct TAC *next;
 } TAC;
+
+
+
 
 /* An assignment instruction could take the form: x = y op z where op is binary arithmetic or logical operation, and
  * x, y and z are addresses. */
@@ -142,14 +142,14 @@ TOKEN *get_assign_name(NODE *node);
 
 void load_values(NODE *node, TAC **env);
 
-void generate_proc(NODE *node, TAC **env);
+TAC * generate_proc(NODE *node, TAC **env);
 
-void generate_block(NODE *node, TAC **env);
+TAC * generate_block(NODE *node, TAC **env);
 
 void generate_call(NODE *node, TAC **env);
 
 void generate_param_load(NODE *node, TAC **env, int count);
 
-void generate_return(NODE *node, TAC **env);
+TAC * generate_return(NODE *node, TAC **env);
 
 #endif //COMPILER_2_0_TAC_H

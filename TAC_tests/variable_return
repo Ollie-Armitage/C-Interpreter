@@ -2,6 +2,6 @@ proc main ()
 block
 load t1 10
 store t1 a
-return a
+return 
 endblock
 endproc

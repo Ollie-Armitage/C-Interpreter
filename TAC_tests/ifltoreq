@@ -3,6 +3,6 @@ block
 load t1 10
 store t1 a
 load t2 20
-store (null) b
+store âbyì‡U b
 endblock
 endproc

@@ -11,6 +11,6 @@ load t8 3
 subtract t7 t8 t9
 load t10 9
 mod t9 t10 t11
-return (null)
+return t11
 endblock
 endproc

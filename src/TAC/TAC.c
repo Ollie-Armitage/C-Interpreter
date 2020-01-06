@@ -64,7 +64,7 @@ TAC *generate(NODE *tree, TAC **env) {
             generate_assign(tree, env);
             break;
         case RETURN:
-            generate_return(tree, env);
+            return generate_return(tree, env);
             break;
         case APPLY:
             generate_call(tree, env);
@@ -72,18 +72,18 @@ TAC *generate(NODE *tree, TAC **env) {
     }
 }
 
-void generate_return(NODE *node, TAC **env) {
+TAC * generate_return(NODE *node, TAC **env) {
 
     if (node->left->left->type == IDENTIFIER) {
         new_tac(env, eRET);
         (*env)->args.ret.type = 0;
         (*env)->args.ret.value.name = (TOKEN *) node->left->left;
-        return;
+        return *env;
     } else if (node->left->left->type == CONSTANT) {
         new_tac(env, eRET);
         (*env)->args.ret.type = 1;
         (*env)->args.ret.value.constant = ((TOKEN *) node)->value;
-        return;
+        return *env;
     }
 
     load_values(node, env);
@@ -137,13 +137,11 @@ void generate_call(NODE *node, TAC **env) {
     }
 }
 
-void generate_block(NODE *node, TAC **env) {
-    if (node == NULL) return;
+TAC * generate_block(NODE *node, TAC **env) {
+    if (node == NULL) return NULL;
     new_tac(env, eBLOCK);
     TAC* tac = generate(node->right, env);
     (*env)->args.block = *build_block(tac);
-
-
     new_tac(env, eEND);
     (*env)->args.end.type = malloc(sizeof(char));
     (*env)->args.end.type = "block";
@@ -158,7 +156,7 @@ CALL *build_call(TOKEN *name, int arity) {
 
 BLOCK *build_block(TAC *tac) {
     BLOCK *block = malloc(sizeof(BLOCK));
-    block->leader = (struct TAC *) tac;
+    block->leader = (struct TAC **) &tac;
     return block;
 }
 
@@ -168,25 +166,23 @@ PROC *build_procedure(TOKEN *name) {
     return proc;
 }
 
-void generate_proc(NODE *node, TAC **env) {
-    if (node == NULL) return;
+TAC * generate_proc(NODE *node, TAC **env) {
+    if (node == NULL) return NULL;
     else if (node->type == 'D') {
         new_tac(env, ePROC);
         generate_proc(node->left, env);
     } else if (node->type == 'd') return generate_proc(node->left, env);
     else if (node->type == 'F') {
         (*env)->args.proc = *build_procedure(get_assign_name(node->left));
-        return;
+        return NULL;
     } else {
         perror("Unrecognised Node type building procedure.");
         exit(1);
     }
     generate_block(node, env);
-
     new_tac(env, eEND);
-
-    (*env)->args.end.type = malloc(sizeof(char));
     (*env)->args.end.type = "proc";
+    return NULL;
 }
 
 void generate_arithmetic(NODE *node, TAC **env, char *type) {

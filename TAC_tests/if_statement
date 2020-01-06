@@ -13,6 +13,6 @@ call print_int 1
 load t5 e
 load t6 f
 add t5 t6 t7
-return (null)
+return t7
 endblock
 endproc

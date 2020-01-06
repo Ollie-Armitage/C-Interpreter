@@ -4,6 +4,6 @@ load t1 10
 store t1 a
 load t2 50
 store t2 b
-return a
+return 
 endblock
 endproc

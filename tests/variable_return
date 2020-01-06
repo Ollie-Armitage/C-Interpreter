@@ -1,6 +1,4 @@
-/*10*/
-
 int main(){
-    int a = 10;
-    return a;
+    print_string("Teh internal wan!");
+    return 0;
 }

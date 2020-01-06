@@ -3,6 +3,6 @@ block
 load t1 20
 load t2 5
 subtract t1 t2 t3
-return (null)
+return t3
 endblock
 endproc

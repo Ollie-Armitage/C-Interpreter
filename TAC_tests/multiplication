@@ -3,6 +3,6 @@ block
 load t1 2
 load t2 5
 multiply t1 t2 t3
-return (null)
+return t3
 endblock
 endproc
